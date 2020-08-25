@@ -4,7 +4,10 @@
 ```sh
 yarn # npm i
 ```
-
+### Pull markdown files from totalcross-docs
+```sh
+./prepare-docs
+```
 ## Start developing
 
 ```sh

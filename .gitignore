@@ -2,5 +2,8 @@
 .cache/
 public
 
+# markdowns from totalcross-docs
+src/docs/md/**
+
 # dependencies
 node_modules
