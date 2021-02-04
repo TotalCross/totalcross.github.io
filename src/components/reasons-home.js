@@ -184,7 +184,7 @@ function Reasons() {
           <TCButton
             color="black"
             text="Check our Samples"
-            path="https://github.com/TotalCross/totalcross-embedded-samples"
+            path="https://github.com/TotalCross/embedded-samples"
           />
         </div>
       </div>
