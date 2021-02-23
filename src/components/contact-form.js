@@ -1,14 +1,58 @@
-import React, { Component } from "react";
-// import * as firebase from "firebase";
+import React, { Component } from "react"
+import styled from "styled-components"
 
-import CrossyOpenWings from "../utils/crossy-open-wings";
+// import styles from "./contact-form.module.scss";
 
-import styles from "./contact-form.module.scss";
-// import firebaseConfig from "../utils/firebaseConfig";
-
-// //const firebaseConfig = process.env.GATSBY_FIREBASE;
-
-// firebase.initializeApp(firebaseConfig);
+const OutterContainer = styled.div`
+width: auto;
+background: transparent;
+text-align: center;
+color: #ffffff;
+flex-direction: column;
+display: flex;
+justify-content: center;
+align-items: center;
+padding-bottom: 200px;
+`
+const FormContainer = styled.form`
+display: flex;
+flex-direction: column;
+@media only screen and (max-width: 600px) {
+    width: 80%;
+}
+`
+const FormInput = styled.input`
+background: rgba(255, 255, 255, 0.9);
+border: none;
+border-radius: 15px;
+padding: 25px 30px;
+margin: 20px 0;
+font: 300 14px/20px "Poppins", sans-serif;
+`
+const FormTextArea = styled.textarea`
+background: rgba(255, 255, 255, 0.9);
+border: none;
+border-radius: 15px;
+padding: 25px 30px;
+margin: 20px 0;
+font: 300 14px/20px "Poppins", sans-serif;
+`
+const Title = styled.h1`
+padding-top: 140px;
+padding-bottom: 65px;
+font: 800 46px/60px "Poppins", sans-serif;
+color: #ffffff;
+`
+const SubmitButton = styled.button`
+font: 500 17px/28px "Poppins", sans-serif;
+background-color: #2aa75e;
+color: #ffffff;
+text-transform: uppercase;
+border: none;
+border-radius: 15px;
+padding: 10px 0;
+margin-top: 20px;
+`
 
 class ContactForm extends Component {
   state = {
@@ -18,18 +62,6 @@ class ContactForm extends Component {
     country: "",
   };
 
-  // messagesRef = firebase.database().ref("messages");
-
-  // saveMessage(name, email, message, country) {
-  //   var newMessageRef = this.messagesRef.push();
-  //   newMessageRef.set({
-  //     name: name,
-  //     email: email,
-  //     message: message,
-  //     country: country,
-  //   });
-  // }
-
   handleInputChange = (event) => {
     const value = event.target.value;
     const name = event.target.name;
@@ -37,39 +69,17 @@ class ContactForm extends Component {
       [name]: value,
     });
   };
-  // handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   alert(`Thank you for your message, ${this.state.name}.`);
-  //   this.saveMessage(
-  //     this.state.name,
-  //     this.state.email,
-  //     this.state.message,
-  //     this.state.country
-  //   );
-  //   this.setState(() => ({
-  //     name: "",
-  //     email: "",
-  //     message: "",
-  //     country: "",
-  //   }));
-  // };
+
   render() {
     return (
-      <div className={styles.container}>
-        <h1 className={styles.title}>How can we help you?</h1>
-
-        <form
+      <OutterContainer>
+        <Title>How can we help you?</Title>
+        <FormContainer
           id="contact-form"
-          className={styles.form}
-          // onSubmit={this.handleSubmit}
           action="https://getform.io/f/fe92951a-4b98-4328-bd32-566820ce3504"
           method="POST"
         >
-          <div className={styles.crossy}>
-            <CrossyOpenWings />
-          </div>
-          <input
-            className={styles.formInput}
+          <FormInput
             type="text"
             name="name"
             placeholder="Name"
@@ -77,16 +87,14 @@ class ContactForm extends Component {
             onChange={this.handleInputChange}
           />
 
-          <input
-            className={styles.formInput}
+          <FormInput
             type="email"
             name="email"
             placeholder="E-mail"
             value={this.state.email}
             onChange={this.handleInputChange}
           />
-          <input
-            className={styles.formInput}
+          <FormInput
             type="country"
             name="country"
             placeholder="Country"
@@ -94,23 +102,22 @@ class ContactForm extends Component {
             onChange={this.handleInputChange}
           />
 
-          <textarea
-            className={styles.formInput}
+          <FormTextArea
             rows="8"
             cols="40"
             form="contact-form"
             type="text"
             name="message"
-            placeholder="Quesitons/Comments"
+            placeholder="Questions/Comments"
             value={this.state.message}
             onChange={this.handleInputChange}
           />
 
-          <button className={styles.submitButton} type="submit">
+          <SubmitButton type="submit">
             Send
-          </button>
-        </form>
-      </div>
+          </SubmitButton>
+        </FormContainer>
+      </OutterContainer>
     );
   }
 }

@@ -2,82 +2,90 @@
  * SEO component that queries for data with
  *  Gatsby's useStaticQuery React hook
  *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
+ * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React from "react";
-import PropTypes from "prop-types";
-// import { Helmet } from "react-helmet";
-import { useLocation } from "@reach/router";
-import { useStaticQuery, graphql } from "gatsby";
-// import { Title, Link, Meta } from "react-head";
+import React from "react"
+import PropTypes from "prop-types"
+import { Helmet } from "react-helmet"
+import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title, image }) {
+const SEO = ({ description, lang, meta, title }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
-            defaultTitle: title
-            defaultDescription: description
-            siteUrl: url
-            defaultImage: image
-            twitterUsername
+            title
+            description
+            social {
+              twitter
+            }
           }
         }
       }
     `
-  );
+  )
 
-  const { pathname } = useLocation();
-
-  const {
-    defaultTitle,
-    defaultDescription,
-    siteUrl,
-    defaultImage,
-    twitterUsername,
-  } = site.siteMetadata;
-
-  const seo = {
-    title: title || defaultTitle,
-    description: description || defaultDescription,
-    image: `${siteUrl}${image || defaultImage}`,
-    url: `${siteUrl}${pathname}`,
-  };
-
-  // const metaDescription = description || site.siteMetadata.defaultDescription;
+  const metaDescription = description || site.siteMetadata.description
+  const defaultTitle = site.siteMetadata?.title
 
   return (
-    <>
-      <title>{seo.title}</title>
-      <meta name="description" content={seo.description} />
-      <meta name="image" content={seo.image} />
-      <meta property="og:url" content={seo.url} />
-      <meta property="og:title" content={seo.title} />
-      <meta property="og:description" content={seo.description} />
-      <meta property="og:image" content={seo.image} />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content={twitterUsername} />
-      <meta name="twitter:title" content={seo.title} />
-      <meta name="twitter:description" content={seo.description} />
-      <meta name="twitter:image" content={seo.image} />
-      {/* <Link rel="canonical" content="https://totalcross.com/" /> */}
-    </>
-  );
+    <Helmet
+      htmlAttributes={{
+        lang,
+      }}
+      title={title}
+      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      meta={[
+        {
+          name: `description`,
+          content: metaDescription,
+        },
+        {
+          property: `og:title`,
+          content: title,
+        },
+        {
+          property: `og:description`,
+          content: metaDescription,
+        },
+        {
+          property: `og:type`,
+          content: `website`,
+        },
+        {
+          name: `twitter:card`,
+          content: `summary`,
+        },
+        {
+          name: `twitter:creator`,
+          content: site.siteMetadata?.social?.twitter || ``,
+        },
+        {
+          name: `twitter:title`,
+          content: title,
+        },
+        {
+          name: `twitter:description`,
+          content: metaDescription,
+        },
+      ].concat(meta)}
+    />
+  )
+}
+
+SEO.defaultProps = {
+  lang: `en`,
+  meta: [],
+  description: ``,
 }
 
 SEO.propTypes = {
-  title: PropTypes.string,
   description: PropTypes.string,
-  image: PropTypes.string,
-  article: PropTypes.bool,
-};
-SEO.defaultProps = {
-  title: null,
-  description: null,
-  image: null,
-  article: false,
-};
+  lang: PropTypes.string,
+  meta: PropTypes.arrayOf(PropTypes.object),
+  title: PropTypes.string.isRequired,
+}
 
-export default SEO;
+export default SEO

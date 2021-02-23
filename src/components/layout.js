@@ -1,39 +1,37 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
-import Header from "./header";
-import Footer from "./footer";
+import React from "react"
+import { Link } from "gatsby"
+import Navbar from './navbar/navbar';
+import Footer from "./footer/footer";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import styles from "./layout.module.scss";
+const Layout = ({ location, title, children }) => {
+  const rootPath = `${__PATH_PREFIX__}/`
+  const isRootPath = location.pathname === rootPath
+  let header
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
+  if (isRootPath) {
+    header = (
+      <h1 className="main-heading">
+        <Link to="/">{title}</Link>
+      </h1>
+    )
+  } else {
+    header = (
+      <h1 className="main-heading">
+        {title}
+      </h1>
+    )
+  }
 
   return (
-    <div className={styles.container} data-hj-ignore-attributes>
-      <Header/> 
-      {/* siteTitle={data.site.siteMetadata.title} /> */}
-      <div className={styles.site}>
-        <main>
-          <div className={styles.siteContent}>{children}</div>
-        </main>
-        <Footer />
-      </div>
+    <div>
+      <Navbar/>
+    {/* <div className="global-wrapper" data-is-root-path={isRootPath}> */}
+      {/* <header className="global-header">{header}</header> */}
+      <main>{children}</main>
+    {/* </div> */}
+      <Footer />
     </div>
-  );
-};
+  )
+}
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-
-export default Layout;
+export default Layout

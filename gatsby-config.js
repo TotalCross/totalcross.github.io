@@ -1,23 +1,66 @@
 module.exports = {
   siteMetadata: {
-    title: "TotalCross · GUI Creator For Embedded, Mobile... Everything!",
-    description:
-      "Build beautiful and modern Graphical User Interfaces for embedded, IoTmobile and desktop. A cross-platform tool that lets you develop apps in Java.",
-    author: `Totalcross`,
+    title: `TotalCross · GUI Creator For Embedded, Mobile... Everything!`,
+    author: {
+      name: `dummy`,
+      summary: `Build beautiful and modern Graphical User Interfaces for embedded, IoT, mobile and desktop. A cross-platform tool that lets you develop apps in Java.`,
+    },
+    description: `Build beautiful and modern Graphical User Interfaces for embedded, IoT, mobile and desktop. A cross-platform tool that lets you develop apps in Java.`,
     siteUrl: `https://totalcross.com/`,
-    url: `https://totalcross.com`,
-    image: `${__dirname}/static/totalcross_logo.png`,
-    twitterUsername: `@totalcross`,
+    social: {
+      twitter: `totalcross`,
+    },
   },
   plugins: [
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/assets`,
+        name: `assets`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/imgs`,
+        name: `imgs`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 630,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
+        ],
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-43172763-2",
-        head: false,
-        anonymize: true,
-        respectDNT: true,
-        defer: false,
+        //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
     {
@@ -48,49 +91,31 @@ module.exports = {
         // routeChangeEventName: "YOUR_ROUTE_CHANGE_EVENT_NAME",
       },
     },
-    "gatsby-theme-docz",
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-source-medium`,
-      options: {
-        username: `totalcross-community`,
-        limit: 200,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `imgs`,
-        path: `${__dirname}/src/imgs/`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        exclude: [`/docs/*`, `/docs`],
-      },
-    },
-    `gatsby-plugin-sass`,
-    {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        google: {
-          families: [
-            "Pacifico",
-            "Poppins:300,500,700,800",
-            "Roboto:100,200,300,400,500",
-          ],
-        },
-      },
-    },
-    // `gatsby-plugin-react-head`,
     {
       resolve: `gatsby-plugin-hotjar`,
       options: {
+        includeInDevelopment: true, // optional parameter to include script in development
         id: 479399,
         sv: 6,
       },
     },
+    `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `TotalCross SDK`,
+        short_name: `TotalCross`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `content/assets/totalcross-icon.png`,
+      },
+    },
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
   ],
-};
+}

@@ -1,80 +1,176 @@
-import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import ContentCard from "../components/content-card";
+import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 
-import styles from "../components/content-card.module.scss";
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import HeroCenter from "../components/hero-center"
+import Banner1C from "../components/banner-1column"
+import Banner2C from '../components/banner-2columns'
+import TextBlock2 from '../components/text-block2'
+import TextBlock from '../components/text-block'
+import { GET_STARTED } from '../links'
+import GetStartedBanner from "../components/repeat-banners/get-started-banner"
 
-function Samples() {
+const Samples = () => {
+
   const data = useStaticQuery(graphql`
   query {
-    printer: file(relativePath: { eq: "src/imgs/printer.png" }) {
+    banner: file(name: { eq: "sample_banner" }, extension: { eq: "png" }) {
       childImageSharp {
-        fixed(width: 280, quality: 100) {
+        fluid(quality: 90, maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    bg3: file(name: { eq: "bg_waveslight" }, extension: { eq: "png" }) {
+      childImageSharp {
+        fluid(quality: 90, maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    printer: file(name: { eq: "sample_printer" }, extension: { eq: "png" }) {
+      childImageSharp {
+        fixed(width: 200) {
           ...GatsbyImageSharpFixed
         }
       }
     }
-    corona: file(relativePath: { eq: "src/imgs/corona.png" }) {
+    medical: file(name: { eq: "sample_medicaldevice" }, extension: { eq: "png" }) {
       childImageSharp {
-        fixed(width: 280, quality: 100) {
+        fixed(width: 200) {
           ...GatsbyImageSharpFixed
         }
       }
     }
-    homeapp: file(relativePath: { eq: "src/imgs/home_app.png" }) {
+    home: file(name: { eq: "sample_homeapp" }, extension: { eq: "png" }) {
       childImageSharp {
-        fixed(width: 280, quality: 100) {
+        fixed(width: 200) {
           ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    dash: file(name: { eq: "sample_dashboard" }, extension: { eq: "png" }) {
+      childImageSharp {
+        fixed(width: 200) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    corona: file(name: { eq: "sample_coronachart" }, extension: { eq: "png" }) {
+      childImageSharp {
+        fixed(width: 200) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    break: file(name: { eq: "sample_breakoutgame" }, extension: { eq: "png" }) {
+      childImageSharp {
+        fixed(width: 200) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    bad: file(name: { eq: "sample_badapple" }, extension: { eq: "png" }) {
+      childImageSharp {
+        fixed(width: 200) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    gsbanner: file(name: { eq: "home_gsbanner" }, extension: { eq: "png" }) {
+      childImageSharp {
+        fluid(quality: 100, maxWidth: 820) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
   }
-  `);
+`);
+
+  const TCSamples = () => {
+    const items = [
+      {
+        img:data.printer.childImageSharp.fixed,
+        btText:'Printer',
+        text: "Can a printer be smart? Yes, of course. With TotalCross you can build a good interface for a printer and improve its usability. Take a look at the code and see it running on an embedded device.",
+        caption:'Design by: Deplooy'
+      },
+      {
+        img:data.break.childImageSharp.fixed,
+        caption: null,
+        btText:'Breakout Game',
+        text:'Are you a retro games enthusiast? Go back to the past with this recreation of the Breakout game, made with TotalCross. Play with our sample code on your embedded device.',
+      },
+      {
+        img:data.corona.childImageSharp.fixed,
+        caption: null,
+        btText:'Corona Virus Chart App',
+        text:"You can create a Graphical User Interface (GUI) using a public covid-19 dtabase. That's what we did. Check out our sample code to access the covid-19 data on an interactive chart that runs on your embedded device.",
+      },
+      {
+        img:data.medical.childImageSharp.fixed,
+        caption: null,
+        btText:'Medical Device',
+        text:'Transform the way you create GUI for your medical devices. Check out this sample made with TotalCross.',
+      },
+      {
+        img:data.dash.childImageSharp.fixed,
+        caption: null,
+        btText:'Dashboard',
+        text:'Enjoy the functionality of different components with this Dashboard sample. An app that includes many functions commonly used on embedded systems.',
+      },
+      {
+        img:data.bad.childImageSharp.fixed,
+        caption: null,
+        btText:'Bad Apple',
+        text: "Run the Bad Apple animation on your Raspberry Pi or other embedded device. This app isn't a video file, but it is drawn frame by frame on the screen.",
+      },
+      
+    ]
+    return (
+      items.map((sample)=>(
+        <TextBlock2
+        img={sample.img}
+        caption={sample.caption} 
+        text={sample.text} 
+        btText={sample.btText}
+        btRef={sample.btRef}
+        btColor="black"
+          />
+      ))
+    )
+  } 
+
   return (
-    <Layout>
-      <SEO
-        title="TotalCross · Samples"
-        description="TotalCross · Samples"
-      ></SEO>
-      <div className={styles.container}>
-        <div className={styles.card}>
-          <div className={styles.title}>
-            <h1>Samples</h1>
-          </div>
-        </div>
-        <div className={styles.cardExtra}></div>
-        <div className={styles.container}>
-              <ContentCard
-                image={data.printer.childImageSharp.fixed}
-                title='Printer'
-                subtitle='Can a printer be smarter? We built a printer user interface. Check the code and see it running on your embedded device.'
-                url={`https://github.com/TotalCross/embedded-samples/tree/main/printer-application`}
-              />
-        </div>
-        <div className={styles.cardExtra}></div>
-        <div className={styles.container}>
-              <ContentCard
-                image={data.corona.childImageSharp.fixed}
-                title='Corona Virus Chart'
-                subtitle='We used a public Covid-19 database to create an animated chart. Access the code and see this application running on your device.'
-                url={`https://github.com/TotalCross/embedded-samples/tree/main/corona-chart-app`}
-              />
-        </div>
-        <div className={styles.cardExtra}></div>
-        <div className={styles.container}>
-              <ContentCard
-                image={data.homeapp.childImageSharp.fixed}
-                title='Home Appliance XML'
-                subtitle="Let's build a smart home? Control your house with this Home Appliance sample. Control temperature, security, alarms, internet connection, your calendar and other things with an awesome interface."
-                url={`https://github.com/TotalCross/embedded-samples/tree/main/home-appliance`}
-              />
-        </div>
-        <div className={styles.cardExtra}></div>
-      </div>
+    <Layout location='/samples' title='TotalCross Blog'>
+      <SEO 
+      title="TotalCross · GUI Creator For Embedded, Mobile... Everything!"
+      description='Build beautiful and modern Graphical User Interfaces for embedded, IoT, mobile and desktop. A cross-platform tool that lets you develop apps in Java.' 
+      />
+      <HeroCenter 
+      title='Samples with TotalCross'
+      tagline='Here you can check some samples of embedded projects'
+      bgImg={data.bg3.childImageSharp.fluid}
+      />
+      <Banner2C
+        bgImg={data.banner.childImageSharp.fluid}
+        spaces={[
+      <TextBlock 
+        text={["Let's build a smart home! Create a control app for your house using this sample application as start.", 
+        'The user interface will let you control temperature, security, alarms, internet connection, calendar and other things.']} 
+        btText='Get the code' 
+        btRef={GET_STARTED}
+      />,<></>
+      ]}/>
+      <Banner1C 
+        title='Check more samples'
+        subtitle='Access our samples repository on GitHub and discover more applications!'
+        space={<TCSamples />}/>
+      <GetStartedBanner />
     </Layout>
-  );
+  )
 }
 
-export default Samples;
+export default Samples
+

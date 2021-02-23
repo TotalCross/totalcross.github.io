@@ -4,49 +4,74 @@ import SEO from "../components/seo";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import BackgroundImage from "gatsby-background-image";
+import styled from "styled-components"
+import Banner1C from "../components/banner-1column";
+import TextBlock2 from '../components/text-block2';
 
-import styles from "./about-us.module.scss";
-import CarouselTeam from "../components/carousel-team";
+import ImageBlock from '../components/image-block';
 
-function AboutUs() {
+const Container = styled.div`
+background-color: #efefef;
+text-align: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+`
+const ValuesContainer = styled(Container)`
+flex-direction: row;
+@media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+`
+
+const ValuesInnerContainer = styled.div`
+width: 33.33%;
+height: 100%;
+align-items: start;
+@media only screen and (max-width: 600px) {
+    width: 100%;
+  }
+`
+const AboutUs = ({ location=null }) =>  {
   const data = useStaticQuery(graphql`
     query {
-      bg: file(relativePath: { eq: "src/imgs/bg_aboutus.png" }) {
+      bg: file(name: { eq: "bg_wavesdark" }, extension: { eq: "png" }) {
         childImageSharp {
           fluid(quality: 90, maxWidth: 1920) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      timeline: file(relativePath: { eq: "src/imgs/timeline.png" }) {
+      timeline: file(name: { eq: "aboutus_timeline" }, extension: { eq: "png" }) {
         childImageSharp {
           fluid(quality: 100, maxWidth: 939) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      timelinemob: file(relativePath: { eq: "src/imgs/timeline_mobile.png" }) {
+      timelinemob: file(name: { eq: "aboutus_timeline_mobile" }, extension: { eq: "png" }) {
         childImageSharp {
           fluid(quality: 100, maxWidth: 271) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      mission: file(relativePath: { eq: "src/imgs/mission.png" }) {
+      mission: file(name: { eq: "aboutus_mission" }, extension: { eq: "png" }) {
         childImageSharp {
           fixed(width: 125, height: 104) {
             ...GatsbyImageSharpFixed
           }
         }
       }
-      vision: file(relativePath: { eq: "src/imgs/vision.png" }) {
+      vision: file(name: { eq: "aboutus_vision" }, extension: { eq: "png" }) {
         childImageSharp {
           fixed(width: 125, height: 104) {
             ...GatsbyImageSharpFixed
           }
         }
       }
-      values: file(relativePath: { eq: "src/imgs/values.png" }) {
+      values: file(name: { eq: "aboutus_values" }, extension: { eq: "png" }) {
         childImageSharp {
           fixed(width: 125, height: 104) {
             ...GatsbyImageSharpFixed
@@ -56,74 +81,51 @@ function AboutUs() {
     }
   `);
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO
         title="TotalCross · Our History"
         description="TotalCross is a global Startup helping developers and companies to create
         beautiful applications, as a free and open source tool."
       />
       <BackgroundImage Tag="section" fluid={data.bg.childImageSharp.fluid}>
-        <div className={styles.container}>
-          <div className={styles.pageTitle}>
-            <h1>Our History</h1>
-          </div>
-          <div className={styles.timeline}>
-            <Img
-              fluid={data.timeline.childImageSharp.fluid}
-              alt="2007 TotalCross Lauch, 2017 Startup, 2019 TotalCross for Embedded, 2020 Open Source"
+        <Container>
+            <Banner1C 
+            title='Our History'
+            space={<ImageBlock
+                img={data.timeline.childImageSharp.fluid}
+                fixed={false}
+                caption="2007 TotalCross Lauch, 2017 Startup, 2019 TotalCross for Embedded, 2020 Open Source"
+              />}
             />
-          </div>
-          <div className={styles.timelineMobile}>
-            <Img
-              fluid={data.timelinemob.childImageSharp.fluid}
-              alt="2007 TotalCross Lauch, 2017 Startup, 2019 TotalCross for Embedded, 2020 Open Source"
+            <Banner1C 
+            space={<ValuesContainer>
+                <ValuesInnerContainer>
+
+            <TextBlock2
+        img={data.mission.childImageSharp.fixed} 
+        title='Mission' 
+        text={['To be the software development tool most loved by Embedded Developers.']} 
+        />
+        </ValuesInnerContainer>
+        <ValuesInnerContainer>
+
+            <TextBlock2
+        img={data.vision.childImageSharp.fixed} 
+        title='Vision' 
+        text={['Software development made fast and easy for every device on the planet.']} 
+        />
+        </ValuesInnerContainer>
+            <ValuesInnerContainer>
+
+            <TextBlock2
+        img={data.values.childImageSharp.fixed} 
+        title='Values' 
+        text={['Ownership, Driven by Details and Developers First.']} 
+        />
+        </ValuesInnerContainer>
+            </ValuesContainer>}
             />
-          </div>
-          <div className={styles.cardsContainer}>
-            <div className={styles.card}>
-              <div className={styles.icon}>
-                <Img
-                  fixed={data.mission.childImageSharp.fixed}
-                  alt="target illustration"
-                />
-              </div>
-              <div className={styles.cardTitle}>Mission</div>
-              <div className={styles.cardText}>
-                Be the software development tool most loved by Embedded
-                Developers.
-              </div>
-            </div>
-            <div className={styles.card}>
-              <div className={styles.icon}>
-                <Img
-                  fixed={data.vision.childImageSharp.fixed}
-                  alt="eye illustration"
-                />
-              </div>
-              <div className={styles.cardTitle}>Vision</div>
-              <div className={styles.cardText}>
-                Software development made fast and easy for every device on the
-                planet.
-              </div>
-            </div>
-            <div className={styles.card}>
-              <div className={styles.icon}>
-                <Img
-                  fixed={data.values.childImageSharp.fixed}
-                  alt="diamond illustration"
-                />
-              </div>
-              <div className={styles.cardTitle}>Values</div>
-              <div className={styles.cardText}>
-                Ownership, Driven by Details and Developers First.
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className={styles.teamTitle}>Small Team. Big Hearts.</div>
-            <CarouselTeam />
-          </div>
-        </div>
+        </Container>
       </BackgroundImage>
     </Layout>
   );

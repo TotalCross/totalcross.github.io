@@ -6,10 +6,10 @@ import ContactForm from "../components/contact-form";
 import { useStaticQuery, graphql } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 
-function Contact() {
+const Contact = ({ location=null }) =>  {
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "src/imgs/bg_contactus_01.png" }) {
+      bg: file(name: { eq: "bg_wavesdark" }, extension: { eq: "png" }) {
         childImageSharp {
           fluid(quality: 90, maxWidth: 1920) {
             ...GatsbyImageSharpFluid
@@ -19,12 +19,12 @@ function Contact() {
     }
   `);
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO
         title="TotalCross · Contact Us"
         description="Let’s talk! Please, tell us how we can help you. We are happy to be useful."
       />
-      <BackgroundImage Tag="section" fluid={data.file.childImageSharp.fluid}>
+      <BackgroundImage Tag="section" fluid={data.bg.childImageSharp.fluid}>
         <ContactForm />
       </BackgroundImage>
     </Layout>

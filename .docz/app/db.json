@@ -50,6 +50,166 @@
           }
         ]
       }
+    },
+    {
+      "key": "content/blog/hello-world/index.md",
+      "value": {
+        "title": "Hello World",
+        "date": "2015-05-01T22:12:03.284Z",
+        "description": "Hello World",
+        "id": "a27a1bc8c8aa3e4927aee6caf5d1ab62",
+        "filepath": "content/blog/hello-world/index.md",
+        "fullpath": "/Users/nrisbakk/Projects/oct2020TC/totalcross.github.io/content/blog/hello-world/index.md",
+        "link": "https://github.com/pedronauck/docz/edit/master/content/blog/hello-world/index.md",
+        "hidden": false,
+        "slug": "content-blog-hello-world-index",
+        "route": "/content-blog-hello-world-index",
+        "name": "Index",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "header-1",
+            "depth": 1,
+            "value": "Header 1"
+          },
+          {
+            "slug": "header-2",
+            "depth": 2,
+            "value": "Header 2"
+          },
+          {
+            "slug": "header-1-1",
+            "depth": 1,
+            "value": "Header 1"
+          },
+          {
+            "slug": "header-2-1",
+            "depth": 2,
+            "value": "Header 2"
+          },
+          {
+            "slug": "header-3",
+            "depth": 3,
+            "value": "Header 3"
+          },
+          {
+            "slug": "header-4",
+            "depth": 4,
+            "value": "Header 4"
+          },
+          {
+            "slug": "header-5",
+            "depth": 5,
+            "value": "Header 5"
+          },
+          {
+            "slug": "header-6",
+            "depth": 6,
+            "value": "Header 6"
+          },
+          {
+            "slug": "header-1-2",
+            "depth": 1,
+            "value": "Header 1"
+          },
+          {
+            "slug": "header-2-2",
+            "depth": 2,
+            "value": "Header 2"
+          },
+          {
+            "slug": "header-3-1",
+            "depth": 3,
+            "value": "Header 3"
+          },
+          {
+            "slug": "header-4-1",
+            "depth": 4,
+            "value": "Header 4"
+          },
+          {
+            "slug": "header-5-1",
+            "depth": 5,
+            "value": "Header 5"
+          },
+          {
+            "slug": "header-6-1",
+            "depth": 6,
+            "value": "Header 6"
+          },
+          {
+            "slug": "this-is-a-header",
+            "depth": 2,
+            "value": "This is a header."
+          }
+        ]
+      }
+    },
+    {
+      "key": "content/blog/my-second-post/index.md",
+      "value": {
+        "title": "My Second Post!",
+        "date": "2015-05-06T23:46:37.121Z",
+        "id": "517e0c1c4a907dbd161012ebda1601e7",
+        "filepath": "content/blog/my-second-post/index.md",
+        "fullpath": "/Users/nrisbakk/Projects/oct2020TC/totalcross.github.io/content/blog/my-second-post/index.md",
+        "link": "https://github.com/pedronauck/docz/edit/master/content/blog/my-second-post/index.md",
+        "hidden": false,
+        "slug": "content-blog-my-second-post-index",
+        "route": "/content-blog-my-second-post-index",
+        "name": "Index",
+        "menu": "",
+        "headings": []
+      }
+    },
+    {
+      "key": "content/blog/new-beginnings/index.md",
+      "value": {
+        "title": "New Beginnings",
+        "date": "2015-05-28T22:40:32.169Z",
+        "description": "This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.",
+        "id": "5f2ae8eba4e499445dce87b181eacda8",
+        "filepath": "content/blog/new-beginnings/index.md",
+        "fullpath": "/Users/nrisbakk/Projects/oct2020TC/totalcross.github.io/content/blog/new-beginnings/index.md",
+        "link": "https://github.com/pedronauck/docz/edit/master/content/blog/new-beginnings/index.md",
+        "hidden": false,
+        "slug": "content-blog-new-beginnings-index",
+        "route": "/content-blog-new-beginnings-index",
+        "name": "Index",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "on-deer-horse-aboard-tritely-yikes-and-much",
+            "depth": 2,
+            "value": "On deer horse aboard tritely yikes and much"
+          },
+          {
+            "slug": "overlaid-the-jeepers-uselessly-much-excluding",
+            "depth": 3,
+            "value": "Overlaid the jeepers uselessly much excluding"
+          },
+          {
+            "slug": "according-a-funnily-until-pre-set-or-arrogant-well-cheerful",
+            "depth": 3,
+            "value": "According a funnily until pre-set or arrogant well cheerful"
+          },
+          {
+            "slug": "silent-delightfully-including-because-before-one-up-barring-chameleon",
+            "depth": 4,
+            "value": "Silent delightfully including because before one up barring chameleon"
+          },
+          {
+            "slug": "wherever-far-wow-thus-a-squirrel-raccoon-jeez-jaguar-this-from-along",
+            "depth": 5,
+            "value": "Wherever far wow thus a squirrel raccoon jeez jaguar this from along"
+          },
+          {
+            "slug": "slapped-cozy-a-that-lightheartedly-and-far",
+            "depth": 6,
+            "value": "Slapped cozy a that lightheartedly and far"
+          }
+        ]
+      }
     }
   ],
   "props": [
@@ -58,9 +218,18 @@
       "value": [
         {
           "description": "",
-          "displayName": "IndexPage",
+          "displayName": "Index",
           "methods": [],
-          "actualName": "IndexPage"
+          "actualName": "Index",
+          "props": {
+            "location": {
+              "defaultValue": {
+                "value": "null",
+                "computed": false
+              },
+              "required": false
+            }
+          }
         }
       ]
     }
