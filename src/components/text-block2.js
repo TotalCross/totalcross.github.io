@@ -9,7 +9,11 @@ flex-direction: column;
 align-items: stretch;
 font-family: "Poppins", sans-serif;
 `
-const Title = styled.h4`
+const BtContainer = styled.div`
+display: flex;
+text-align: center;
+`
+const Title = styled.h3`
 color: #c62f2e;
 `
 const Text = styled.p`
@@ -24,11 +28,12 @@ const TextBlock2 = ({ img, caption=null, title=null, text="hello", btText=null, 
                 caption={caption} 
                 /> }
             { title !== null && <Title>{title}</Title> }
-            { btText !== null && <Button 
+            { btText !== null && <BtContainer><Button 
                 text={btText} 
                 link={btRef} 
                 color={btColor}
-                /> }
+                /></BtContainer> }
+                
             <Text>{text}</Text>
         </TextContainer>
     )

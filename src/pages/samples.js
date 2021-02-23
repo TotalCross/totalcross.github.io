@@ -10,7 +10,22 @@ import TextBlock2 from '../components/text-block2'
 import TextBlock from '../components/text-block'
 import { GET_STARTED } from '../links'
 import GetStartedBanner from "../components/repeat-banners/get-started-banner"
+import styled from "styled-components"
 
+const SamplesContainer = styled.div`
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+justify-content: center;
+`
+const InnerSampleContainer = styled.div`
+display: flex;
+width: 30%;
+margin: 1% 1%;
+@media (max-width: 768px) {
+  width: 100%;
+}
+`
 const Samples = () => {
 
   const data = useStaticQuery(graphql`
@@ -94,7 +109,7 @@ const Samples = () => {
         img:data.printer.childImageSharp.fixed,
         btText:'Printer',
         text: "Can a printer be smart? Yes, of course. With TotalCross you can build a good interface for a printer and improve its usability. Take a look at the code and see it running on an embedded device.",
-        caption:'Design by: Deplooy'
+        caption:'Design by: Deeploy.me'
       },
       {
         img:data.break.childImageSharp.fixed,
@@ -129,7 +144,9 @@ const Samples = () => {
       
     ]
     return (
-      items.map((sample)=>(
+      <SamplesContainer>
+      {items.map((sample)=>(
+        <InnerSampleContainer>
         <TextBlock2
         img={sample.img}
         caption={sample.caption} 
@@ -138,7 +155,9 @@ const Samples = () => {
         btRef={sample.btRef}
         btColor="black"
           />
-      ))
+          </InnerSampleContainer>
+      ))}
+      </SamplesContainer>
     )
   } 
 

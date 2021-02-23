@@ -15,7 +15,7 @@ display: flex;
 text-align: center;
 `
 
-const Title = styled.h4`
+const Title = styled.h3`
 color: #c62f2e;
 `
 
