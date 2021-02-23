@@ -12,7 +12,6 @@ import {
   faLinkedin,
   faTelegram,
   faDiscord,
-  faMedium,
 } from "@fortawesome/free-brands-svg-icons";
 import { 
   GITHUB, 
@@ -23,8 +22,6 @@ import {
   TELEGRAM,
   DISCORD,
   LINKEDIN,
-  ARTICLES,
-  TUTORIALSPAGE,
   MEDIUM,
   YOUTUBE
 } from "../links";
@@ -49,7 +46,6 @@ const Community= ({ location=null }) =>  {
   const ICON_TELEGRAM = <FontAwesomeIcon icon={faTelegram} />;
   const ICON_DISCORD = <FontAwesomeIcon icon={faDiscord} />;
   const ICON_LINKEDIN = <FontAwesomeIcon icon={faLinkedin} />;
-  const ICON_MEDIUM = <FontAwesomeIcon icon={faMedium} />;
   const ICON_FORUM = <FontAwesomeIcon icon={faComments} />;
   const ICON_ARTICLES = <FontAwesomeIcon icon={faPen} />;
   const ICON_VIDEO = <FontAwesomeIcon icon={faVideo} />;
