@@ -1,5 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeroCenter from '../components/hero-center'
@@ -11,7 +13,6 @@ import GetStartedBanner from "../components/repeat-banners/get-started-banner"
 import GetStartedBannerSimple from '../components/repeat-banners/get-started-banner-simple'
 import GoToGitHub from '../components/repeat-banners/go-to-github'
 import Banner1C from '../components/banner-1column'
-import styled from "styled-components"
 
 const RowContainer = styled.div`
 display: flex;
@@ -21,12 +22,10 @@ align-content: center;
   flex-wrap: wrap;
 }
 `
-
 const InnerContainer = styled.div`
 margin: 20px;
 `
-
-const WhyTotalCross = ({location=null}) => {
+const WhyTotalCross = () => {
     const data = useStaticQuery(graphql`
     query {
       bg: file(name: { eq: "bg_wavesdark" }, extension: { eq: "png" }) {
@@ -88,7 +87,7 @@ const WhyTotalCross = ({location=null}) => {
     }
   `);
     return (
-        <Layout location='/why-totalcross' >
+        <Layout>
             <SEO />
             <HeroCenter 
             title="Why TotalCross"

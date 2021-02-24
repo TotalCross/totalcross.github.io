@@ -1,12 +1,12 @@
-import React from "react";
+import React from "react"
+import BackgroundImage from "gatsby-background-image"
+import { useStaticQuery, graphql } from "gatsby"
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import ContactForm from "../components/contact-form";
-import { useStaticQuery, graphql } from "gatsby";
-import BackgroundImage from "gatsby-background-image";
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import ContactForm from "../components/contact-form"
 
-const Contact = ({ location=null }) =>  {
+const Contact = () =>  {
   const data = useStaticQuery(graphql`
     query {
       bg: file(name: { eq: "bg_wavesdark" }, extension: { eq: "png" }) {
@@ -19,7 +19,7 @@ const Contact = ({ location=null }) =>  {
     }
   `);
   return (
-    <Layout location={location}>
+    <Layout>
       <SEO
         title="TotalCross · Contact Us"
         description="Let’s talk! Please, tell us how we can help you. We are happy to be useful."
@@ -31,4 +31,4 @@ const Contact = ({ location=null }) =>  {
   );
 }
 
-export default Contact;
+export default Contact

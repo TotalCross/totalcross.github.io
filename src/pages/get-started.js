@@ -1,13 +1,13 @@
 import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faLightbulb } from "@fortawesome/free-solid-svg-icons"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { CHANGE_JAVA_MAVEN_PLUGIN, AZUL_TERMS, INSTALL_JAVA11, INSTALL_VSCODE, INSTALL_MAVEN, TC_VSCODE_PLUGIN, TC_HELLO_REPO, GT_ECLIPSE_VIDEO, GT_ECLIPSE_ARTICLE, GT_INTELLIJ_VIDEO, GT_INTELLIJ_ARTICLE, FIRST_EMBEDDED_PROJECT, GT_VSCODE_ARTICLE, TELEGRAM, DISCORD } from "../links"
 import { useStaticQuery, graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import styled from "styled-components"
 
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import { CHANGE_JAVA_MAVEN_PLUGIN, AZUL_TERMS, INSTALL_JAVA11, INSTALL_VSCODE, INSTALL_MAVEN, TC_VSCODE_PLUGIN, TC_HELLO_REPO, GT_ECLIPSE_VIDEO, GT_ECLIPSE_ARTICLE, GT_INTELLIJ_VIDEO, GT_INTELLIJ_ARTICLE, FIRST_EMBEDDED_PROJECT, GT_VSCODE_ARTICLE, TELEGRAM, DISCORD } from "../links"
 
 import LedGIF from "../imgs/led-totalcross.gif"
 
@@ -24,7 +24,6 @@ justify-content: center;
 width: 100vw;
 font-family: "Poppins", sans-serif;
 `
-
 const Downloads = styled(Container)`
 flex-direction: row;
 align-items: start;
@@ -33,7 +32,6 @@ align-items: start;
     flex-wrap: wrap;
 }
 `
-
 const Download = styled.div`
 display: flex;
 flex-direction: column;
@@ -55,27 +53,23 @@ box-shadow: 0px 3px 15px #0101013b;
     width: 60vw;
 }
 `
-
 const DownloadText = styled.div`
 background-color: rgb(17, 17, 17);
 padding: 15px;
 border-radius: 0 0 30px 30px;
 `
-
 const PageTitle = styled.h1`
 color: #efefef;
 font: 800 46px/60px "Poppins", sans-serif;
 padding-top: 120px;
 padding-bottom: 50px;
 `
-
 const PageSubtitle = styled.h2`
 color: #efefef;
 font: 700 30px/40px "Poppins", sans-serif;
 padding-top: 120px;
 padding-bottom: 50px;
 `
-
 const PageSubtitleH3 = styled.h3`
 color: #efefef;
 font: 700 30px/40px "Poppins", sans-serif;
@@ -85,7 +79,6 @@ margin: 15px 0;
 height: 100%;
 text-align: center;
 `
-
 const Dependencies = styled.div`
 display: flex;
 justify-content: center;
@@ -109,12 +102,10 @@ padding: 0 10px;
 @media only screen and (max-width: 675px) {
     padding: 5px 0;
 }`
-
 const Number = styled.div `
 color: #efefef;
 font: 800 46px/60px "Poppins", sans-serif;
 `
-
 const Text = styled.div`
 color: #efefef;
 max-width: 320px;
@@ -129,20 +120,16 @@ text-align: left;
     max-width: 265px;
 }
 `
-
 const GSLink = styled.a`
 color: rgb(164, 214, 79);
 `
-
 const LEDImage = styled.img`
 border-radius: 30px;
 `
-
 const LEDGif = styled.div`
 margin-left: auto;
 margin-right: auto;
 `
-
 const HelloWorld = styled.div`
 color: #efefef;
 width: 60vw;
@@ -153,7 +140,6 @@ margin-bottom: 50px;
     width: 80vw;
 }
 `
-
 const HelloWorldInner = styled.div`
 display: flex;
 flex-direction: column;
@@ -162,7 +148,6 @@ flex-direction: column;
     flex-direction: column;
   }
 `
-
 const HelloWorldInnerInstructions = styled.div`
 flex: 1 1 0px;
 padding-right: 30px;
@@ -174,7 +159,6 @@ padding-right: 30px;
       color: #efefef;
   }
 `
-
 const HelloWorldInnerTips = styled.div`
 flex: 1 1 0px;
 margin: 50px 0;
@@ -182,14 +166,12 @@ border-radius: 30px;
 box-shadow: 0px 3px 15px #0101013b;
 display: flex;
 `
-
 const HelloWorldInnerTips3 = styled.div`
 margin: 0 auto;
 border-radius: 30px;
 box-shadow: 0px 3px 15px #0101013b;
 display: flex;
 `
-
 const TipsContainer = styled.div`
 min-width: 78px;
 background-color: rgb(17, 17, 17);
@@ -222,21 +204,18 @@ border-radius: 0 30px 30px 0;
       padding-top: 20px;
     }
 `
-
 const TipsList = styled.ul`
 list-style: none;
 `
-
 const TipsSpan = styled.span`
 background-color: #333333;
 font-family: monospace;
 padding: 5px;
 color: #efefef;
 `
+const tips = <Icon icon={faLightbulb} />
 
-const tips = <Icon icon={faLightbulb} />;
-
-const GetStarted = ({ location=null }) =>  {
+const GetStarted = () =>  {
   const data = useStaticQuery(graphql`
     query {
       bg: file(name: { eq: "bg_wavesdark" }, extension: { eq: "png" }) {
@@ -249,7 +228,7 @@ const GetStarted = ({ location=null }) =>  {
     }
   `);
   return (
-    <Layout location={location}>
+    <Layout>
       <SEO
         title="How to get started with TotalCross"
         description="Get started with TotalCross in a few wasy steps."
@@ -492,4 +471,4 @@ const GetStarted = ({ location=null }) =>  {
   );
 };
 
-export default GetStarted;
+export default GetStarted

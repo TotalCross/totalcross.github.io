@@ -1,11 +1,12 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { CONTACT, GET_STARTED } from '../links'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons"
 import styled from "styled-components"
+
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import { CONTACT, GET_STARTED } from '../links'
 import Button from "../components/button"
 import HeroCenter from "../components/hero-center"
 import Banner2C from "../components/banner-2columns"
@@ -18,7 +19,6 @@ color: #2aa75e;
 margin-right: 10px
 `
 const check = <Icon icon={faCheckCircle} />
-
 const MainContainer = styled.div`
 background-color: #efefef;
 display: flex;
@@ -32,19 +32,16 @@ width: 100vw;
   width: 100%;
 }
 `
-
 const LicenseText = [
     "TotalCross is open source under LGPL v2.1. That means:", 
     "If you will use TotalCross for a personal project that will not be shared with anyone, you don't need to worry about licence demands.", 
     "If you will show your project to others, you just need to make it clear that you are using TotalCross, include TotalCross source code, and with that let people know that LGPL'd software is being used in your work. As long as you do that you are covered to give your work away or sell it.",
     "If you make any changes to TotalCross code you will need to send these changes back to TotalCross. If you did something really clever we'll definetelly consider adding it to a future version, so that more people can benefit from it."
 ]
-
 const CommercialLicenseText = [
     "If complying with the requirements outlined above doesn't quite fit your needs, we also have a commercial licence.",
     "Contact us if you wish to know more about it."
 ]
-
 const CardsContainer = styled.div`
 display: flex;
 justify-content: center;
@@ -87,7 +84,6 @@ padding-left: 10%;
     }
 }
 `
-
 const CardSubtitle = styled.h5`
 text-align: left;
 padding-left: 10%;
@@ -105,7 +101,6 @@ height: 20px;
     }
 }
 `
-
 const CardList = styled.ul`
 text-align: left;
 padding-left: 10%;
@@ -128,11 +123,9 @@ list-style: none;
     }
 }
 `
-
 const CardListItem = styled.li`
 display: flex;
 `
-
 const BulletPoint = styled.div`
 display: flex;
 justify-content: center;
@@ -143,7 +136,6 @@ min-width: 30px;
 height: 26px;
 margin-right: 10px;
 `
-
 const BulletPointBackground = styled.div`
 background-color: #f2f2f2;
 width: 15px;
@@ -152,14 +144,12 @@ position: absolute;
 z-index: 1;
 border-radius: 10px;
 `
-
 const BulletPointIcon = styled.div`
 position: absolute;
 z-index: 2;
 margin-top: 1px;
 margin-left: 9px;
 `
-
 const FreeLicenseCard = () => {
     const FreePlan = [
         {
@@ -204,8 +194,7 @@ const FreeLicenseCard = () => {
           </CardsContainer>
     )
 }
-
-const Licensing = ({ location=null }) => {
+const Licensing = () => {
   const data = useStaticQuery(graphql`
     query {
       lgpl: file(name: { eq: "licence" }, extension: { eq: "png" }) {
@@ -219,7 +208,7 @@ const Licensing = ({ location=null }) => {
   `);
 
   return (
-    <Layout location={location} >
+    <Layout>
       <SEO
         title="TotalCross · Licenses"
         description="Understand what you get with TotalCross Free License under Open Source License LGPL v2.1 and what is included in the Commercial License."
@@ -256,4 +245,4 @@ const Licensing = ({ location=null }) => {
   );
 }
 
-export default Licensing;
+export default Licensing

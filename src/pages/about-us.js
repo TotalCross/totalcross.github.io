@@ -1,14 +1,13 @@
-import React from "react";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
-import BackgroundImage from "gatsby-background-image";
+import React from "react"
+import SEO from "../components/seo"
+import { useStaticQuery, graphql } from "gatsby"
+import BackgroundImage from "gatsby-background-image"
 import styled from "styled-components"
-import Banner1C from "../components/banner-1column";
-import TextBlock2 from '../components/text-block2';
 
-import ImageBlock from '../components/image-block';
+import Layout from "../components/layout"
+import Banner1C from "../components/banner-1column"
+import TextBlock2 from '../components/text-block2'
+import ImageBlock from '../components/image-block'
 
 const Container = styled.div`
 background-color: #efefef;
@@ -24,7 +23,6 @@ flex-direction: row;
     flex-direction: column;
   }
 `
-
 const ValuesInnerContainer = styled.div`
 width: 33.33%;
 height: 100%;
@@ -33,7 +31,7 @@ align-items: start;
     width: 100%;
   }
 `
-const AboutUs = ({ location=null }) =>  {
+const AboutUs = () =>  {
   const data = useStaticQuery(graphql`
     query {
       bg: file(name: { eq: "bg_wavesdark" }, extension: { eq: "png" }) {
@@ -81,7 +79,7 @@ const AboutUs = ({ location=null }) =>  {
     }
   `);
   return (
-    <Layout location={location}>
+    <Layout>
       <SEO
         title="TotalCross · Our History"
         description="TotalCross is a global Startup helping developers and companies to create

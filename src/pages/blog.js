@@ -4,13 +4,12 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+const BlogIndex = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes
 
   if (posts.length === 0) {
     return (
-      <Layout location={location} title={siteTitle}>
+      <Layout>
         <SEO title="All posts" />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
@@ -22,7 +21,7 @@ const BlogIndex = ({ data, location }) => {
   }
 
   return (
-    <Layout location={location} title='TotalCross Blog'>
+    <Layout>
       <SEO title="All posts" />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {

@@ -1,17 +1,17 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HeroSide from "../components/hero-side"
 import Banner1C from "../components/banner-1column"
 import ImageBlock from "../components/image-block"
-import Banner2C from '../components/banner-2columns';
-import TextBlock2 from '../components/text-block2';
-import TextBlock from '../components/text-block';
+import Banner2C from '../components/banner-2columns'
+import TextBlock2 from '../components/text-block2'
+import TextBlock from '../components/text-block'
 import GetStartedBanner from "../components/repeat-banners/get-started-banner"
 import { GET_STARTED, SAMPLES } from '../links'
-import styled from "styled-components"
 
 const TCFeaturesContainer = styled.div`
 display: flex;
@@ -27,8 +27,7 @@ margin: 1% 1%;
   width: 100%;
 }
 `
-
-const Index = ({ location=null }) => {
+const Index = () => {
   const data = useStaticQuery(graphql`
   query {
     bg: file(name: { eq: "bghome_sitetc" }, extension: { eq: "png" }) {
@@ -189,7 +188,7 @@ const Index = ({ location=null }) => {
   } 
 
   return (
-    <Layout location={location} title='TotalCross Blog'>
+    <Layout>
       <SEO 
       title="TotalCross · GUI Creator For Embedded, Mobile... Everything!"
       description='Build beautiful and modern Graphical User Interfaces for embedded, IoT, mobile and desktop. A cross-platform tool that lets you develop apps in Java.' 

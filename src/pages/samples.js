@@ -1,5 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -10,7 +11,6 @@ import TextBlock2 from '../components/text-block2'
 import TextBlock from '../components/text-block'
 import { GET_STARTED } from '../links'
 import GetStartedBanner from "../components/repeat-banners/get-started-banner"
-import styled from "styled-components"
 
 const SamplesContainer = styled.div`
 display: flex;
@@ -162,7 +162,7 @@ const Samples = () => {
   } 
 
   return (
-    <Layout location='/samples' title='TotalCross Blog'>
+    <Layout>
       <SEO 
       title="TotalCross · GUI Creator For Embedded, Mobile... Everything!"
       description='Build beautiful and modern Graphical User Interfaces for embedded, IoT, mobile and desktop. A cross-platform tool that lets you develop apps in Java.' 

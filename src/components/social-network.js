@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import styled from 'styled-components'
 
 const SocialIcon = styled.button`
@@ -24,4 +24,4 @@ const SocialNetwork = (props) => (
   </SocialIcon>
 );
 
-export default SocialNetwork;
+export default SocialNetwork
