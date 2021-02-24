@@ -1,7 +1,6 @@
-import React from "react";
+import React from "react"
 import styled from "styled-components"
-import BackgroundImage from "gatsby-background-image";
-import Img from "gatsby-image";
+import BackgroundImage from "gatsby-background-image"
 
 const Hero = styled.div`
 display: flex;
@@ -121,4 +120,4 @@ function HeroCenter({ title, tagline=null, bgImg=null} ) {
     }
 }
 
-export default HeroCenter;
+export default HeroCenter
