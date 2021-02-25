@@ -45,7 +45,7 @@ const NavbarLinks = () => {
       <NavItem to="/licensing">LICENSING</NavItem>
       <NavItem to={DOCS}>DOCS</NavItem>
       <NavItem to="/community">COMMUNITY</NavItem>
-      <NavItem to={MEDIUM}>BLOG</NavItem>
+      <NavItem to="/blog">BLOG</NavItem>
       <NavItem to={ENTERPRISE}>ENTERPRISE</NavItem>
     </>
   )
