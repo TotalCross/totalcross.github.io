@@ -1,11 +1,13 @@
 ---
 title: Traffic control system by Tecdet
+subtitle: "Why Tecdet decided to migrate their embedded system to Linux Arm and how they built an innovative way to inspect the Brazilian automotive traffic."
 date: "2021-02-25T22:12:03.284Z"
 description: "Traffic control system by Tecdet"
+author: "Kaique Mancoso"
 ---
 
 
-Why Tecdet decided to migrate your embedded system to Linux Arm and how they built an innovative way to inspect the Brazilian automotive traffic.
+
 Tecdet develops systems for traffic control and inspection for the Brazilian government. Their engineers wanted to upgrade technology which was based on Windows x86, which was no longer satisfactory in terms of performance and energy consumption. They decided to rebuild their system for the Linux Arm architecture compatible with Toradex modules and chose TotalCross to develop their GUI.
 
 ![Image from Tecdet device](./tecdet.jpg)

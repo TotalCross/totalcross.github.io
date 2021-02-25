@@ -1,12 +1,37 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+const BlogContainer = styled.div`
+width: 85%;
+max-width: 680px;
+margin: 50px auto 0;
+@media only screen and (max-width: 600px) {
+  width: 95%;
+}
+`
+const Subtitle = styled.span`
+margin: 24px 0 48px;
+color: #4f5969;
+font-weight: 500;
+font-size: 1.44rem;
+`
+const Author = styled.p`
+margin: 0;
+color: #c62f2e;
+* {
+  font-size: 1rem;
+}
+`
+const Body = styled.section`
+font-size: 1.2rem;
+`
+
 const BlogPostTemplate = ({ data }) => {
   const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
 
   return (
@@ -15,6 +40,7 @@ const BlogPostTemplate = ({ data }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
+      <BlogContainer>
       <article
         className="blog-post"
         itemScope
@@ -22,9 +48,11 @@ const BlogPostTemplate = ({ data }) => {
       >
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
+          <Subtitle>{post.frontmatter.subtitle}</Subtitle>
+          <Author>{post.frontmatter.author}</Author>
           <p>{post.frontmatter.date}</p>
         </header>
-        <section
+        <Body
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
@@ -56,6 +84,7 @@ const BlogPostTemplate = ({ data }) => {
           </li>
         </ul>
       </nav>
+      </BlogContainer>
     </Layout>
   )
 }
@@ -79,8 +108,10 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        subtitle
         date(formatString: "MMMM DD, YYYY")
         description
+        author
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
