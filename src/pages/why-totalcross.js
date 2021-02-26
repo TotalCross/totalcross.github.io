@@ -22,6 +22,7 @@ align-content: center;
   flex-wrap: wrap;
 }
 `
+
 const InnerContainer = styled.div`
 margin: 20px;
 `
@@ -97,8 +98,6 @@ const WhyTotalCross = () => {
             title="Low footprint application: be light!"
             subtitle="Keeping your application's footprint as low as possible is important to ensure a better performance. That's what we do: TotalCross runtime is currently at 5MB to bring mobile grade user experience even for low-end MPUs."
             spaces={[
-
-
                 <ImageBlock 
                 img={data.info.childImageSharp.fluid}
                 fixed={false}
