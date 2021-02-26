@@ -9,6 +9,8 @@ import {
     MEDIUM,
     GITHUB,
     YOUTUBE,
+    ENTERPRISE,
+    SERVICES
   } from "../../links";
 
 const Item = styled(Link)`
@@ -91,7 +93,9 @@ const footer_content = [
         items: [
             ['Get Stated', GET_STARTED],
             ['Docs', DOCS],
-            ['Contribute', GITHUB]
+            ['Contribute', GITHUB],
+            ['Enterprise', ENTERPRISE],
+            ['Services', SERVICES],
         ],
     },
     {

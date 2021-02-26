@@ -5,13 +5,14 @@ export const TUTORIALSPAGE = "/tutorials";
 export const CONTACT = "/contact";
 export const COMMUNITY = "/community";
 export const SAMPLES = "/samples";
+export const BLOG = "/blog";
 export const DOCS =
   "https://learn.totalcross.com/?utm_source=site&utm_medium=principal";
 export const EVENTS = "/events";
 export const PRICING = "/licensing";
-export const WHYTC = "/low-footprint";
-export const EASY = "/easy-to-use";
-export const CROSS = "/cross-platform";
+export const LICENSE = "/licensing";
+export const WHYTC = "/why-totalcross";
+export const SERVICES = "/services";
 export const CONFIG =
   "https://learn.totalcross.com/documentation/guides/understanding-totalcross-for-linux-arm";
 export const PLATFORMS = DOCS;

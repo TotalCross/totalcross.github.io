@@ -89,7 +89,8 @@ const WhyTotalCross = () => {
   `);
     return (
         <Layout>
-            <SEO />
+            <SEO title="TotalCross · GUI Creator For Embedded, Mobile... Everything!"
+      description='Build beautiful and modern Graphical User Interfaces for embedded, IoT, mobile and desktop. A cross-platform tool that lets you develop apps in Java.'/>
             <HeroCenter 
             title="Why TotalCross"
             tagline="Three important points that make the difference when programming"

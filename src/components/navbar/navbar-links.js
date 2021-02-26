@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { DOCS, ENTERPRISE, MEDIUM } from '../../links'
+import { COMMUNITY, DOCS, LICENSE, SERVICES, WHYTC, BLOG } from '../../links'
 
 const NavItem = styled(Link)`
   text-decoration: none;
@@ -36,17 +36,18 @@ const NavItem = styled(Link)`
     padding: 20px 0;
     font-size: 1.5rem;
     z-index: 6;
+    color: #212121;
   }
 `
 const NavbarLinks = () => {
   return (
     <>
-      <NavItem to="/why-totalcross">WHY TOTALCROSS</NavItem>
-      <NavItem to="/licensing">LICENSING</NavItem>
+      <NavItem to={WHYTC}>WHY TOTALCROSS</NavItem>
+      <NavItem to={LICENSE}>LICENSING</NavItem>
       <NavItem to={DOCS}>DOCS</NavItem>
-      <NavItem to="/community">COMMUNITY</NavItem>
-      <NavItem to="/blog">BLOG</NavItem>
-      <NavItem to={ENTERPRISE}>ENTERPRISE</NavItem>
+      <NavItem to={COMMUNITY}>COMMUNITY</NavItem>
+      <NavItem to={BLOG}>BLOG</NavItem>
+      <NavItem to={SERVICES}>SERVICES</NavItem>
     </>
   )
 }
