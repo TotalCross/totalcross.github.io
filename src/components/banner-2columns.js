@@ -15,6 +15,7 @@ text-align: center;
 color: #ffffff;
 justify-content: center;
 font-family: "Poppins", sans-serif;
+padding-bottom: 60px;
 
 @media only screen and (max-width: 1000px) {
     flex-direction: column;
@@ -32,6 +33,7 @@ font: 600 30px/38px "Poppins", sans-serif;
 margin: 80px auto 10px;
 color: #c62f2e;
 text-align: center;
+max-width: 600px;
 
 @media only screen and (max-width: 1000px) {
     padding-top: 250px;
@@ -51,6 +53,7 @@ font-weight: 300;
 color: #8f8f8f;
 margin: 0 auto 20px;
 text-align: center;
+max-width: 680px;
 
 @media only screen and (max-width: 1000px) {
     margin-bottom: 0px;
@@ -76,8 +79,11 @@ padding: 0 100px;
 const SubContainer = styled.div`
 display: flex;
 padding: 20px;
+width: 80%;
+margin: 0 auto;
 @media only screen and (max-width: 600px) {
     flex-wrap: wrap;
+    width: 95%;
 }
 `
 
@@ -105,11 +111,13 @@ const LightBanner = styled.div`
 background-color: #EFEFEF;
 color:#212121;
 border: solid rgba(0, 0, 0, 0);
+padding-bottom: 60px;
 `
 
 const DarkBanner = styled.div`
 background-color: #212121;
 color: #EFEFEF;
+padding-bottom: 60px;
 h2, h3, h4, h5, h6 {
     color: #EFEFEF;
 }

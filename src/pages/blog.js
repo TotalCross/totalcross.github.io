@@ -4,12 +4,13 @@ import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import HeroCenter from '../components/hero-center'
 
 const BlogContainer = styled.div`
 width: 85%;
 max-width: 680px;
 margin: 50px auto 0;
-min-height: 60vh;
+min-height: 68vh;
 @media only screen and (max-width: 600px) {
   width: 95%;
 }
@@ -20,7 +21,7 @@ const BlogIndex = ({ data }) => {
   if (posts.length === 0) {
     return (
       <Layout>
-        <SEO title="All posts" />
+        <SEO title="TotalCross Blog" description="Everything about embedded systems development"/>
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -32,7 +33,11 @@ const BlogIndex = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="All posts" />
+      <SEO title="TotalCross Blog" description="Everything about embedded systems development" />
+        <HeroCenter 
+            title="TotalCross Blog"
+            tagline="Everything about embedded systems development"
+            bgImg={data.bg.childImageSharp.fluid}/>
       <BlogContainer>
         <ol style={{ listStyle: `none` }}>
           {posts.map(post => {
@@ -94,6 +99,13 @@ export const pageQuery = graphql`
           description
           author
           subtitle
+        }
+      }
+    }
+    bg: file(name: { eq: "bg_wavesdark" }, extension: { eq: "png" }) {
+      childImageSharp {
+        fluid(quality: 100, maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

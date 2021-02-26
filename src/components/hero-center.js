@@ -5,7 +5,8 @@ import BackgroundImage from "gatsby-background-image"
 const Hero = styled.div`
 display: flex;
 align-items: center;
-height: 614px;
+height: 414px;
+max-width: 680px;
 text-align: center;
 color: #ffffff;
 justify-content: center;
@@ -15,14 +16,14 @@ justify-content: center;
 }
 
 @media only screen and (max-width: 600px) {
-  height: 600px;
+  height: 400px;
   width: 100%;
 }
 `
 const BGContainer = styled(BackgroundImage)`
 display: flex;
 align-items: center;
-height: 614px;
+height: 414px;
 background-position: center top;
 background-repeat: no-repeat;
 background-size: cover;
@@ -36,20 +37,21 @@ justify-content: center;
 }
 
 @media only screen and (max-width: 600px) {
-  height: 600px;
+  height: 400px;
   width: 100%;
 }
 `
 
 const TextBlock = styled.div`
-width: 45%;
+width: 100%;
 margin-left: 60px;
-text-align: left;
+margin-right: 60px;
+text-align: center;
 
 @media only screen and (max-width: 1000px) {
     width: 100vw;
     margin-left: 0px;
-    text-align: center;
+    margin-right: 0px;
 }
 `
 

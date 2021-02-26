@@ -66,7 +66,7 @@ padding: 20px;
 const Container = styled.div`
 justify-content: center;
 border: solid transparent;
-padding-bottom: 30px;
+padding: 60px 0;
 `
 
 const ButtonContainer = styled.div`
