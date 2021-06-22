@@ -31,7 +31,7 @@ const Title = styled.h2`
 display: block;
 font: 600 30px/38px "Poppins", sans-serif;
 margin: 80px auto 10px;
-color: #c62f2e;
+color: ${(props) => {return (props.theme === "dark" ? "#fff" : "#c62f2e")}};
 text-align: center;
 max-width: 600px;
 
@@ -93,10 +93,10 @@ justify-content: center;
 padding: 20px 0;
 `
 
-const Banner = (title, subtitle, spaces, btText, btRef, btColor) => {
+const Banner = (title, subtitle, spaces, btText, btRef, btColor, theme) => {
     return (
         <div>
-            {title && <Title>{title}</Title>}
+            {title && <Title theme={theme}>{title}</Title>}
             {subtitle && <Subtitle>{subtitle}</Subtitle>}
             <SubContainer>
                 <Space>{spaces[0]}</Space>
@@ -130,7 +130,7 @@ function Banner2C({ title=null, subtitle=null, spaces, btText=null, btRef=null, 
                 Tag="section"
                 fluid={bgImg}
             > 
-                {Banner(title, subtitle, spaces, btText, btRef, btColor)}
+                {Banner(title, subtitle, spaces, btText, btRef, btColor, "dark")}
             </BGContainer>
         )
     }
@@ -144,7 +144,7 @@ function Banner2C({ title=null, subtitle=null, spaces, btText=null, btRef=null, 
     else {
         return (
             <DarkBanner>
-                {Banner(title, subtitle, spaces, btText, btRef)}
+                {Banner(title, subtitle, spaces, btText, btRef, "dark")}
             </DarkBanner>
             )
     }

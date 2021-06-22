@@ -48,7 +48,7 @@ display: flex;
 justify-content: center;
 align-items: stretch;
 flex-wrap: wrap;
-margin: 0 auto 0 auto;
+margin: 0 auto;
 @media only screen and (max-width: 600px) {
     flex-wrap: wrap;
     width: 98%;
@@ -57,9 +57,8 @@ margin: 0 auto 0 auto;
 const SubContainer = styled.div`
 display: flex;
 padding: 20px;
-
 @media only screen and (min-width: 1000px) {
-    max-width: 1000px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 `

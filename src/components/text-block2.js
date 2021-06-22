@@ -14,7 +14,9 @@ display: flex;
 text-align: center;
 `
 const Title = styled.h3`
-color: #c62f2e;
+color: #161616;
+margin-top: 1rem;
+margin-bottom: 0.5rem;
 `
 const Text = styled.p`
 font-family: "Poppins", sans-serif;

@@ -17,14 +17,15 @@ const TCFeaturesContainer = styled.div`
 display: flex;
 flex-wrap: wrap;
 flex-direction: row;
-justify-content: center;
+justify-content: space-between;
 `
 const FeatureText = styled.div`
 display: flex;
-width: 30%;
-margin: 1% 1%;
+width: 28%;
+padding: 1% 2%;
 @media (max-width: 768px) {
   width: 100%;
+  padding: 0;
 }
 `
 const Index = () => {
