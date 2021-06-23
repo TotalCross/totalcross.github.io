@@ -70,7 +70,7 @@ max-width: 680px;
 const Space = styled.div`
 display: flex;
 width: 50%;
-padding: 0 100px;
+padding: 0 30px;
 @media only screen and (max-width: 600px) {
     width: 90%;
     padding: 0;

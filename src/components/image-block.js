@@ -17,10 +17,12 @@ display: block;
 `
 const Title = styled.h4`
 color: #656565;
-margin-bottom: 0;
+margin-bottom: 0.5rem;
+font-size: 1.2rem;
 `
 const Text = styled.p`
 color: #656565;
+font-family: "Poppins";
 `
 const Caption = styled(Text)`
 text-transform: uppercase;
