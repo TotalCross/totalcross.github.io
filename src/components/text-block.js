@@ -17,6 +17,8 @@ text-align: center;
 
 const Title = styled.h3`
 color: #c62f2e;
+margin-top: 0;
+margin-bottom: 10px;
 `
 
 const Text = styled.p`

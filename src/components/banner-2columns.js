@@ -70,10 +70,13 @@ max-width: 680px;
 const Space = styled.div`
 display: flex;
 width: 50%;
-padding: 0 30px;
+padding: 0 40px;
 @media only screen and (max-width: 600px) {
     width: 90%;
     padding: 0;
+}
+@media only screen and (min-width: 1400px) {
+    padding: 0 80px;
 }
 `
 const SubContainer = styled.div`

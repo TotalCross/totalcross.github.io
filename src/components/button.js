@@ -4,17 +4,16 @@ import styled from 'styled-components';
 
 const GreenButton = styled(Link)`
 display: inline-block;
-font: 500 14px/20px "Poppins", sans-serif;
-text-transform: uppercase;
+font: 600 14px/20px "Poppins", sans-serif;
 text-decoration: none;
-padding: 0 10px;
+text-transform: uppercase;
+padding: 10px 10px;
 min-width: 120px;
-padding-top: 4px;
 background-color: #2aa75e;
 color: #efefef;
-border-radius: 10px;
+border-radius: 5px;
 text-align: center;
-height: 30px;
+min-height: 30px;
 box-shadow: 0 3px 8px 0 rgb(50, 50, 50), 0 2px 10px 0 rgba(250, 250, 250, 0.4);
 margin: 10px;
 
@@ -26,6 +25,7 @@ margin: 10px;
 const WhiteButton = styled(GreenButton)`
 background-color: #efefef;
 color: #242424;
+padding: 10px 20px;
 box-shadow: 0 3px 8px 0 rgb(50, 50, 50), 0 2px 10px 0 rgba(250, 250, 250, 0.4);
 @media (max-width: 768px) {
   display: inline-block;
@@ -35,6 +35,7 @@ box-shadow: 0 3px 8px 0 rgb(50, 50, 50), 0 2px 10px 0 rgba(250, 250, 250, 0.4);
 const BlackButton = styled(GreenButton)`
 background-color: #242424;
 color: #efefef;
+padding: 10px 20px;
 box-shadow: 0 3px 8px 0 rgb(50, 50, 50), 0 2px 10px 0 rgba(250, 250, 250, 0.4);
 @media (max-width: 768px) {
   display: inline-block;

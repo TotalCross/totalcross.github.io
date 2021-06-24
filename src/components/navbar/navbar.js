@@ -9,11 +9,12 @@ import { GITHUB, GET_STARTED } from "../../links";
 import Button from "../button"
 
 const Navigation = styled.nav`
-  height: 7vh;
+  min-height: 7vh;
   display: flex;
   background-color: #212121;
   position: relative;
   justify-content: space-between;
+  align-items: center;
   text-transform: uppercase;
   border-bottom: 2px solid #33333320;
   margin: 0 auto;

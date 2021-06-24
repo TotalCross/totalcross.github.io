@@ -22,10 +22,11 @@ font-size: 1.2rem;
 `
 const Text = styled.p`
 color: #656565;
-font-family: "Poppins";
 `
 const Caption = styled(Text)`
-text-transform: uppercase;
+margin-top: 0.4rem;
+font-size: 0.8rem;
+font-weight: 500;
 `
 
 const ImageBlock = ({ img, caption=null, title=null, text=null, fixed=true }) => {

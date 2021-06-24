@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { COMMUNITY, DOCS, LICENSE, SERVICES, WHYTC, BLOG } from '../../links'
+import { SAMPLES, COMMUNITY, DOCS, LICENSE, SERVICES, WHYTC, BLOG } from '../../links'
 
 const NavItem = styled(Link)`
   text-decoration: none;
@@ -45,9 +45,10 @@ const NavbarLinks = () => {
       <NavItem to={WHYTC}>WHY TOTALCROSS</NavItem>
       <NavItem to={LICENSE}>LICENSING</NavItem>
       <NavItem to={DOCS}>DOCS</NavItem>
+      <NavItem to={SAMPLES}>SAMPLE</NavItem>
       <NavItem to={COMMUNITY}>COMMUNITY</NavItem>
-      <NavItem to={BLOG}>BLOG</NavItem>
       <NavItem to={SERVICES}>SERVICES</NavItem>
+      <NavItem to={BLOG}>BLOG</NavItem>
     </>
   )
 }
