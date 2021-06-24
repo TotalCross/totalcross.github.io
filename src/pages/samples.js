@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import HeroCenter from "../components/hero-center"
 import Banner1C from "../components/banner-1column"
 import Banner2C from '../components/banner-2columns'
-import TextBlock2 from '../components/text-block2'
+import TextBlock2Sample from '../components/text-block2-sample'
 import TextBlock from '../components/text-block'
 import { GET_STARTED } from '../links'
 import GetStartedBanner from "../components/repeat-banners/get-started-banner"
@@ -20,8 +20,8 @@ justify-content: center;
 `
 const InnerSampleContainer = styled.div`
 display: flex;
-width: 30%;
-margin: 1% 1%;
+width: 25%;
+margin: 1% 3%;
 @media (max-width: 768px) {
   width: 100%;
 }
@@ -143,19 +143,22 @@ const Samples = () => {
       },
       
     ]
+
+    //Grid probably is the optimal way to refactor this
     return (
       <SamplesContainer>
       {items.map((sample)=>(
         <InnerSampleContainer>
-        <TextBlock2
-        img={sample.img}
-        caption={sample.caption} 
-        text={sample.text} 
-        btText={sample.btText}
-        btRef={sample.btRef}
-        btColor="black"
+          <TextBlock2Sample
+          img={sample.img}
+          caption={sample.caption} 
+          text={sample.text} 
+          btText={sample.btText}
+          btRef={sample.btRef}
+          btColor="black"
+          btIcon="github"
           />
-          </InnerSampleContainer>
+        </InnerSampleContainer>
       ))}
       </SamplesContainer>
     )

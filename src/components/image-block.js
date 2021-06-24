@@ -10,10 +10,16 @@ const ImageContainer2 = styled.div`
 flex-grow: 1;
 flex-direction: column;
 `
-
+//Props as temporary measure to make component a little more versatile
+//Instead of width and height, you can use width and aspect ratio
 const ImageInnerContainer = styled(Img)`
 justify-content: flex-start;
 display: block;
+
+border-radius: ${props => props.hasBorder === "true" ? "15px" : "" }; 
+box-shadow: ${props => props.hasShadow === "true" ? "0 0 5px rgba(0, 0, 0, 0.3)" : "" }; 
+width: ${props => props.width};
+height: ${props => props.height};
 `
 const Title = styled.h4`
 color: #656565;
@@ -29,12 +35,13 @@ font-size: 0.8rem;
 font-weight: 500;
 `
 
-const ImageBlock = ({ img, caption=null, title=null, text=null, fixed=true }) => {
+
+const ImageBlock = ({ img, caption=null, title=null, text=null, fixed=true, hasBorder, hasShadow, width, height }) => {
     if (fixed) {
     return (
         <ImageContainer>
             { title && <Title>{title}</Title>}
-            <ImageInnerContainer fixed={img} alt={caption}/>
+            <ImageInnerContainer hasBorder={hasBorder} hasShadow={hasShadow} width={width} height={height} fixed={img} alt={caption}/>
             { caption && <Caption>{caption}</Caption> } 
             { text && <Text>{text}</Text>}
         </ImageContainer>
@@ -42,7 +49,7 @@ const ImageBlock = ({ img, caption=null, title=null, text=null, fixed=true }) =>
         return (
             <ImageContainer2>
                 { title && <Title>{title}</Title>}
-                <ImageInnerContainer fluid={img} alt={caption}/>
+                <ImageInnerContainer hasBorder={hasBorder} hasShadow={hasShadow} width={width} height={height} fluid={img} alt={caption}/>
                 { caption && <Caption>{caption}</Caption> } 
                 { text && <Text>{text}</Text>}
             </ImageContainer2>
