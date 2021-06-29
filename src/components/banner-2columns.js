@@ -6,7 +6,7 @@ import Button from "./button";
 const BGContainer = styled(BackgroundImage)`
 display: flex;
 align-items: center;
-height: 614px;
+
 background-position: center top;
 background-repeat: no-repeat;
 background-size: cover;
@@ -22,7 +22,7 @@ padding-bottom: 60px;
 }
 
 @media only screen and (max-width: 600px) {
-  height: 600px;
+  
   width: 100%;
 }
 `
@@ -30,7 +30,7 @@ padding-bottom: 60px;
 const Title = styled.h2`
 display: block;
 font: 600 30px/38px "Poppins", sans-serif;
-margin: 80px auto 10px;
+margin: 80px auto ${props => props.titleBottomMargin ? props.titleBottomMargin : "10px" };
 color: ${(props) => {return (props.theme === "dark" ? "#fff" : "#c62f2e")}};
 text-align: center;
 max-width: 600px;
@@ -50,7 +50,7 @@ max-width: 600px;
 const Subtitle = styled.h3`
 font: 500 17px/28px "Poppins", sans-serif;
 font-weight: 300;
-color: #8f8f8f;
+color: ${props => props.subtitleColor ? props.subtitleColor : "#8f8f8f" };
 margin: 0 auto 20px;
 text-align: center;
 max-width: 680px;
@@ -83,7 +83,7 @@ const SubContainer = styled.div`
 display: flex;
 padding: 20px;
 width: 80%;
-margin: 0 auto;
+margin: ${props => props.subContainerTopMargin ? props.subContainerTopMargin : "0"} auto 0;
 @media only screen and (max-width: 600px) {
     flex-wrap: wrap;
     width: 95%;
@@ -96,12 +96,12 @@ justify-content: center;
 padding: 20px 0;
 `
 
-const Banner = (title, subtitle, spaces, btText, btRef, btColor, theme) => {
+const Banner = (title, subtitle, spaces, btText, btRef, btColor, theme, titleBottomMargin, subtitleColor, subContainerTopMargin) => {
     return (
         <div>
-            {title && <Title theme={theme}>{title}</Title>}
-            {subtitle && <Subtitle>{subtitle}</Subtitle>}
-            <SubContainer>
+            {title && <Title theme={theme} titleBottomMargin={titleBottomMargin}>{title}</Title>}
+            {subtitle && <Subtitle subtitleColor={subtitleColor}>{subtitle}</Subtitle>}
+            <SubContainer subContainerTopMargin={subContainerTopMargin}>
                 <Space>{spaces[0]}</Space>
                 <Space>{spaces[1]}</Space>
             </SubContainer>
@@ -126,28 +126,28 @@ h2, h3, h4, h5, h6 {
 }
 `
 
-function Banner2C({ title=null, subtitle=null, spaces, btText=null, btRef=null, theme="light", bgImg=null, btColor='green'} ) {
+function Banner2C({ title=null, subtitle=null, spaces, btText=null, btRef=null, theme="light", bgImg=null, btColor='green', titleBottomMargin, subtitleColor, subContainerTopMargin} ) {
     if (bgImg != null) {
         return (
             <BGContainer
                 Tag="section"
                 fluid={bgImg}
             > 
-                {Banner(title, subtitle, spaces, btText, btRef, btColor, "dark")}
+                {Banner(title, subtitle, spaces, btText, btRef, btColor, "dark", titleBottomMargin, subtitleColor, subContainerTopMargin)}
             </BGContainer>
         )
     }
     else if (theme === "light") {
             return (
             <LightBanner>
-                {Banner(title, subtitle, spaces, btText, btRef, btColor)}
+                {Banner(title, subtitle, spaces, btText, btRef, btColor,"light", titleBottomMargin, subtitleColor, subContainerTopMargin)}
             </LightBanner>
             )
     }
     else {
         return (
             <DarkBanner>
-                {Banner(title, subtitle, spaces, btText, btRef, "dark")}
+                {Banner(title, subtitle, spaces, btText, btRef, "dark", titleBottomMargin, subtitleColor, subContainerTopMargin)}
             </DarkBanner>
             )
     }

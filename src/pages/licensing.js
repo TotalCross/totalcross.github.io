@@ -39,7 +39,10 @@ const LicenseText = [
     "If you make any changes to TotalCross code you will need to send these changes back to TotalCross. If you did something really clever we'll definetelly consider adding it to a future version, so that more people can benefit from it."
 ]
 const CommercialLicenseText = [
-    "If complying with the requirements outlined above doesn't quite fit your needs, we also have a commercial licence.",
+    // "If complying with the requirements outlined above doesn't quite fit your needs, we also have a commercial licence.",
+    // "Contact us if you wish to know more about it."
+    "Some projects require a high level of support, so we have a solution for that: a commercial license. ", 
+    "Besides that, If complying with the requirements outlined above doesn't quite fit your needs, that’s a good way too. ",
     "Contact us if you wish to know more about it."
 ]
 const CardsContainer = styled.div`
@@ -150,6 +153,12 @@ z-index: 2;
 margin-top: 1px;
 margin-left: 9px;
 `
+const CustomHero = styled.h1`
+font: 800 46px/60px "Poppins", sans-serif;
+color: #c62f2e;
+margin: 80px auto;
+`
+
 const FreeLicenseCard = () => {
     const FreePlan = [
         {
@@ -214,31 +223,37 @@ const Licensing = () => {
         description="Understand what you get with TotalCross Free License under Open Source License LGPL v2.1 and what is included in the Commercial License."
       ></SEO>
       <MainContainer>
-        <HeroCenter title="Our Licenses" />
+        <CustomHero>Our Licenses</CustomHero>
         <Banner2C 
             spaces={[
-            <TextBlock
+            <TextBlock 
+            marginTop="40px"
             title="TotalCross is LGPL v2.1"
             text={LicenseText}
             />,
             <FreeLicenseCard />
             ]}
         />
-        <Banner1C 
+        {/* <Banner1C 
             space={
             <ImageBlock 
             img={data.lgpl.childImageSharp.fluid}
             fixed={false}  
-        />}
-        />
+        />} 
+        />*/}
         <Banner1C 
-            space={
-            <TextBlock
-            title="TotalCross also has a commercial licence"
-            text={CommercialLicenseText}
+            title="Do you need special support?"
+            titleBottomMargin="20px"
+            subtitle={CommercialLicenseText}
             btText="Contact us"
             btRef={CONTACT}
-            />}
+            // space={
+            // <TextBlock
+            // title="TotalCross also has a commercial licence"
+            // text={CommercialLicenseText}
+            // btText="Contact us"
+            // btRef={CONTACT}
+            // />}
         />
       </MainContainer>
     </Layout>

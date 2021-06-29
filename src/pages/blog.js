@@ -36,7 +36,9 @@ const BlogIndex = ({ data }) => {
       <SEO title="TotalCross Blog" description="Everything about embedded systems development" />
         <HeroCenter 
             title="TotalCross Blog"
+            titleColor="#efefef"
             tagline="Everything about embedded systems development"
+            taglineColor="#efefef"
             bgImg={data.bg.childImageSharp.fluid}/>
       <BlogContainer>
         <ol style={{ listStyle: `none` }}>

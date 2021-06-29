@@ -92,9 +92,12 @@ const WhyTotalCross = () => {
             <SEO title="TotalCross · GUI Creator For Embedded, Mobile... Everything!"
       description='Build beautiful and modern Graphical User Interfaces for embedded, IoT, mobile and desktop. A cross-platform tool that lets you develop apps in Java.'/>
             <HeroCenter 
-            title="Why TotalCross"
-            tagline="Three important points that make the difference when programming"
-            bgImg={data.bg.childImageSharp.fluid}/>
+              title="Why TotalCross"
+              titleColor="#efefef"
+              tagline="Three important points that make the difference when programming"
+              taglineColor="#efefef"
+              bgImg={data.bg.childImageSharp.fluid}
+            />
             <Banner2C 
             title="Low footprint application: be light!"
             subtitle="Keeping your application's footprint as low as possible is important to ensure a better performance. That's what we do: TotalCross runtime is currently at 5MB to bring mobile grade user experience even for low-end MPUs."

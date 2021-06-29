@@ -206,19 +206,20 @@ const Index = () => {
         space={<TCFeatures />}/>
       <Banner2C
         title='What is TotalCross?'
+        titleBottomMargin="60px"
         bgImg={data.bg2.childImageSharp.fluid}
         spaces={[
-      <ImageBlock 
-        img={data.homeapp.childImageSharp.fluid}
-        fixed={false}
-      />, 
-      <TextBlock 
-        text={['TotalCross is an open-source cross-platform SDK developed to make your life easier when creating mobile grade user experience to your embedded systems.', 
-        'All while delivering native performance with a low footprint.']} 
-        btText='Get Started' 
-        btRef={GET_STARTED}
-        btColor='white'
-      />
+        <ImageBlock 
+          img={data.homeapp.childImageSharp.fluid}
+          fixed={false}
+        />, 
+        <TextBlock 
+          text={['TotalCross is an open-source cross-platform SDK developed to make your life easier when creating mobile grade user experience to your embedded systems.', 
+          'All while delivering native performance with a low footprint.']} 
+          btText='Get Started' 
+          btRef={GET_STARTED}
+          btColor='white'
+        />
       ]}/>
       <Banner2C
       title='Samples'

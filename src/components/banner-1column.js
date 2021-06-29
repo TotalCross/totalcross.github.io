@@ -5,8 +5,8 @@ import Button from "./button";
 const Title = styled.h2`
 display: block;
 font: 600 30px/38px "Poppins", sans-serif;
-margin: 80px auto 50px;
-color: #c62f2e;
+margin: 0 auto ${props => props.titleBottomMargin ? props.titleBottomMargin : "50px" };
+color: ${props => props.titleColor ? props.titleColor : "#c62f2e" };
 text-align: center;
 width: 50%;
 
@@ -26,10 +26,11 @@ width: 50%;
 const Subtitle = styled.h3`
 font: 500 17px/28px "Poppins", sans-serif;
 font-weight: 300;
-color: #8f8f8f;
+color: ${props => props.subtitleColor ? props.subtitleColor : "#212121" };
 margin: 0 auto 20px;
+
 text-align: center;
-width: 70%;
+width: ${props => props.subtitleWidth ? props.subtitleWidth : "70%" };
 
 @media only screen and (max-width: 1000px) {
     margin-bottom: 0px;
@@ -73,11 +74,11 @@ display: flex;
 justify-content: center;
 `
 
-const Banner = (title, subtitle, space, btText, btRef, btColor) => {
+const Banner = (title, subtitle, space, btText, btRef, btColor, titleColor, titleBottomMargin, subtitleColor, subtitleWidth) => {
     return (
         <Container>
-            {title && <Title>{title}</Title>}
-            {subtitle && <Subtitle>{subtitle}</Subtitle>}
+            {title && <Title titleColor={titleColor} titleBottomMargin={titleBottomMargin}>{title}</Title>}
+            {subtitle && <Subtitle subtitleColor={subtitleColor} subtitleWidth={subtitleWidth}>{subtitle}</Subtitle>}
             {space && <SubContainer>
                 <Space>{space}</Space>
                 </SubContainer>
@@ -101,11 +102,11 @@ background-color: #212121;
 color: #EFEFEF;
 `
 
-function Banner1C({ title=null, subtitle=null, space=null, btText=null, btRef=null, theme="light", btColor="green"} ) {
+function Banner1C({ title=null, subtitle=null, space=null, btText=null, btRef=null, theme="light", btColor="green", titleColor, titleBottomMargin, subtitleColor, subtitleWidth} ) {
     if (theme === "light") {
         return (
             <LightBanner>
-                {Banner(title, subtitle, space, btText, btRef, btColor)}
+                {Banner(title, subtitle, space, btText, btRef, btColor, titleColor, titleBottomMargin, subtitleColor, subtitleWidth)}
                 
             </LightBanner>
             )
@@ -113,7 +114,7 @@ function Banner1C({ title=null, subtitle=null, space=null, btText=null, btRef=nu
     else {
         return (
             <DarkBanner>
-                {Banner(title, subtitle, space, btText, btRef, btColor)}
+                {Banner(title, subtitle, space, btText, btRef, btColor, titleColor, titleBottomMargin, subtitleColor, subtitleWidth)}
             </DarkBanner>
             )
     }

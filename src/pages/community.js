@@ -59,6 +59,7 @@ const Community= () =>  {
     <HeroCenter 
     bgImg={data.bg.childImageSharp.fluid}
     title='Join the TotalCross Community'
+    titleColor="#efefef"
     />
     <Banner1C
     title='Become a TotalCross Contributor'

@@ -7,7 +7,7 @@ const TextContainer = styled.div`
 display: flex;
 flex-direction: column;
 text-align: left;
-margin: auto 20px;
+margin: ${props => props.marginTop ? props.marginTop : "auto"}  20px ${props => props.marginBottom ? props.marginBottom : "auto"};
 `
 
 const BtContainer = styled.div`
@@ -25,9 +25,9 @@ const Text = styled.p`
 font-family: "Poppins", sans-serif;
 `
 
-const TextBlock = ({ img=null, caption=null, title=null, text=null, btText=null, btRef=null, btColor='green' }) => {
+const TextBlock = ({ img=null, caption=null, title=null, text=null, btText=null, btRef=null, btColor='green', marginTop }) => {
     return (
-        <TextContainer>
+        <TextContainer marginTop={marginTop}>
             { title !== null && <Title>{title}</Title>}
             { img !== null && <ImageBlock 
                 img={img} 

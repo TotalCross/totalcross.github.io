@@ -57,8 +57,8 @@ text-align: center;
 
 const Title = styled.h1`
 font: 800 46px/60px "Poppins", sans-serif;
-margin: 0 auto 50px;
-color: #c62f2e;
+margin: 0 auto ${props => props.titleBottomMargin ? props.titleBottomMargin : "50px" };
+color: ${props => props.titleColor ? props.titleColor : "#c62f2e" };
 
 @media only screen and (max-width: 1000px) {
     padding-top: 250px;
@@ -72,10 +72,11 @@ color: #c62f2e;
     padding-top: 50px;
 }
 `
+//Reference: old color for tagline is #8f8f8f
 const Tagline = styled.p`
 font: 500 17px/28px "Poppins", sans-serif;
 font-weight: 300;
-color: #8f8f8f;
+color: ${props => props.taglineColor ? props.taglineColor : "#212121" };
 margin: 0 auto 20px;
 
 @media only screen and (max-width: 1000px) {
@@ -91,14 +92,14 @@ margin: 0 auto 20px;
 `
 
 
-const HeroBlock = (title, tagline) => {
+const HeroBlock = (title, tagline, titleColor, titleBottomMargin, taglineColor) => {
     return (
         <Hero>
             <TextBlock>
-                <Title>
+                <Title titleColor={titleColor} titleBottomMargin={titleBottomMargin}>
                     {title}
                 </Title>
-                <Tagline>
+                <Tagline taglineColor={taglineColor}>
                     {tagline}
                 </Tagline>
             </TextBlock>
@@ -106,9 +107,9 @@ const HeroBlock = (title, tagline) => {
     )
 }
 
-function HeroCenter({ title, tagline=null, bgImg=null} ) {
+function HeroCenter({ title, tagline=null, bgImg=null, titleColor, titleBottomMargin, taglineColor} ) {
     if (bgImg === null) {
-        return (HeroBlock(title, tagline))
+        return (HeroBlock(title, tagline, titleColor, titleBottomMargin, taglineColor))
     }
     else {
         return (
@@ -116,7 +117,7 @@ function HeroCenter({ title, tagline=null, bgImg=null} ) {
                 Tag="section"
                 fluid={bgImg}
             > 
-                {HeroBlock(title, tagline)}
+                {HeroBlock(title, tagline, titleColor, titleBottomMargin, taglineColor)}
             </BGContainer>
         )
     }
