@@ -22,12 +22,19 @@ text-align: center;
 align-items: center;
 justify-content: center;
 
+transition: transform 0.3s, filter 0.5s;
+
 min-height: 30px;
 box-shadow: 0 3px 8px 0 rgb(50, 50, 50), 0 2px 10px 0 rgba(250, 250, 250, 0.4);
 margin: ${props => props.margin === "true" ? "10px" : "0"};
 
   @media (max-width: 768px) {
     display: none;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    filter: brightness(1.3);
   }
 `
 
