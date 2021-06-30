@@ -20,6 +20,27 @@ const Services = () => {
           }
         }
       }
+      support: file(name: { eq: "services_support" }, extension: { eq: "png" }) {
+        childImageSharp {
+          fluid(quality: 100, maxWidth: 1920) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      codeGUI: file(name: { eq: "services_code_gui" }, extension: { eq: "png" }) {
+        childImageSharp {
+          fluid(quality: 100, maxWidth: 1920) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      designInterface: file(name: { eq: "services_design_interface" }, extension: { eq: "png" }) {
+        childImageSharp {
+          fluid(quality: 100, maxWidth: 1920) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `);
     return (
@@ -39,7 +60,7 @@ const Services = () => {
               subContainerTopMargin="60px"
               spaces={[
                 <ImageBlock
-                  img={"Image Here"}
+                  img={data.support.childImageSharp.fluid}
                   fixed={false}
                 />, 
                 <TextBlock
@@ -65,7 +86,7 @@ const Services = () => {
                   btColor="black"
                 />,
                 <ImageBlock
-                  img={"Image Here"}
+                  img={data.codeGUI.childImageSharp.fluid}
                   fixed={false}
                 />
               ]}
@@ -74,7 +95,7 @@ const Services = () => {
               theme='light'
               spaces={[
                 <ImageBlock
-                  img={"Image Here"}
+                  img={data.designInterface.childImageSharp.fluid}
                   fixed={false}
                 />, 
                 <TextBlock

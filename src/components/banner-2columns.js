@@ -15,7 +15,6 @@ text-align: center;
 color: #ffffff;
 justify-content: center;
 font-family: "Poppins", sans-serif;
-padding-bottom: 60px;
 
 @media only screen and (max-width: 1000px) {
     flex-direction: column;
@@ -114,13 +113,11 @@ const LightBanner = styled.div`
 background-color: #EFEFEF;
 color:#212121;
 border: solid rgba(0, 0, 0, 0);
-padding-bottom: 60px;
 `
 
 const DarkBanner = styled.div`
 background-color: #212121;
 color: #EFEFEF;
-padding-bottom: 60px;
 h2, h3, h4, h5, h6 {
     color: #EFEFEF;
 }
