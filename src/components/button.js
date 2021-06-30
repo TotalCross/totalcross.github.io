@@ -34,7 +34,7 @@ margin: ${props => props.margin === "true" ? "10px" : "0"};
 
   &:hover {
     transform: scale(1.05);
-    filter: brightness(1.3);
+    filter: brightness(1.1);
   }
 `
 

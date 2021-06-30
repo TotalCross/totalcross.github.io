@@ -11,8 +11,8 @@ text-align: center;
 width: 50%;
 
 @media only screen and (max-width: 1000px) {
-    padding-top: 250px;
-    margin-bottom: 0px;
+    padding-top: auto;
+    margin-bottom: 50px;
 }
 
 @media only screen and (max-width: 600px) {

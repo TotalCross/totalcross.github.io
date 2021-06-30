@@ -61,7 +61,7 @@ margin: 0 auto ${props => props.titleBottomMargin ? props.titleBottomMargin : "5
 color: ${props => props.titleColor ? props.titleColor : "#c62f2e" };
 
 @media only screen and (max-width: 1000px) {
-    padding-top: 250px;
+    padding-top: auto;
     margin-bottom: 0px;
 }
 

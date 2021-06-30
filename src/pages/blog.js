@@ -15,6 +15,13 @@ min-height: 68vh;
   width: 95%;
 }
 ` 
+
+const BlogPost = styled.li`
+padding: 20px 40px 40px;
+border-radius: 10px;
+box-shadow: 0 0 5px #8f8f8f;
+`
+
 const BlogIndex = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes
 
@@ -46,7 +53,7 @@ const BlogIndex = ({ data }) => {
             const title = post.frontmatter.title || post.fields.slug
 
             return (
-              <li key={post.fields.slug}>
+              <BlogPost key={post.fields.slug}>
                 <article
                   className="post-list-item"
                   itemScope
@@ -55,7 +62,7 @@ const BlogIndex = ({ data }) => {
                   <header>
                     <h2>
                       <Link to={post.fields.slug} itemProp="url">
-                        <span itemProp="headline">{title}</span>
+                        <span itemProp="headline" style={{ color: "#c62f2e" }}>{title}</span>
                       </Link>
                     </h2>
                     <small>{post.frontmatter.author}</small>
@@ -71,7 +78,7 @@ const BlogIndex = ({ data }) => {
                     />
                   </section>
                 </article>
-              </li>
+              </BlogPost>
             )
           })}
         </ol>

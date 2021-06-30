@@ -36,8 +36,8 @@ text-align: center;
 max-width: 600px;
 
 @media only screen and (max-width: 1000px) {
-    padding-top: 250px;
-    margin-bottom: 0px;
+    padding-top: auto;
+    margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 600px) {
