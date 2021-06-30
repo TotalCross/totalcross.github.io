@@ -36,12 +36,14 @@ font-weight: 500;
 `
 
 
-const ImageBlock = ({ img, caption=null, title=null, text=null, fixed=true, hasBorder, hasShadow, width, height }) => {
+const ImageBlock = ({ img, caption=null, title=null, text=null, fixed=true, hasBorder, hasShadow, width, height, link }) => {
     if (fixed) {
     return (
         <ImageContainer>
             { title && <Title>{title}</Title>}
-            <ImageInnerContainer hasBorder={hasBorder} hasShadow={hasShadow} width={width} height={height} fixed={img} alt={caption}/>
+            <a href={link}>
+                <ImageInnerContainer hasBorder={hasBorder} hasShadow={hasShadow} width={width} height={height} fixed={img} alt={caption}/>
+            </a>
             { caption && <Caption>{caption}</Caption> } 
             { text && <Text>{text}</Text>}
         </ImageContainer>
@@ -49,7 +51,9 @@ const ImageBlock = ({ img, caption=null, title=null, text=null, fixed=true, hasB
         return (
             <ImageContainer2>
                 { title && <Title>{title}</Title>}
-                <ImageInnerContainer hasBorder={hasBorder} hasShadow={hasShadow} width={width} height={height} fluid={img} alt={caption}/>
+                <a href={link}>
+                    <ImageInnerContainer hasBorder={hasBorder} hasShadow={hasShadow} width={width} height={height} fluid={img} alt={caption}/>
+                </a>
                 { caption && <Caption>{caption}</Caption> } 
                 { text && <Text>{text}</Text>}
             </ImageContainer2>

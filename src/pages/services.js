@@ -62,6 +62,7 @@ const Services = () => {
                 <ImageBlock
                   img={data.support.childImageSharp.fluid}
                   fixed={false}
+                  link="https://storyset.com/web"
                 />, 
                 <TextBlock
                   title='Support for TotalCross framework?'
@@ -88,6 +89,7 @@ const Services = () => {
                 <ImageBlock
                   img={data.codeGUI.childImageSharp.fluid}
                   fixed={false}
+                  link="https://storyset.com/web"
                 />
               ]}
             />
@@ -97,6 +99,7 @@ const Services = () => {
                 <ImageBlock
                   img={data.designInterface.childImageSharp.fluid}
                   fixed={false}
+                  link="https://storyset.com/web"
                 />, 
                 <TextBlock
                   title='Design the graphical user interface'
