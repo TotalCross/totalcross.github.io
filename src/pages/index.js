@@ -83,6 +83,14 @@ const SamplesSection = styled(Banner2C)`
     }
   }
 `
+const ExampleSection = styled(Banner2C)`
+  border-radius: 30px;
+  transform: translateY(30px);
+
+  ${Banner2CClass.Container} {
+    padding-top: 60px;
+  }
+`
 
 //OTHER STYLES
 const TCFeaturesContainer = styled.div`
@@ -322,7 +330,7 @@ const Index = () => {
         btRef={SAMPLES}
         btColor='black'
       />
-      <Banner2C 
+      <ExampleSection
         spaces={[
           <TextBlock 
             title='Built with TotalCross:'

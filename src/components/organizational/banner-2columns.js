@@ -95,7 +95,7 @@ const Banner = (title, subtitle, theme, spaces, btText, btRef, btColor) => {
     )
 }
 
-const BGContainer = styled(BackgroundImage)`
+export const BGContainer = styled(BackgroundImage)`
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -106,12 +106,12 @@ const BGContainer = styled(BackgroundImage)`
     }
 `
 
-const LightBanner = styled.section`
+export const LightBanner = styled.section`
     background-color: var(--color-light);
     color: var(--color-dark);
 `
 
-const DarkBanner = styled(LightBanner)`
+export const DarkBanner = styled(LightBanner)`
     background-color: var(--color-dark);
     color: var(--color-light);
 `
