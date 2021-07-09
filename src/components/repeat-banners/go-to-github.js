@@ -1,5 +1,5 @@
 import React from "react"
-import Banner1C from '../banner-1column'
+import Banner1C from "../organizational/banner-1column"
 import { GITHUB } from '../../links'
 
 const GoToGitHub = () => {

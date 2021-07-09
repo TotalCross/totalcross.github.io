@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import styled from "styled-components"
 
-import Layout from "../components/layout"
+import Layout from "../components/organizational/layout"
 import SEO from "../components/seo"
 import { CHANGE_JAVA_MAVEN_PLUGIN, AZUL_TERMS, INSTALL_JAVA11, INSTALL_VSCODE, INSTALL_MAVEN, TC_VSCODE_PLUGIN, TC_HELLO_REPO, GT_ECLIPSE_VIDEO, GT_ECLIPSE_ARTICLE, GT_INTELLIJ_VIDEO, GT_INTELLIJ_ARTICLE, FIRST_EMBEDDED_PROJECT, GT_VSCODE_ARTICLE, TELEGRAM, DISCORD } from "../links"
 

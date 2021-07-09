@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import Button from "./button"
-import ImageBlock from "../components/image-block"
+import ImageBlock from "./image-block"
 
-const TextContainer = styled.div`
+export const TextContainer = styled.div`
 display: flex;
 flex-direction: column;
 align-items: stretch;
@@ -14,9 +14,12 @@ display: flex;
 text-align: center;
 `
 const Title = styled.h3`
-color: #161616;
+font-weight: 800;
+font-size: 24px;
+color: var(--color-dark);
 margin-top: 1rem;
-margin-bottom: 0.5rem;
+margin-bottom: 0rem;
+
 `
 const Text = styled.p`
 font-family: "Poppins", sans-serif;

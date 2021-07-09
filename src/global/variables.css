@@ -1,0 +1,36 @@
+:root {
+    --color-light: #EFEFEF;
+    --color-light-grey: #8f8f8f;
+    --color-mid-grey: #656565;
+    --color-dark:  #212121;
+    --color-primary: #c62f2e;
+    --color-secundary: #2aa75e;
+
+    --font-text: 500 17px "Poppins", sans-serif;
+    --font-text-big: 500 19px "Poppins", sans-serif;
+    --font-subtitle: 500 18px "Poppins", sans-serif;;
+    --font-title: 600 30px "Poppins", sans-serif;
+    --font-header: 600 46px "Poppins", sans-serif;
+    
+    --normal-round: 10px;
+    --strong-round: 20px;
+
+    --normal-shadow: 0 0 5px rgba(0,0,0,0.3);
+    --low-normal-shadow: 0 5px 5px rgba(0,0,0,0.3);
+    --strong-shadow: 0 0 5px rgba(0,0,0,0.6);
+    --low-strong-shadow: 0 5px 5px rgba(0,0,0,0.6);
+
+    --font-color-default: "${props => props.theme === "dark" ? "var(--color-light)" : "var(--color-dark)"}";
+    --font-color-light: "${props => props.theme === "dark" ? "var(--color-light)" : "var(--color-mid-grey)"}";
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+body p{
+    font: var(--font-text);
+    color: var(--color-dark);
+}
+

@@ -6,7 +6,7 @@ import Logo from "./logo"
 import styled from 'styled-components'
 import SocialNetwork from '../social-network';
 import { GITHUB, GET_STARTED } from "../../links";
-import Button from "../button"
+import Button from "../base/button"
 
 const Navigation = styled.nav`
   min-height: 7vh;

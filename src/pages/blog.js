@@ -2,9 +2,9 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import styled from "styled-components"
 
-import Layout from "../components/layout"
+import Layout from "../components/organizational/layout"
 import SEO from "../components/seo"
-import HeroCenter from '../components/hero-center'
+import HeroCenter from "../components/organizational/hero-center"
 
 const BlogContainer = styled.div`
 width: 85%;

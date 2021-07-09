@@ -9,11 +9,11 @@ import {
   faDiscord,
 } from "@fortawesome/free-brands-svg-icons"
 
-import Layout from "../components/layout"
+import Layout from "../components/organizational/layout"
 import SEO from "../components/seo"
-import HeroCenter from "../components/hero-center"
-import Banner1C from "../components/banner-1column"
-import SquareCard from '../components/square-card'
+import HeroCenter from "../components/organizational/hero-center"
+import Banner1C from "../components/organizational/banner-1column"
+import SquareCard from "../components/base/square-card"
 import { 
   GITHUB, 
   GITHUB_ISSUES, 

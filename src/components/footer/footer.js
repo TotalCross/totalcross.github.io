@@ -6,7 +6,7 @@ import FooterLinks from './footer-links'
 import SocialNetworks from './social-networks';
 
 const FooterContainer = styled.footer`
-background-color: #212121;
+background-color: var(--color-dark);
 color: #ffffff;
 left: 0;
 bottom: 0;

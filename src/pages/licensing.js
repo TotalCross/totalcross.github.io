@@ -4,15 +4,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons"
 import styled from "styled-components"
 
-import Layout from "../components/layout"
+import Layout from "../components/organizational/layout"
 import SEO from "../components/seo"
 import { CONTACT, GET_STARTED } from '../links'
-import Button from "../components/button"
-import HeroCenter from "../components/hero-center"
-import Banner2C from "../components/banner-2columns"
-import TextBlock from "../components/text-block"
-import Banner1C from "../components/banner-1column"
-import ImageBlock from '../components/image-block'
+import Button from "../components/base/button"
+import HeroCenter from "../components/organizational/hero-center"
+import Banner2C from "../components/organizational/banner-2columns"
+import TextBlock from "../components/base/text-block"
+import Banner1C from "../components/organizational/banner-1column"
+import ImageBlock from "../components/base/image-block"
 
 const Icon = styled(FontAwesomeIcon)`
 color: #2aa75e;

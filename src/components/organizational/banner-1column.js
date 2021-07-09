@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components"
-import Button from "./button";
+import Button from "../base/button";
 
-const Title = styled.h2`
+export const Title = styled.h2`
 display: block;
 font: 600 30px/38px "Poppins", sans-serif;
 margin: 0 auto ${props => props.titleBottomMargin ? props.titleBottomMargin : "50px" };
@@ -55,16 +55,21 @@ margin: 0 auto;
     width: 98%;
 }
 `
-const SubContainer = styled.div`
+export const SubContainer = styled.div`
 display: flex;
+
 padding: 20px;
-@media only screen and (min-width: 1000px) {
-    max-width: 1300px;
+@media only screen and (min-width: 1400px) {
+    max-width: 1200px;
     margin: 0 auto;
 }
 `
 const Container = styled.div`
+display: flex;
+flex-direction: column;
 justify-content: center;
+align-items: center;
+
 border: solid transparent;
 padding: 60px 0;
 `
@@ -102,10 +107,10 @@ background-color: #212121;
 color: #EFEFEF;
 `
 
-function Banner1C({ title=null, subtitle=null, space=null, btText=null, btRef=null, theme="light", btColor="green", titleColor, titleBottomMargin, subtitleColor, subtitleWidth} ) {
+export function Banner1C({className, title=null, subtitle=null, space=null, btText=null, btRef=null, theme="light", btColor="green", titleColor, titleBottomMargin, subtitleColor, subtitleWidth} ) {
     if (theme === "light") {
         return (
-            <LightBanner>
+            <LightBanner className={className}>
                 {Banner(title, subtitle, space, btText, btRef, btColor, titleColor, titleBottomMargin, subtitleColor, subtitleWidth)}
                 
             </LightBanner>
@@ -113,7 +118,7 @@ function Banner1C({ title=null, subtitle=null, space=null, btText=null, btRef=nu
     }
     else {
         return (
-            <DarkBanner>
+            <DarkBanner className={className}>
                 {Banner(title, subtitle, space, btText, btRef, btColor, titleColor, titleBottomMargin, subtitleColor, subtitleWidth)}
             </DarkBanner>
             )

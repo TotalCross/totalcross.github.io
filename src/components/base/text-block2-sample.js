@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Button from "./button"
-import ImageBlock from "../components/image-block"
+import ImageBlock from "./image-block"
 
 const TextContainer = styled.div`
 display: flex;

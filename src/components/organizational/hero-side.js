@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image";
 import Img from "gatsby-image";
+import * as Simple from "../base/simple-styles";
 
 const Hero = styled.div`
 display: flex;
@@ -42,7 +43,7 @@ justify-content: center;
 }
 `
 
-const TextBlock = styled.div`
+export const TextBlock = styled.div`
 width: 45%;
 margin-left: 60px;
 text-align: left;
@@ -52,12 +53,18 @@ text-align: left;
     margin-left: 0px;
     text-align: center;
 }
+
+@media only screen and (min-width: 1400px) {
+    width: 31%;
+    margin-right: 10%;
+}
 `
 
-const Title = styled.h1`
-font: 800 46px/60px "Poppins", sans-serif;
-margin: 0 auto 50px;
+export const Title = styled(Simple.Title)`
+font: 800 36px "Poppins", sans-serif;
+margin: 0 auto 10px;
 color: #ffffff;
+text-align: start;
 
 @media only screen and (max-width: 1000px) {
     padding-top: 250px;
@@ -69,11 +76,13 @@ color: #ffffff;
     margin: 50px auto 20px;
     width: 90%;
 }
-`
+// `
+
 const Tagline = styled.p`
-font: 500 17px/28px "Poppins", sans-serif;
-font-weight: 300;
-color: #8f8f8f;
+font: 500 20 "Poppins", sans-serif;
+font-weight: 500;
+color: var(--color-light);
+filter: brightness(75%);
 margin: 0 auto 20px;
 
 @media only screen and (max-width: 1000px) {
@@ -89,14 +98,16 @@ margin: 0 auto 20px;
 `
 
 const ImageBlock = styled.div`
+transform: rotate(18deg);
+
 @media only screen and (max-width: 1000px) {
     transform: scale(0.4) translateX(-5%) translateY(-60%);
 }
 `
 
-const HeroBlock = (title, tagline, img, imgText) => {
+const HeroBlock = (title, className, tagline, img, imgText) => {
     return (
-        <Hero>
+        <Hero className={className}>
             <TextBlock>
                 <Title>
                     {title}
@@ -107,19 +118,21 @@ const HeroBlock = (title, tagline, img, imgText) => {
             </TextBlock>
             <ImageBlock>
                 {img != null?
-                <Img 
-                fixed={img}
-                alt={imgText}
-                />
-            :<></>}
+                    <Img 
+                    fixed={img}
+                    alt={imgText}
+                    />
+                :
+                    <></>
+                }
             </ImageBlock>
         </Hero>
     )
 }
 
-function HeroSide({ title, tagline="", img=null, imgText=null, bgImg=null} ) {
+function HeroSide({ title, className, tagline="", img=null, imgText=null, bgImg=null} ) {
     if (bgImg === null) {
-        return (HeroBlock(title, tagline, img, imgText))
+        return (HeroBlock(title, className, tagline, img, imgText))
     }
     else {
         return (
@@ -127,7 +140,7 @@ function HeroSide({ title, tagline="", img=null, imgText=null, bgImg=null} ) {
                 Tag="section"
                 fluid={bgImg}
             > 
-                {HeroBlock(title, tagline, img, imgText)}
+                {HeroBlock(title, className, tagline, img, imgText)}
             </BGContainer>
         )
     }

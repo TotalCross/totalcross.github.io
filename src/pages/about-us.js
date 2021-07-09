@@ -4,10 +4,10 @@ import { useStaticQuery, graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import styled from "styled-components"
 
-import Layout from "../components/layout"
-import Banner1C from "../components/banner-1column"
-import TextBlock2 from '../components/text-block2'
-import ImageBlock from '../components/image-block'
+import Layout from "../components/organizational/layout"
+import Banner1C from "../components/organizational/banner-1column"
+import TextBlock2 from "../components/base/text-block2"
+import ImageBlock from "../components/base/image-block"
 
 const Container = styled.div`
 background-color: #efefef;

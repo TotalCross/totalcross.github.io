@@ -1,14 +1,14 @@
 import React from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 
-import Layout from "../components/layout"
+import Layout from "../components/organizational/layout"
 import SEO from "../components/seo"
-import HeroCenter from '../components/hero-center'
-import Banner2C from '../components/banner-2columns'
-import TextBlock from '../components/text-block'
-import Banner1C from '../components/banner-1column'
+import HeroCenter from "../components/organizational/hero-center"
+import Banner2C from "../components/organizational/banner-2columns"
+import TextBlock from "../components/base/text-block"
+import Banner1C from '../components/organizational/banner-1column'
 import { CONTACT } from '../links'
-import ImageBlock from '../components/image-block'
+import ImageBlock from "../components/base/image-block"
 
 const Services = () => {
     const data = useStaticQuery(graphql`

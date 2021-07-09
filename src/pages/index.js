@@ -2,17 +2,89 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
-import Layout from "../components/layout"
+
+import Layout from "../components/organizational/layout"
 import SEO from "../components/seo"
-import HeroSide from "../components/hero-side"
-import Banner1C from "../components/banner-1column"
-import ImageBlock from "../components/image-block"
-import Banner2C from '../components/banner-2columns'
-import TextBlock2 from '../components/text-block2'
-import TextBlock from '../components/text-block'
+import HeroSide from "../components/organizational/hero-side"
+import Banner1C from "../components/organizational/banner-1column"
+import ImageBlock from "../components/base/image-block"
+import Banner2C from '../components/organizational/banner-2columns'
+import TextBlock2 from '../components/base/text-block2'
+import TextBlock from '../components/base/text-block'
 import GetStartedBanner from "../components/repeat-banners/get-started-banner"
 import { GET_STARTED, SAMPLES } from '../links'
 
+//I know this isn't the best way. Will fix it when I have the time. For now it just has to work.
+import * as Simple from "../components/base/simple-styles"
+import * as TextBlockClass from "../components/base/text-block"
+import * as TextBlock2Class from "../components/base/text-block2"
+import * as ImageBlockClass from "../components/base/image-block"
+
+import * as Banner1CClass from '../components/organizational/banner-1column'
+import * as Banner2CClass from '../components/organizational/banner-2columns'
+import * as HeroSideClass from "../components/organizational/hero-side"
+
+
+//PAGE SECTIONS
+const FeaturesSection = styled(Banner1C)`
+  @media only screen and (min-width: 600px) {
+    ${Banner1CClass.SubContainer} {
+      width: 80%;
+    }
+
+    @media only screen and (min-width: 1400px) {
+      ${TextBlock2Class.TextContainer} {
+        margin-bottom: 50px;
+      }
+    }
+
+  }
+`
+const WhatIsTotalCrossSection = styled(Banner2C)`
+  ${TextBlockClass.TextContainer} {
+    width: 80%;
+  }
+  ${ImageBlockClass.Caption} {
+    margin-top: 5px;
+    filter: brightness(1.5);
+  }
+
+  @media only screen and (max-width: 600px) {
+    ${TextBlockClass.TextContainer} {
+      width: 100%;
+    }
+  }
+
+  @media only screen and (min-width: 1400px) {
+    ${TextBlockClass.TextContainer} {
+      justify-content: center;
+    }
+  }
+
+`
+const PartnersSection = styled(Banner1C)`
+
+`
+const SamplesSection = styled(Banner2C)`
+  ${Banner2CClass.Container} {
+    padding-bottom: 0px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    ${Banner2CClass.Container} {
+      padding-bottom: 0px;
+    }
+  }
+
+  @media only screen and (max-width: 1400px) {
+    ${ImageBlockClass.Caption} {
+      
+      font-size: 14px;
+    }
+  }
+`
+
+//OTHER STYLES
 const TCFeaturesContainer = styled.div`
 display: flex;
 flex-wrap: wrap;
@@ -28,6 +100,8 @@ padding: 1% 2%;
   padding: 0;
 }
 `
+
+//PAGE COMPONENT
 const Index = () => {
   const data = useStaticQuery(graphql`
   query {
@@ -191,26 +265,27 @@ const Index = () => {
   return (
     <Layout>
       <SEO 
-      title="TotalCross · GUI Creator For Embedded, Mobile... Everything!"
-      description='Build beautiful and modern Graphical User Interfaces for embedded, IoT, mobile and desktop. A cross-platform tool that lets you develop apps in Java.' 
+        title="TotalCross · GUI Creator For Embedded, Mobile... Everything!"
+        description='Build beautiful and modern Graphical User Interfaces for embedded, IoT, mobile and desktop. A cross-platform tool that lets you develop apps in Java.' 
       />
       <HeroSide 
-      title="The fastest way to build GUI for embedded devices" 
-      tagline="Open Source SDK providing a fast and easy way to build beautiful User Interfaces for Embedded, IoT, mobile, desktop, everything." 
-      img={data.rasp.childImageSharp.fixed} 
-      imgText="Embedded system with display showing a TotalCross GUI"
-      bgImg={data.bg.childImageSharp.fluid}
+        title="The fastest way to build GUI for embedded devices" 
+        tagline="Open Source SDK providing a fast and easy way to build beautiful User Interfaces for Embedded, IoT, mobile, desktop, everything." 
+        img={data.rasp.childImageSharp.fixed} 
+        imgText="Embedded system with display showing a TotalCross GUI"
+        bgImg={data.bg.childImageSharp.fluid}
       />
-      <Banner1C 
+      <FeaturesSection 
         title='Simplify the development of User Interfaces on Embedded Devices'
         space={<TCFeatures />}/>
-      <Banner2C
+      <WhatIsTotalCrossSection
         title='What is TotalCross?'
-        titleBottomMargin="60px"
         bgImg={data.bg2.childImageSharp.fluid}
         spaces={[
         <ImageBlock 
+          hasBorder
           img={data.homeapp.childImageSharp.fluid}
+          caption="Smart Home"
           fixed={false}
         />, 
         <TextBlock 
@@ -219,45 +294,53 @@ const Index = () => {
           btText='Get Started' 
           btRef={GET_STARTED}
           btColor='white'
+          theme="dark"
         />
       ]}/>
-      <Banner2C
-      title='Samples'
-      subtitle='Wonderful User Interfaces for Embedded Devices'
-      spaces={[
-        <ImageBlock 
-          img={data.coffee.childImageSharp.fluid}
-          fixed={false}
-          caption="Control the features of your machine and enjoy choosing your coffee as the way you like" 
-          title="Coffee Machine" 
-        />, 
-        <ImageBlock 
-          img={data.printer.childImageSharp.fluid}
-          fixed={false}
-          caption="Can a printer be smarter? Yes, of course. It’s time to build a good interface for a printer and make the process easier. Check the code and see it running on an embedded device." 
-          title="Printer" 
-        />
-      ]}
-      btText='Check our Samples'
-      btRef={SAMPLES}
-      btColor='black'/>
-      <Banner2C 
-      spaces={[
-        <TextBlock 
-        title='Built with TotalCross:'
-        text={['Tecdet develops systems for traffic control and inspection for the Brazilian government.', 
-        'They decided to rebuild their system for the Linux Arm architecture compatible with Toradex modules and chose TotalCross to develop their GUI.']}
-        btText='Check our Cases'
-        btRef='/doc'
+      <SamplesSection
+        title='Samples Using TotalCross'
+        subtitle='Wonderful User Interfaces for Embedded Devices'
+        spaces={[
+          <ImageBlock 
+            hasBorder
+            hasShadow
+            img={data.coffee.childImageSharp.fluid}
+            fixed={false}
+            caption="Control the features of your machine and enjoy choosing your coffee as the way you like" 
+            title="Coffee Machine" 
+          />, 
+          <ImageBlock 
+            hasBorder
+            hasShadow
+            img={data.printer.childImageSharp.fluid}
+            fixed={false}
+            caption="Can a printer be smarter? Yes, of course. It’s time to build a good interface for a printer and make the process easier. Check the code and see it running on an embedded device." 
+            title="Printer" 
+          />
+        ]}
+        btText='Check our Samples'
+        btRef={SAMPLES}
         btColor='black'
-        img={data.tecdetlogo.childImageSharp.fixed}
-        />
-      , 
-        <ImageBlock 
-        img={data.tecdet.childImageSharp.fluid}
-        fixed={false}
-        />
-      ]}
+      />
+      <Banner2C 
+        spaces={[
+          <TextBlock 
+            title='Built with TotalCross:'
+            text={['Tecdet develops systems for traffic control and inspection for the Brazilian government.', 
+            'They decided to rebuild their system for the Linux Arm architecture compatible with Toradex modules and chose TotalCross to develop their GUI.']}
+            btText='Check our Cases'
+            btRef='/doc'
+            btColor='black'
+            img={data.tecdetlogo.childImageSharp.fixed}
+          />
+          , 
+          <ImageBlock 
+            hasBorder
+            hasShadow
+            img={data.tecdet.childImageSharp.fluid}
+            fixed={false}
+          />
+        ]}
       />
       <GetStartedBanner />
     </Layout>

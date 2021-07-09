@@ -2,17 +2,17 @@ import React from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
-import Layout from "../components/layout"
+import Layout from "../components/organizational/layout"
 import SEO from "../components/seo"
-import HeroCenter from '../components/hero-center'
-import Banner2C from '../components/banner-2columns'
-import TextBlock from '../components/text-block'
-import TextBlock2 from '../components/text-block2'
-import ImageBlock from '../components/image-block'
+import HeroCenter from "../components/organizational/hero-center"
+import Banner2C from "../components/organizational/banner-2columns"
+import TextBlock from "../components/base/text-block"
+import TextBlock2 from "../components/base/text-block2"
+import ImageBlock from "../components/base/image-block"
 import GetStartedBanner from "../components/repeat-banners/get-started-banner"
 import GetStartedBannerSimple from '../components/repeat-banners/get-started-banner-simple'
 import GoToGitHub from '../components/repeat-banners/go-to-github'
-import Banner1C from '../components/banner-1column'
+import Banner1C from '../components/organizational/banner-1column'
 
 const RowContainer = styled.div`
 display: flex;

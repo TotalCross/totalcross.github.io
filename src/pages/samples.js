@@ -2,13 +2,13 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
-import Layout from "../components/layout"
+import Layout from "../components/organizational/layout"
 import SEO from "../components/seo"
-import HeroCenter from "../components/hero-center"
-import Banner1C from "../components/banner-1column"
-import Banner2C from '../components/banner-2columns'
-import TextBlock2Sample from '../components/text-block2-sample'
-import TextBlock from '../components/text-block'
+import HeroCenter from "../components/organizational/hero-center"
+import Banner1C from "../components/organizational/banner-1column"
+import Banner2C from "../components/organizational/banner-2columns"
+import TextBlock2Sample from "../components/base/text-block2-sample"
+import TextBlock from "../components/base/text-block"
 import { GET_STARTED } from '../links'
 import GetStartedBanner from "../components/repeat-banners/get-started-banner"
 
