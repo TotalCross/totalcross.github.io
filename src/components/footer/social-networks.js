@@ -6,7 +6,6 @@ import {
   faTwitter,
   faTelegram,
   faYoutube,
-  faInstagram,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -14,7 +13,6 @@ import {
   TWITTER,
   TELEGRAM,
   YOUTUBE,
-  INSTAGRAM,
   LINKEDIN,
 } from "../../links";
 
@@ -30,7 +28,6 @@ const snGit = <FontAwesomeIcon icon={faGithub} />;
 const snTwt = <FontAwesomeIcon icon={faTwitter} />;
 const snTel = <FontAwesomeIcon icon={faTelegram} />;
 const snYou = <FontAwesomeIcon icon={faYoutube} />;
-const snInst = <FontAwesomeIcon icon={faInstagram} />;
 const snLin = <FontAwesomeIcon icon={faLinkedin} />;
 
 const SocialNetworks = () => (
@@ -39,7 +36,6 @@ const SocialNetworks = () => (
     <SocialNetwork link={TWITTER} icon={snTwt} />
     <SocialNetwork link={TELEGRAM} icon={snTel} />
     <SocialNetwork link={YOUTUBE} icon={snYou} />
-    <SocialNetwork link={INSTAGRAM} icon={snInst} />
     <SocialNetwork link={LINKEDIN} icon={snLin} />
   </SNContainer>
 );

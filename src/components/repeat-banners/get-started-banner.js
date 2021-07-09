@@ -16,6 +16,11 @@ import * as Banner2CClass from '../organizational/banner-2columns'
 const GetStartedSection = styled(Banner2C)`
   ${Banner2CClass.Container} {
     gap: 0;
+    padding-bottom: 30px;
+
+    @media only screen and (min-width: 1400px) {
+      padding-bottom: 60px;
+    }
   }
 
   ${ImageBlockClass.ImageContainer} {

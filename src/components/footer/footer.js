@@ -21,21 +21,21 @@ flex-wrap: wrap;
 `
 
 const FooterNav = styled.div`
-display: flex;
-flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 
 
-@media only screen and (max-width: 675px) {
+  @media only screen and (max-width: 675px) {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
+    align-items: start;
+    width: 80%;
 `
 
 const FooterLogo = styled.div`
-padding: 40px;
-text-align: right;
+  padding: 40px;
+  text-align: right;
 `
 
 const Footer = () => {

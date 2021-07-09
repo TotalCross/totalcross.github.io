@@ -32,7 +32,7 @@ export const GreenButton = styled(Link)`
   box-shadow: 0 3px 8px 0 rgb(50, 50, 50), 0 2px 10px 0 rgba(250, 250, 250, 0.4);
 
     @media (max-width: 768px) {
-      display: none;
+      display: inline-block;
     }
 
     &:hover {

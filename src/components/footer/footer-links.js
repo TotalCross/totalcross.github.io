@@ -8,7 +8,8 @@ import {
     CONTACT,
     MEDIUM,
     GITHUB,
-    YOUTUBE,
+    TELEGRAM_2,
+    DISCORD,
     ENTERPRISE,
     SERVICES
   } from "../../links";
@@ -18,7 +19,7 @@ const Item = styled(Link)`
   color: #ffffff;
   display: inline-block;
   white-space: nowrap;
-  margin: 0 1vw;
+  
   transition: all 200ms ease-in;
   position: relative;
 
@@ -28,7 +29,7 @@ const Item = styled(Link)`
     left: 0;
     right: 0;
     width: 0%;
-    content: ".";
+    content: "";
     color: transparent;
     background: #2aa75e;
     height: 1px;
@@ -56,7 +57,6 @@ flex-direction: row;
 
 @media only screen and (max-width: 675px) {
   padding: 10px;
-  margin-top: 10px;
   margin-left: 0px;
   width: fit-content;
 }
@@ -66,11 +66,13 @@ const FooterGroupTitle = styled.h5`
 font: 500 17px/28px "Poppins", sans-serif;
 border-bottom: solid #ffffff 1px;
 color: #ffffff;
+margin-bottom: 0;
 `
 
 const FooterGroupList = styled.ul`
 list-style: none;
-margin-left: -18px;
+padding: 0;
+margin: 0;
 padding-top: 10px;
 
 @media only screen and (max-width: 675px) {
@@ -80,6 +82,7 @@ padding-top: 10px;
 const FooterGroupItem = styled.li`
 font: 500 14px/16px "Poppins", sans-serif;
 color: #ffffff;
+margin-bottom: 8px;
 
 :hover {
   text-decoration: none;
@@ -102,7 +105,9 @@ const footer_content = [
         title: "Community",
         items: [
             ['GitHub', GITHUB],
-            ['YouTube', YOUTUBE],
+            // ['YouTube', YOUTUBE],
+            ['Discord', DISCORD],
+            ['Telegram', TELEGRAM_2],
             ['Medium', MEDIUM]
         ],
     },

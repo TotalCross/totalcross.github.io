@@ -21,6 +21,7 @@ export const DISCORD = "https://discord.gg/KWwtDP5";
 export const FORUM = "https://forum.totalcross.com/";
 export const TWITTER = "https://twitter.com/TotalCross";
 export const TELEGRAM = "https://t.me/totalcrosscommunity";
+export const TELEGRAM_2 = "https://t.me/guiforembedded"
 export const GITHUB = "https://github.com/TotalCross/totalcross";
 export const GITHUB_CORONA = "https://github.com/TotalCross/corona-chart-app";
 export const GITHUB_ISSUES = "https://github.com/TotalCross/totalcross/issues";
