@@ -5,7 +5,7 @@ export const TUTORIALSPAGE = "/tutorials";
 export const CONTACT = "/contact";
 export const COMMUNITY = "/community";
 export const SAMPLES = "/samples";
-export const BLOG = "/blog";
+export const BLOG = "https://blog.totalcross.com/";
 export const DOCS =
   "https://learn.totalcross.com/?utm_source=site&utm_medium=principal";
 export const EVENTS = "/events";
