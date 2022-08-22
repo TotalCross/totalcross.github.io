@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TotalCross · GUI Creator For Embedded, Mobile... Everything!]]></title><description><![CDATA[Build beautiful and modern Graphical User Interfaces for embedded, IoT, mobile and desktop. A cross-platform tool that lets you develop apps in Java.]]></description><link>https://totalcross.com</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 22 Aug 2022 20:47:03 GMT</lastBuildDate><item><title><![CDATA[Traffic control system by Tecdet]]></title><description><![CDATA[Tecdet develops systems for traffic control and inspection for the Brazilian government. Their engineers wanted to upgrade technology which…]]></description><link>https://totalcross.com/traffic-control-system-by-tecdet/</link><guid isPermaLink="false">https://totalcross.com/traffic-control-system-by-tecdet/</guid><pubDate>Thu, 25 Feb 2021 22:12:03 GMT</pubDate><content:encoded>&lt;p&gt;Tecdet develops systems for traffic control and inspection for the Brazilian government. Their engineers wanted to upgrade technology which was based on Windows x86, which was no longer satisfactory in terms of performance and energy consumption. They decided to rebuild their system for the Linux Arm architecture compatible with Toradex modules and chose TotalCross to develop their GUI.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/af2b23dc8d8eca83d752f03992b98dfe/51d88/tecdet.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 88.60759493670886%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAASABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAMEBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAGPVxr0WmaILRLIK//EAB0QAQACAgIDAAAAAAAAAAAAAAECAxIxERMjMjP/2gAIAQEAAQUCFbDGLTYdZvxcSTKO7/pD1//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EAB0QAAIBBAMAAAAAAAAAAAAAAAABEQIQIkFhcZH/2gAIAQEABj8CXY3o0SZVemEtcCv/AP/EAB4QAAICAgIDAAAAAAAAAAAAAAABESExYUGBobHB/9oACAEBAAE/IZxdQoRiCSK0bGiDoi9TezZJOR3g8wwLivpi69H/2gAMAwEAAgADAAAAEOQo/P/EABURAQEAAAAAAAAAAAAAAAAAAAEg/9oACAEDAQE/EFj/xAAXEQADAQAAAAAAAAAAAAAAAAAAARAh/9oACAECAQE/EEbf/8QAHRABAAIBBQEAAAAAAAAAAAAAAQARITFBYXGxof/aAAgBAQABPxC/+vEq4ygAwrobyxYpL79SgTN2vIiMf25yoU2kRoDQJ8idfZ7FyV620jEjGPCf/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Image from Tecdet device&quot;
+        title=&quot;Image from Tecdet device&quot;
+        src=&quot;/static/af2b23dc8d8eca83d752f03992b98dfe/828fb/tecdet.jpg&quot;
+        srcset=&quot;/static/af2b23dc8d8eca83d752f03992b98dfe/ff44c/tecdet.jpg 158w,
+/static/af2b23dc8d8eca83d752f03992b98dfe/a6688/tecdet.jpg 315w,
+/static/af2b23dc8d8eca83d752f03992b98dfe/828fb/tecdet.jpg 630w,
+/static/af2b23dc8d8eca83d752f03992b98dfe/0ede0/tecdet.jpg 945w,
+/static/af2b23dc8d8eca83d752f03992b98dfe/3ac88/tecdet.jpg 1260w,
+/static/af2b23dc8d8eca83d752f03992b98dfe/51d88/tecdet.jpg 3272w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;Why did Tecdet choose TotalCross to create their embedded project?&lt;/h2&gt;
+&lt;h3&gt;1. Time to market&lt;/h3&gt;
+&lt;p&gt;The project lead engineer had previous experience with firmware development, but no experience in GUI creation. TotalCross was &lt;strong&gt;the fastest framework for him to learn and build the GUI he needed.&lt;/strong&gt; With his previous basic knowledge of Java, it took him one week to learn how to code with TotalCross and another two weeks to build the first version of the project with 5 screens running on the target device. That meant &lt;strong&gt;more than 60% in time reduction&lt;/strong&gt;, as they had estimated 4 weeks to learn an alternative GUI (based in C and C++) framework and 4 more weeks to build the first version of the application.&lt;/p&gt;
+&lt;h3&gt;2. Cost (hardware and GUI toolkit license)&lt;/h3&gt;
+&lt;p&gt;Due to budget constraints, this project uses &lt;strong&gt;low-end devices&lt;/strong&gt; and the company wanted to avoid runtime fees.
+TotalCross met this requirement because of its &lt;strong&gt;free and open source license&lt;/strong&gt; (with no developer seat charges or runtime fees) and it runs with &lt;strong&gt;high performance in low-end&lt;/strong&gt; devices.&lt;/p&gt;
+&lt;h3&gt;3. Low footprint&lt;/h3&gt;
+&lt;p&gt;Running on low-end devices requires a low footprint. &lt;strong&gt;TotalCross runtime&lt;/strong&gt; at that time was &lt;strong&gt;5MB&lt;/strong&gt; (it has improved since then) and the &lt;strong&gt;whole application&lt;/strong&gt;, including the custom Yocto Distro developed by &lt;a href=&quot;https://www.ossystems.com.br/&quot;&gt;O.S. Systems&lt;/a&gt; (TotalCross partner), has only &lt;strong&gt;23MB&lt;/strong&gt;. &lt;/p&gt;
+&lt;h2&gt;Embedded systems for society’s demands&lt;/h2&gt;
+&lt;p&gt;Just like the Tecdet project, there are so many society’s demands which can be solved with good embedded projects. In cases like this, it’s important to analyse, mainly, the budget available and time to market expectations. In addition, projects for the government often require maintenance, that’s why having an easier and faster to learn framework is a highlight point to be considered. &lt;/p&gt;</content:encoded></item></channel></rss>
