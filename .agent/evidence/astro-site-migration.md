@@ -135,3 +135,12 @@ SPDX-License-Identifier: MIT
   that all-files selection included tracked paths absent from the worktree. The
   validator now filters those paths; a temporary-repository regression test passes,
   and the repository-wide closeout accepted 201/201 files with no issues.
+- 2026-08-10, M5 remote artifact attempt: draft PR #12 at `bfc347b` triggered the
+  intended `Validate source` workflow but stopped at `npm ci --ignore-scripts` before
+  any build. Ubuntu Node 24.18/npm 11.16 reported missing lock entries for
+  `@emnapi/runtime@1.11.3` and `tslib@2.8.1`; no source assertion failed.
+- 2026-08-10, M5 install portability fix: the lockfile was regenerated from an empty
+  dependency tree using Node 24.19/npm 11.16. A detached temporary worktree then
+  completed the exact ignored-scripts clean install with 3,154 packages and resolved
+  Astro 7.2.0 plus MDX 7.0.5, RSS 4.0.19, and sitemap 3.7.3. The temporary worktree
+  was removed after the probe.
