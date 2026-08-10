@@ -52,7 +52,7 @@ for its recurring task.
 - [x] P1 — Establish the repository licensing policy and SPDX mapping.
 - [x] P2 — Implement license validation and safe header fixing.
 - [x] P3 — Add `license-validation` and `logical-commits` skills.
-- [ ] P4 — Integrate CI/package commands and validate the policy once.
+- [x] P4 — Integrate CI/package commands and validate the policy once.
 
 ## Current Architecture and Scope
 
@@ -283,6 +283,10 @@ historical licenses and the proposed defaults. Move resolved detail to archive.
   correctness with low execution/token cost. Date: 2026-08-10.
 - Decision: repository skills live under `.agents/skills/<name>/SKILL.md` and are
   referenced from root `AGENTS.md`. Date: 2026-08-10.
+- Decision: the validator reads the ordered annotation subset used by the local
+  `REUSE.toml` directly instead of adding a runtime TOML dependency. Rationale: CI
+  can validate licensing before dependency installation; focused tests protect the
+  supported parser contract. Date: 2026-08-10.
 
 ## Validation and Acceptance
 
@@ -322,6 +326,12 @@ validator/fixer behavior, CI integration, local planning-contract source SHA, sk
 paths, and any deviations from the proposed MIT/CC-BY/brand policy. Point to compact
 evidence rather than copying command output.
 
+Completed with 115 policy-relevant tracked files compliant: 64 header-governed and
+51 REUSE-mapped; five license/license-text paths are deliberately ignored. The
+all-files validator, five fixer/policy tests, YAML/JSON parsing, pinned Prettier
+checks, and excluded-file immutability checks passed. Evidence is recorded in
+`.agent/evidence/repository-policy-and-agent-tooling.md`.
+
 P0 installed the exact planning contract from the recorded source revision,
 normalized both active plan paths, and made the plan/skill/validation workflow
 discoverable from root `AGENTS.md`.
@@ -339,6 +349,12 @@ normalization, and mapping glob behavior.
 P3 added scaffold-validated repository skills for license maintenance and logical
 commit preparation, with UI metadata and direct references to the canonical policy,
 commands, validation boundaries, and preservation rules.
+
+P4 added an all-files license job for pull requests and made the unchanged legacy
+Gatsby publication job depend on it. The conservative fixer added 45 leading SPDX
+headers to clearly owned historical text files and changed no mapped brand,
+customer, artwork, upstream, binary, JSON, or lock files. The policy plan completed
+without removing the Gatsby recovery path; Astro M0A can now proceed.
 
 ## Revision Note
 

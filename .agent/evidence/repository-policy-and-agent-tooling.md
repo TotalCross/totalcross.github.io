@@ -42,3 +42,16 @@ SPDX-License-Identifier: MIT
   valid!` for both skills using an isolated temporary PyYAML environment, which was
   removed afterward. Targeted license validation reported
   `checked=4 compliant=4 issues=0`; `git diff --check` passed.
+- 2026-08-10, P4 integration: `.github/workflows/main.yml` now runs
+  `npm run license:check:all` on pull requests and `site` pushes; the existing
+  Gatsby publication job runs only for pushes and requires the license job. Legacy
+  publication remains available for migration recovery.
+- 2026-08-10, P4 fix: `npm run license:fix -- --all` reported
+  `checked=114 compliant=114 mapped=51 fixed=45 ignored=5 issues=0`. Inspection of
+  the 45 paths showed only leading headers; mapped Tecdet, artwork, brand,
+  normalize.css, JSON, binary, and lock files had no diff.
+- 2026-08-10, P4 final validation: `npm run license:test` passed 5/5;
+  the final staged `npm run license:check:all` reported `checked=115 compliant=115 mapped=51 fixed=0
+  ignored=5 issues=0`; package JSON and workflow YAML parsed; Prettier 2.2.1 checked
+  both changed configuration files; excluded/mapped-file diff assertion and
+  `git diff --check` passed.

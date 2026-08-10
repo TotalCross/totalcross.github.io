@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 import React from "react";
 import styled from 'styled-components'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

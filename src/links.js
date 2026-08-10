@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 export const GET_STARTED = "/get-started";
 export const ABOUT = "/about-us";
 export const ARTICLES = "/articles";

@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 

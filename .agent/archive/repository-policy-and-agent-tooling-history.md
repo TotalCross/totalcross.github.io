@@ -44,3 +44,12 @@ review for uncertain ownership. `.agents/skills/logical-commits/` requires focus
 status/diff inspection, explicit staging, proportional validation, cached-diff
 review, English Conventional Commits, and preservation of unrelated work. Both
 skills include generated UI metadata and pass the skill-creator validator.
+
+## P4 — CI integration and policy closure
+
+Completed 2026-08-10. Pull requests and `site` pushes now execute the canonical
+all-files license command. The legacy Gatsby publication job depends on that gate
+but otherwise remains available as a recovery path. A single deliberate all-files
+fix added 45 project headers while 51 classified files were satisfied by REUSE
+metadata and five license-text paths were ignored. Final checks accepted all 115
+policy-relevant tracked files and confirmed mapped/excluded files were unchanged.

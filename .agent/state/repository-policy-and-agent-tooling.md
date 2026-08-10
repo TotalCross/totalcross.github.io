@@ -5,23 +5,26 @@ SPDX-License-Identifier: MIT
 
 # Repository policy and agent tooling state
 
-- Active milestone: P4 — CI integration and policy closure.
-- Active slice: add all-files license validation to PR/build gates, apply safe
-  headers to clearly owned tracked files, and perform the policy plan's single final
-  validation including controlled fixer/refusal checks.
-- Last logical commit: `5f6890a` — safe SPDX validator and fixer (P2).
+- Active milestone: complete — P0 through P4 accepted.
+- Active slice: final P4 policy/CI/header changes are ready for their logical commit.
+- Last logical commit: `d1a1327` — repository license and commit skills (P3).
 - Active paths: `.agent/PLANS.md`, `.agent/plans/`, `.agent/state/`,
   `.agent/evidence/`, and `AGENTS.md`.
-- Next concrete action: commit the completed P3 skills, then inspect the current
-  workflow/package build gate and implement P4 integration without migrating Gatsby.
-- Focused validation completed: skill-creator `quick_validate.py` reported both
-  skills valid in an isolated temporary environment; no scaffold TODOs remain;
-  targeted license check reported four compliant files and zero issues.
-- Deferred validation: policy-wide validation waits until P4 as required by the
-  plan; no build is relevant to P0.
-- Active decisions: both skills remain concise and use existing repository scripts;
-  no duplicated resource scripts or references are needed.
+- Next concrete action: commit P4, then start Astro M0A by creating/reading its state
+  file and reconciling the completed supporting-plan outcome.
+- Focused validation completed: repository-wide fixer reported 45 safe changes and
+  no issues; final staged all-files check reported 115/115 compliant, 51 mapped,
+  five ignored;
+  five tests, YAML/JSON parsing, pinned Prettier, excluded-file immutability, and
+  `git diff --check` passed.
+- Deferred validation: no Gatsby build was required because P4 changes headers and
+  gates only; full clean-build/deployment validation belongs to the Astro plan.
+- Active decisions: the legacy `site` publication action remains as a recovery path
+  until Astro deployment acceptance passes; it is now gated by license validation.
 - Blockers: none.
 - Deliberate out-of-scope files: Gatsby behavior and remaining starter package
-  metadata remain unchanged until the Astro migration.
+  metadata remain unchanged until the Astro migration; legal confirmation of brand
+  wording and ambiguous historical asset provenance remains human review.
+- Handoff item: Astro M4 must include this completed policy/tooling work in the new
+  `CHANGELOG.md` and `v1.0.0` reconciliation.
 - Resume command: `git status --short --branch && sed -n '1,180p' .agent/state/repository-policy-and-agent-tooling.md`.

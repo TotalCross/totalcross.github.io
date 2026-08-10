@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 import React from "react"
 import Banner1C from '../banner-1column'
 import { GET_STARTED } from '../../links'

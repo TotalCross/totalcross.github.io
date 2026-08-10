@@ -1,15 +1,31 @@
+# SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+# SPDX-License-Identifier: MIT
+
 name: Gatsby Publish
 
 on:
+  pull_request:
   push:
     branches:
       - site
 
 jobs:
-  build:
+  license:
+    name: License policy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm run license:check:all
+
+  build:
+    if: github.event_name == 'push'
+    needs: license
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
       # - name: Prepare documentation markdown files
       #   run: ./prepare-docs.sh
       - uses: enriikke/gatsby-gh-pages-action@v2

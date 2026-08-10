@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 module.exports = {
   siteMetadata: {
     title: `TotalCross · GUI Creator For Embedded, Mobile... Everything!`,
