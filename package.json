@@ -63,6 +63,10 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "deploy": "gatsby build && gh-pages -d public -b master",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "license:check": "node scripts/license-validation.mjs",
+    "license:check:all": "node scripts/license-validation.mjs --all",
+    "license:fix": "node scripts/license-validation.mjs --fix",
+    "license:test": "node --test scripts/license-validation.test.mjs"
   }
 }

@@ -5,22 +5,22 @@ SPDX-License-Identifier: MIT
 
 # Repository policy and agent tooling state
 
-- Active milestone: P2 — license validator and safe header fixer.
-- Active slice: implement a deterministic Git-aware, path-aware CLI with targeted,
-  all-files, and conservative fix modes, then expose stable package commands.
-- Last logical commit: `0e31684` — planning contract and agent discovery (P0).
+- Active milestone: P3 — repository-local skills.
+- Active slice: add concise `license-validation` and `logical-commits` skills with
+  valid frontmatter and workflows bound to the canonical repository commands.
+- Last logical commit: `6f924ed` — repository licensing policy and mapping (P1).
 - Active paths: `.agent/PLANS.md`, `.agent/plans/`, `.agent/state/`,
   `.agent/evidence/`, and `AGENTS.md`.
-- Next concrete action: commit the completed P1 policy slice, then design the small
-  validator around `REUSE.toml` classifications and supported comment styles.
-- Focused validation completed: P1 inventory found the existing normalize.css MIT
-  notice and stale package `0BSD` declaration; `REUSE.toml` parses as version 1
-  with five annotations; `git diff --check` passed.
+- Next concrete action: commit the completed P2 validator slice, then create both
+  repository-local skill files and validate their discovery/frontmatter.
+- Focused validation completed: `npm run license:test` passed 5/5 tests;
+  `npm run license:check` checked five changed/untracked policy-relevant files with
+  zero issues; `git diff --check` passed.
 - Deferred validation: policy-wide validation waits until P4 as required by the
   plan; no build is relevant to P0.
-- Active decisions: source/editorial/brand/third-party policy matches the plan;
-  unverified historical artwork uses the third-party reference; only unmistakable
-  logo/identity files use the brand reference.
+- Active decisions: validator classification consumes the ordered REUSE annotations;
+  fix mode writes only known project/editorial headers and refuses partial or
+  conflicting metadata.
 - Blockers: none.
 - Deliberate out-of-scope files: Gatsby behavior and remaining starter package
   metadata remain unchanged until the Astro migration.

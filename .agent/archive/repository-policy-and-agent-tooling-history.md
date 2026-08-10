@@ -26,3 +26,12 @@ as customer material. `REUSE.toml` maps non-commentable project metadata, upstre
 normalize.css, mixed/unverified artwork, the customer article, and clear brand
 assets without guessing ownership. The stale package-level `0BSD` declaration was
 changed to MIT; unrelated Gatsby starter metadata remains for the Astro migration.
+
+## P2 — License validator and safe header fixer
+
+Completed 2026-08-10. `scripts/license-validation.mjs` selects changed/untracked
+files by default and tracked files with `--all`; `--fix` is explicit. Ordered
+`REUSE.toml` annotations satisfy non-commentable or excluded paths. Project source
+and original editorial files receive format-aware headers. The fixer adds missing
+known headers and normalizes exact duplicates, but refuses partial, unknown-holder,
+or different-license metadata. Focused Node tests cover the safety boundaries.

@@ -28,3 +28,10 @@ SPDX-License-Identifier: MIT
 - 2026-08-10, P1 validation: Python `tomllib` parsed `REUSE.toml` as version 1 with
   five annotations; all four expected files were present under `LICENSES/`;
   `package.json` reported `MIT`; `git diff --check` passed.
+- 2026-08-10, P2 implementation: added the 107-line Git-aware CLI, 107-line policy
+  module, 125-line header module, and 53-line test file. Canonical package commands
+  are `license:check`, `license:check:all`, `license:fix`, and `license:test`.
+- 2026-08-10, P2 validation: `npm run license:test` passed 5/5 tests covering safe
+  addition/idempotence, Markdown frontmatter, different-holder/license refusal,
+  exact duplicate normalization, and REUSE glob matching. `npm run license:check`
+  reported `checked=5 compliant=5 mapped=1 issues=0`; `git diff --check` passed.
