@@ -5,22 +5,23 @@ SPDX-License-Identifier: MIT
 
 # Post-migration visual corrections state
 
-- Active milestone: M1 — restore favicon and social/external icons.
-- Active slice: derive valid favicon/touch metadata from the existing TotalCross
-  emblem and replace six footer text placeholders with static accessible SVG icons.
-- Last completed logical slice: M0 narrow regression baseline.
-- Active paths: `src/layouts/BaseLayout.astro`, `src/components/SiteFooter.astro`, a
-  focused `SocialIcon.astro`, public favicon/manifest derivatives, and REUSE mappings.
-- Next concrete action: choose the smallest provenance-safe static SVG source, repair
-  the broken favicon derivatives, and implement the complete M1 behavior before its
-  one milestone build/validation pass.
-- Focused validation completed: favicon/icon file types and dimensions inspected;
-  existing brand derivatives viewed; legacy footer compared; existing `dist/`
-  reported 19 HTML documents with emitted SPDX header comments.
-- Deferred validation: M1 Astro check/build/site validation and representative footer
-  evidence wait until the full M1 implementation is complete.
-- Active decisions: preserve the legacy destinations and TotalCross emblem; render
-  social glyphs as static/build-time SVG with no React or client runtime.
+- Active milestone: M2 — keep SPDX metadata source-only.
+- Active slice: add non-emitting Astro and Markdown/MDX header placements, migrate
+  known project headers conservatively, and reject emitted authoring headers in
+  generated HTML.
+- Last completed logical slice: M1 favicon and social/external icon restoration.
+- Active paths: `scripts/license/policy.mjs`, `scripts/license/headers.mjs`, focused
+  license tests, renderable authored files, site validation, and the license skill.
+- Next concrete action: implement dedicated Astro/frontmatter header handling and
+  focused tests before applying the fixer to known project-authored files.
+- Focused validation completed: M1 license check passed; Astro reported zero
+  diagnostics; 18 pages built; route/content validation passed; generated assertions
+  found four head links, six accessible protected social SVG links, eight manifest
+  icons, and zero client scripts. Desktop/mobile screenshots were inspected.
+- Deferred validation: M2 repository-wide license, Astro, build, and generated-output
+  validation wait until its complete implementation and header migration.
+- Active decisions: preserve the legacy destinations and TotalCross emblem; Font
+  Awesome Free Brands is build-time-only with its CC BY/MIT provenance documented.
 - Blockers: none.
 - Deliberate out of scope: image payload optimization belongs to the next ExecPlan.
 - Resume command: `sed -n '1,180p' .agent/state/post-migration-visual-corrections.md && git status --short --branch`.

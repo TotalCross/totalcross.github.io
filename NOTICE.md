@@ -32,3 +32,8 @@ automatically relicensed.
 comment headers and for excluded or third-party groups. Existing third-party notices
 must be preserved when files are copied or transformed. Questions about ownership
 or permission require human review; automation must never guess.
+
+Footer social glyphs are rendered at build time from Font Awesome Free Brands. Font
+Awesome code is MIT-licensed and its free icon artwork is licensed under CC BY 4.0;
+the referenced social-network names and marks remain trademarks of their respective
+owners. No Font Awesome client runtime is shipped by the site.

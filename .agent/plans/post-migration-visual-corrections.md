@@ -53,7 +53,7 @@ a monolithic file.
 ## Progress
 
 - [x] M0 — Confirm the narrow regression baseline.
-- [ ] M1 — Restore favicon and social/external icon parity.
+- [x] M1 — Restore favicon and social/external icon parity.
 - [ ] M2 — Keep SPDX metadata source-only while preserving validation/fix behavior.
 - [ ] M3 — Final correction validation and handoff to asset optimization.
 

@@ -22,3 +22,21 @@ SPDX-License-Identifier: MIT
   both authoring tags. Policy classifies Astro/HTML/Markdown/MDX as HTML-comment
   style, and the fixer inserts that header immediately after frontmatter, where Astro
   renders it into output.
+- 2026-08-10, M1 implementation: regenerated 32px PNG/ICO and 180px Apple-touch
+  derivatives from the existing 512px TotalCross brand emblem. The head now declares
+  ICO, PNG, Apple touch, manifest, and theme color metadata; the manifest declares
+  stable root scope plus eight verified PNG sizes. Font Awesome Free Brands 7.3.1 is
+  build-time-only, with CC BY 4.0/MIT provenance recorded in `NOTICE.md`.
+- 2026-08-10, M1 social output: GitHub, legacy Twitter bird labeled X (Twitter),
+  Telegram, YouTube, Instagram, and LinkedIn render as static SVG paths inside labeled
+  links with `target="_blank"` and `rel="noopener noreferrer"`. Generated home HTML
+  contains all six and no client `<script>`.
+- 2026-08-10, M1 validation: targeted licensing passed 8/8 changed policy paths;
+  Astro check reported 49 files and zero diagnostics; the build produced 18 pages;
+  site/content validation reported `routes=14 html=20 broken=0`, complete archives,
+  RSS/sitemaps, draft exclusion, and translation pairing. The focused checker found
+  four head relationships, six social icons, eight manifest icons, and zero scripts.
+- 2026-08-10, M1 visual evidence: local production full-page captures at 1440×900 and
+  390×844 preserve layout and show six recognizable footer glyphs. SHA-256 values are
+  `5d0ecd282e9dce9f11ef411e9a93e88bb0f99f4065bc411649f3b6a06a9b642f` and
+  `1bcfac838791ec8ca3ab80c41e029bcddcbb4090f64e61e45103b6e9ef35d544`.
