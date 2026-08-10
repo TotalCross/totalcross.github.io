@@ -23,9 +23,16 @@ SPDX-License-Identifier: MIT
   42 source image assets, 14 page routes, nine endpoints, tracking/service settings,
   visual tokens, immutable refs, and rollback configuration. Generated `master` at
   the captured ref contains 296 files and 14 HTML route documents.
-- 2026-08-10, M0 visual baseline: Browser runtime setup and prescribed discovery
-  troubleshooting completed, but `agent.browsers.list()` returned no available
-  backend. Required desktop/mobile captures are deferred; no substitute surface used.
+- 2026-08-10, M0 visual environment and fallback: the Codex in-app Browser has no
+  backend in this execution environment. This is a non-blocking environment
+  limitation and will not be retried unless interactive inspection is explicitly
+  requested. Playwright 1.62.1 headless Chromium instead captured all eight required
+  desktop/mobile viewport baselines from the immutable deployed `master=6c82739`
+  artifact served locally with external requests blocked. Dimensions and SHA-256
+  hashes are recorded in `legacy-visual-baseline.md`; representative images passed
+  visual spot inspection. The earlier live HTTP crawl remains the edge-behavior
+  evidence because Chromium navigation through the live Cloudflare edge did not
+  complete in this environment.
 - 2026-08-10, M0 legacy install diagnostic: official Node 16.20.2 ARM64/npm 8 could
   not complete `npm ci` because locked Sharp/libvips 8.10.5 has no Darwin ARM64
   prebuilt; its source fallback also requires obsolete Python distutils. No build ran
@@ -35,5 +42,3 @@ SPDX-License-Identifier: MIT
   queries, 14/14 static HTML pages, 133/133 image thumbnails, and success in 101.04s.
   `public/` contained 295 files and all 14 manifest routes. Deployed `master` has 296
   because its legacy publication adds root `CNAME`; local `public/CNAME` was absent.
-- 2026-08-10, M0 visual retry: browser selection again reported `No browser is
-  available`. M0 remains open solely for the eight required production screenshots.

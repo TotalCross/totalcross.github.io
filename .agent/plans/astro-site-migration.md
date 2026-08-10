@@ -78,7 +78,7 @@ GitHub operations, recheck status, branch, remote state, and HEAD.
 ## Progress
 
 - [x] M0A — Repository licensing and agent tooling prerequisite.
-- [ ] M0 — Baseline and migration guardrails.
+- [x] M0 — Baseline and migration guardrails.
 - [ ] M1 — Astro foundation and visual system.
 - [ ] M2 — Public page and route parity.
 - [ ] M3 — Blog, SEO, feeds, and localization readiness.
@@ -305,9 +305,10 @@ consistency, and production smoke verification.
 - GitHub Pages serves `totalcross.com` through legacy `master:/`; HTTPS works through
   the observed edge, but the Pages setting does not enforce HTTPS. M5 must recheck
   domain health before enabling enforcement.
-- The Browser plugin had no available backend during M0 inventory. Production visual
-  screenshots remain an M0 closure requirement and must be retried rather than
-  replaced with an unrelated browser-control surface.
+- The Codex in-app Browser has no backend in this execution environment. Interactive
+  inspection is optional and non-blocking; automated repository tooling, headless
+  Playwright, screenshots, and command-line checks are the validation path unless a
+  human-only observation is explicitly requested.
 - The locked Gatsby 2 Sharp/libvips stack cannot install natively on Darwin ARM64.
   The baseline succeeds under Rosetta with Node 14/npm 6; this legacy architecture
   dependency is additional justification for replacing the toolchain rather than

@@ -39,6 +39,13 @@ precedence = "override"
 SPDX-FileCopyrightText = "Copyright holder(s) of the original material"
 SPDX-License-Identifier = "LicenseRef-ThirdParty-Material"
 
+# Legacy visual baselines contain a mixture of brand and historical customer material.
+[[annotations]]
+path = ".agent/baseline/screenshots/**"
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright holder(s) of the captured legacy site material"
+SPDX-License-Identifier = "LicenseRef-ThirdParty-Material"
+
 # Clear TotalCross identity assets are excluded from source/editorial license grants.
 [[annotations]]
 path = [
