@@ -15,7 +15,7 @@ function requireMatch(value, pattern, label) {
 }
 
 requireMatch(ci, /^  pull_request:$/m, "pull request CI trigger");
-requireMatch(ci, /npm run astro:check[\s\S]*npm run astro:build[\s\S]*npm run astro:validate/, "CI Astro validation order");
+requireMatch(ci, /npm run check[\s\S]*npm run build[\s\S]*npm run validate/, "CI Astro validation order");
 requireMatch(ci, /actions\/upload-pages-artifact@v4[\s\S]*path: dist/, "CI Pages artifact packaging");
 requireMatch(pages, /^      - main$/m, "main-only production push trigger");
 requireMatch(pages, /actions: read[\s\S]*contents: read[\s\S]*pages: write[\s\S]*id-token: write/, "Pages deployment permissions");

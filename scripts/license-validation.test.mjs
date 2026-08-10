@@ -57,15 +57,9 @@ test('matches REUSE double-star and exact path patterns', () => {
   assert.equal(globToRegExp('package.json').test('nested/package.json'), false)
 })
 
-test('applies the editorial license throughout content migration paths', () => {
+test('applies the editorial license to Astro blog content', () => {
   const mappings = new Map()
-  for (const file of [
-    'content/blog/post/index.md',
-    'astro/content/blog/post.md',
-    'src/content/blog/post.mdx',
-  ]) {
-    assert.equal(policyFor(file, mappings).license, 'CC-BY-4.0')
-  }
+  assert.equal(policyFor('src/content/blog/post.mdx', mappings).license, 'CC-BY-4.0')
 })
 
 test('all-files selection excludes tracked paths deleted from the worktree', () => {

@@ -16,9 +16,6 @@ export default defineConfig({
       filter: (page) => !page.endsWith("/404/") && !page.endsWith("/404.html"),
     }),
   ],
-  srcDir: "./astro",
-  publicDir: "./static",
-  outDir: "./dist",
   trailingSlash: "always",
   markdown: {
     shikiConfig: { theme: "github-dark" },

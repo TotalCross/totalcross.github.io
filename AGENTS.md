@@ -30,3 +30,12 @@ Use the smallest validation level that establishes the current change:
 
 Record concise results in the active evidence file and keep the state file current
 after logical commits and milestone boundaries.
+
+The production implementation uses conventional Astro paths: authored code and
+content live under `src/`, stable public files under `public/`, and generated output
+under ignored `dist/`. Do not reintroduce Gatsby, React, branch-generated Pages
+output, or a source-tree CNAME. Use Node 24 for parity with CI.
+
+For ordinary changes, run the smallest relevant checks. Before a production or
+release boundary, use `npm test`, `npm run license:check:all`, `npm run release:check`,
+`npm run workflow:check`, `npm run check`, `npm run build`, and `npm run validate`.

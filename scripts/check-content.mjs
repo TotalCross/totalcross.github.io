@@ -61,8 +61,8 @@ if (/Content system fixture|Exemplo do sistema de conteúdo|content-system-fixtu
 }
 
 const fixtures = [
-  ["astro/content/blog/drafts/content-system-fixture.md", "en"],
-  ["astro/content/blog/drafts/pt-br/content-system-fixture.md", "pt-BR"],
+  ["src/content/blog/drafts/content-system-fixture.md", "en"],
+  ["src/content/blog/drafts/pt-br/content-system-fixture.md", "pt-BR"],
 ];
 for (const [path, language] of fixtures) {
   const source = readFileSync(new URL(path, root), "utf8");

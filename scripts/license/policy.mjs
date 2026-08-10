@@ -97,11 +97,7 @@ export function policyFor(file, mappings) {
   const style = headerStyleFor(file)
   if (!style) return { kind: 'unresolved' }
 
-  const editorial = [
-    'content/blog/',
-    'astro/content/blog/',
-    'src/content/blog/',
-  ].some((prefix) => file.startsWith(prefix))
+  const editorial = file.startsWith('src/content/blog/')
   return {
     kind: 'header',
     style,

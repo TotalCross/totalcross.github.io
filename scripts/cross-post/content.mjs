@@ -6,7 +6,7 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { extname, join, relative, resolve, sep } from "node:path";
 
-const contentRoots = ["src/content/blog", "astro/content/blog"];
+const contentRoots = ["src/content/blog"];
 
 function scalar(frontmatter, key, fallback) {
   const match = frontmatter.match(new RegExp(`^${key}:\\s*(.+)$`, "m"));

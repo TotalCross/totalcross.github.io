@@ -5,48 +5,73 @@ SPDX-License-Identifier: MIT
 
 # TotalCross website
 
-The production site is `https://totalcross.com`. The repository is migrating from
-Gatsby to Astro under `.agent/plans/astro-site-migration.md`.
+Source for [totalcross.com](https://totalcross.com), built as a static Astro site and
+deployed from `main` through GitHub Pages Actions artifacts.
 
-## Repository and migration guardrails
+## Requirements and setup
 
-- `site` is the authoritative legacy source history; `master` contains generated
-  GitHub Pages output and must never be merged into source history.
-- The completed migration promotes source history to `main` and deploys only a
-  GitHub Pages artifact. Generated production output must never be committed.
-- Preserve public routes and important asset URLs recorded under `.agent/baseline/`.
-- Read `.agent/state/astro-site-migration.md` first when resuming migration work.
-- Follow `.agent/PLANS.md`, `AGENTS.md`, and the repository-local license and commit
-  skills for implementation, validation, and commits.
-
-## Legacy Gatsby commands
-
-These commands remain supported only while the Astro replacement is implemented and
-validated.
-
-### Install
+Use Node.js 22.12 or newer; Node 24 is the CI and production-build version.
 
 ```sh
 npm ci
-```
-
-### Develop
-
-```sh
-npm run develop
-```
-
-### Build and serve
-
-```sh
+npm run check
 npm run build
-npm run serve
+npm run validate
 ```
 
-### License policy
+`dist/` is generated and must not be committed. Start a local development server
+with `npm run dev`, or preview a completed production build with `npm run preview`.
+
+## Project layout
+
+- `src/pages/` contains static routes and feed/sitemap endpoints.
+- `src/components/`, `src/layouts/`, and `src/styles/` contain shared UI.
+- `src/content/` contains typed authors and Markdown/MDX blog articles.
+- `src/assets/` contains build-processed images; `public/` contains stable public URLs.
+- `scripts/` contains route/content/license/release/workflow validators and optional
+  distribution tooling.
+- `.agent/` contains the completed migration plan, immutable baselines, and evidence.
+
+All legacy public URL contracts are recorded in `.agent/baseline/legacy-routes.yml`.
+The root-level Tecdet article and historical `/using-typescript/` route are preserved
+intentionally.
+
+## Validation
 
 ```sh
-npm run license:check
+npm test
 npm run license:check:all
-npm run license:test
+npm run release:check
+npm run workflow:check
+npm run check
+npm run build
+npm run validate
 ```
+
+`validate` checks the generated legacy route manifest, every local link/asset
+reference, RSS, sitemap chain, article metadata, archives, draft exclusion, and
+translation fixtures.
+
+After the corresponding commit is deployed, `npm run production:check` performs the
+final HTTPS route, metadata, feed, sitemap, asset, redirect, and 404 smoke check
+against `https://totalcross.com` (or an origin passed as its first argument).
+
+## Publishing and deployment
+
+Pull requests validate and package a non-deploying Pages artifact. A push to `main`
+rebuilds and deploys through the `github-pages` environment; generated output is not
+stored on a branch. See [deployment.md](docs/deployment.md).
+
+Blog articles default to Markdown and use the schema in `src/content.config.ts`.
+External DEV/Medium distribution is optional, disabled by default, and isolated from
+site deployment. See [cross-posting.md](docs/cross-posting.md).
+
+The site implementation follows SemVer; ordinary editorial-only changes do not need
+a release. See [CHANGELOG.md](CHANGELOG.md) and [releasing.md](docs/releasing.md).
+
+## Repository policy
+
+Read `AGENTS.md` and `.agent/state/astro-site-migration.md` before resuming remaining
+migration/release work. Use the repository-local license and logical-commit skills;
+never merge generated `master` history into source or delete the recorded legacy
+rollback refs without an explicit post-release decision.

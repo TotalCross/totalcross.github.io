@@ -1,0 +1,145 @@
+---
+import logo from "../assets/logo-totalcross.png";
+
+const groups = [
+  {
+    title: "Resources",
+    links: [["Get started", "/get-started/"], ["Docs", "https://learn.totalcross.com/"], ["Contribute", "https://github.com/TotalCross/totalcross"], ["Enterprise", "http://www.superwaba.net/SDKRegistrationService/"], ["Services", "/services/"]],
+  },
+  {
+    title: "Community",
+    links: [["GitHub", "https://github.com/TotalCross/totalcross"], ["YouTube", "https://bit.ly/youtube-totalcross"], ["Medium", "https://medium.com/totalcross-community"]],
+  },
+  {
+    title: "About us",
+    links: [["Our history", "/about-us/"], ["Contact us", "/contact/"]],
+  },
+];
+
+const social = [["GitHub", "https://github.com/TotalCross/totalcross"], ["X", "https://twitter.com/TotalCross"], ["Telegram", "https://t.me/totalcrosscommunity"], ["YouTube", "https://bit.ly/youtube-totalcross"], ["Instagram", "https://www.instagram.com/totalcross/"], ["LinkedIn", "https://linkedin.com/company/totalcross"]];
+---
+<!--
+SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+SPDX-License-Identifier: MIT
+-->
+
+
+<footer class="site-footer">
+  <div class="footer-inner container">
+    <div class="groups">
+      {groups.map((group) => (
+        <section>
+          <h2>{group.title}</h2>
+          <ul>
+            {group.links.map(([label, href]) => <li><a href={href}>{label}</a></li>)}
+          </ul>
+        </section>
+      ))}
+    </div>
+    <div class="brand">
+      <img src={logo.src} alt="TotalCross" width="180" height="40" />
+      <div class="social" aria-label="Social networks">
+        {social.map(([label, href]) => <a href={href} aria-label={label}>{label.slice(0, 2)}</a>)}
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-ink);
+    color: var(--color-white);
+    padding-block: 2.5rem;
+  }
+
+  .footer-inner,
+  .groups,
+  .social {
+    display: flex;
+  }
+
+  .footer-inner {
+    justify-content: space-between;
+  }
+
+  .groups {
+    gap: clamp(2rem, 5vw, 5rem);
+  }
+
+  h2 {
+    border-bottom: 1px solid var(--color-white);
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li + li {
+    margin-top: 0.5rem;
+  }
+
+  li a {
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+
+  li a:hover,
+  li a:focus-visible {
+    color: var(--color-brand-green);
+  }
+
+  .brand {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    padding-top: 0.25rem;
+  }
+
+  .brand img {
+    height: 40px;
+    object-fit: contain;
+    width: 180px;
+  }
+
+  .social {
+    gap: 0.65rem;
+  }
+
+  .social a {
+    align-items: center;
+    border: 1px solid rgb(255 255 255 / 55%);
+    border-radius: 50%;
+    display: inline-flex;
+    font-size: 0.65rem;
+    height: 28px;
+    justify-content: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 28px;
+  }
+
+  @media (max-width: 760px) {
+    .footer-inner,
+    .groups {
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .groups {
+      text-align: center;
+      width: 100%;
+    }
+
+    .brand {
+      align-items: center;
+      margin-top: 2rem;
+    }
+  }
+</style>

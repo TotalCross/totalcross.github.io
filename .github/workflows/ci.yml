@@ -23,14 +23,14 @@ jobs:
         with:
           node-version: 24
           cache: npm
-      - run: npm ci --ignore-scripts
+      - run: npm ci
       - run: npm run license:check:all
       - run: npm run license:test
       - run: npm run cross-post:test
       - run: npm run release:check
-      - run: npm run astro:check
-      - run: npm run astro:build
-      - run: npm run astro:validate
+      - run: npm run check
+      - run: npm run build
+      - run: npm run validate
       - name: Package Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:

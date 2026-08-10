@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import timeline from "../../assets/aboutus_timeline.png";
+import timelineMobile from "../../assets/aboutus_timeline_mobile.png";
+import mission from "../../assets/aboutus_mission.png";
+import vision from "../../assets/aboutus_vision.png";
+import values from "../../assets/aboutus_values.png";
+
+const principles = [[mission.src, "Mission", "To be the software development tool most loved by embedded developers."], [vision.src, "Vision", "Software development made fast and easy for every device on the planet."], [values.src, "Values", "Ownership, driven by details and developers first."]];
+---
+<!--
+SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+SPDX-License-Identifier: MIT
+-->
+
+<BaseLayout title="Our History · TotalCross" description="TotalCross helps developers and companies create beautiful applications with a free and open-source tool.">
+  <PageHero title="Our History" tagline="From a cross-platform mobile SDK to open-source embedded development." />
+  <section class="page-content">
+    <div class="container">
+      <picture class="timeline">
+        <source media="(max-width: 600px)" srcset={timelineMobile.src} />
+        <img src={timeline.src} alt="2007 TotalCross launch, 2017 startup, 2019 TotalCross for Embedded, 2020 open source" />
+      </picture>
+      <div class="card-grid principles">
+        {principles.map(([image, title, text]) => <article class="info-card"><img src={image} alt="" /><h2>{title}</h2><p>{text}</p></article>)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .timeline { display: block; margin: 0 auto 5rem; max-width: 940px; }
+  .timeline img { width: 100%; }
+  .principles { text-align: center; }
+  .principles img { margin-inline: auto; object-position: center; }
+</style>

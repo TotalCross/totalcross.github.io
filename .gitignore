@@ -58,9 +58,8 @@ typings/
 # dotenv environment variable files
 .env*
 
-# gatsby files
+# Build caches
 .cache/
-public
 
 # Astro files
 .astro/

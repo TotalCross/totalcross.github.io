@@ -1,7 +1,0 @@
-# SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
-# SPDX-License-Identifier: MIT
-
-.cache
-package.json
-package-lock.json
-public

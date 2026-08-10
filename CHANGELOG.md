@@ -26,6 +26,8 @@ Target release: `v1.0.0`, the Astro production cutover.
 
 ### Changed
 
+- Adopted conventional Astro `src/` and `public/` source layout with standard
+  install/check/build/validate commands.
 - Replaced generated `master` branch publication with validated GitHub Pages Actions
   artifacts deployed from source-only `main`.
 - Preserved all legacy public page routes while moving their implementation from
@@ -35,5 +37,8 @@ Target release: `v1.0.0`, the Astro production cutover.
 
 ### Removed
 
-- No removal is released yet. Gatsby build and deployment cleanup belongs to the
-  final cutover and will be recorded before `v1.0.0` is tagged.
+- Gatsby, React, Styled Components, FontAwesome, legacy image-processing plugins,
+  `gh-pages`, and their generated-branch operational paths.
+- Obsolete Gatsby pages/components/configuration and verified-unused legacy assets.
+- Legacy Universal Analytics, Google Tag Manager, and Hotjar injection; no analytics
+  is shipped until a current consent/privacy-reviewed integration is selected.
