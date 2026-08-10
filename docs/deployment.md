@@ -30,3 +30,14 @@ The migration preserves these rollback refs and does not merge them into `main`:
 Do not delete these branches during cutover. If rollback is required before the Astro
 release is final, restore legacy Pages branch publishing from `master:/` and make
 `site` the default source branch again.
+
+Their exact tips are also protected by annotated tags:
+
+- `archive/legacy-site-2026-08-10`
+- `archive/legacy-pages-2026-08-10`
+- `archive/site-2020-2026-08-10`
+- `archive/site-2021-2026-08-10`
+
+GitHub's Pages API still reports `https_enforced=false` because it has no certificate
+state for the Cloudflare-served custom domain. This does not change the deployed
+artifact: production HTTPS works and the public HTTP endpoint redirects to HTTPS.

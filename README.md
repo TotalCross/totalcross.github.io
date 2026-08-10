@@ -71,7 +71,7 @@ a release. See [CHANGELOG.md](CHANGELOG.md) and [releasing.md](docs/releasing.md
 
 ## Repository policy
 
-Read `AGENTS.md` and `.agent/state/astro-site-migration.md` before resuming remaining
-migration/release work. Use the repository-local license and logical-commit skills;
-never merge generated `master` history into source or delete the recorded legacy
-rollback refs without an explicit post-release decision.
+Read `AGENTS.md` before making repository changes; the completed migration record is
+under `.agent/`. Use the repository-local license and logical-commit skills. Never
+merge generated `master` history into source or delete the recorded legacy rollback
+refs without an explicit post-release decision.

@@ -146,3 +146,25 @@ exact local artifact's desktop/mobile home captures matched the committed M1 has
 GitHub could not enable its own HTTPS flag because no GitHub certificate exists for
 the Cloudflare-served domain, but the public edge is already HTTPS-only in observed
 behavior; one final setting recheck remains non-blocking.
+
+## M7 — Legacy removal and final handoff
+
+Completed 2026-08-10. After production parity was established, Astro moved from its
+coexistence directory into conventional `src/` and `public/` paths. Gatsby, React,
+Styled Components, FontAwesome, `gh-pages`, legacy configuration/pages/components,
+old analytics injection, starter metadata, and verified-unused files were removed.
+The remaining package graph installs 660 packages and has no npm audit findings.
+
+A detached clean worktree at `aae6173` passed the full Node 24 release suite: 13 tests,
+143/143 license files, release/workflow policy, zero Astro diagnostics, 18 native
+pages, 14 legacy route contracts, 20 prepared HTML files, zero broken links, typed
+content/archive/feed/sitemap assertions, draft exclusion, and translation pairing.
+Pages run `31439686791` independently built and deployed that exact source. The
+production checker then accepted 28 endpoints, metadata, 404, and HTTPS redirect
+behavior.
+
+All four old branch tips remain undeleted and are protected by dated annotated
+archive tags. The final Pages settings recheck still lacked a GitHub-managed
+certificate state, while Cloudflare-served HTTPS and HTTP redirection worked. The
+infrastructure flag is therefore a documented platform limitation, not a release
+blocker.

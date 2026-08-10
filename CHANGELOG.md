@@ -10,9 +10,11 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and uses
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html) for site/platform
 capability and compatibility releases.
 
-Target release: `v1.0.0`, the Astro production cutover.
-
 ## [Unreleased]
+
+No unreleased changes.
+
+## [1.0.0] - 2026-08-10
 
 ### Added
 

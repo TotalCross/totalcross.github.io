@@ -170,3 +170,29 @@ SPDX-License-Identifier: MIT
   `https_enforced=true` with 404 `The certificate does not exist yet`; the setting was
   unchanged. The Cloudflare-served edge already provides HTTPS and redirects HTTP.
   Recheck GitHub certificate availability once during final handoff.
+- 2026-08-10, M7 source cleanup: commit `aae6173` moved Astro into conventional
+  `src/`/`public/`, removed Gatsby/React/Styled Components/FontAwesome/`gh-pages`,
+  obsolete Gatsby source/configuration, legacy analytics injection, `.DS_Store`, and
+  one verified-unused image. The lockfile now represents 660 installed packages
+  instead of the legacy multi-thousand-package coexistence tree.
+- 2026-08-10, M7 clean-source validation: a detached worktree at exact `aae6173`
+  completed `npm ci` under Node 24.19/npm 11.16 with zero audit findings. License and
+  distribution tests passed 13/13; all-files licensing accepted 143/143; release and
+  workflow checks passed; Astro reported 0 diagnostics and built 18 pages; site and
+  content checks reported `routes=14 html=20 broken=0`, one article, three archive
+  types, RSS, three sitemaps, excluded drafts, and paired translations.
+- 2026-08-10, M7 production proof: Pages run `31439686791` built `aae6173` in 35s and
+  deployed it in 10s. The final CLI smoke checker accepted 14 legacy routes and 28
+  required endpoints total, canonical/article/RSS metadata, a real 404, and the
+  HTTP-to-HTTPS redirect. Cross-posting remained disabled and isolated.
+- 2026-08-10, M7 rollback preservation: annotated tags
+  `archive/legacy-site-2026-08-10`, `archive/legacy-pages-2026-08-10`,
+  `archive/site-2020-2026-08-10`, and `archive/site-2021-2026-08-10` protect the four
+  recorded legacy tips; no branch was deleted or merged.
+- 2026-08-10, M7 final platform recheck: Pages reports `build_type=workflow`, custom
+  domain `totalcross.com`, and `https_enforced=false` with no GitHub-managed domain
+  state. This is nonblocking because production HTTPS and redirect behavior passed.
+- 2026-08-10, M7 release boundary: the dated 1.0.0 changelog, completed plan/state,
+  evidence archive, deployment guidance, and editorial report form a documentation-
+  only release commit. The release procedure requires its independent Pages build
+  and production smoke check before the annotated `v1.0.0` tag is created.

@@ -85,24 +85,22 @@ GitHub operations, recheck status, branch, remote state, and HEAD.
 - [x] M4 — Versioning, changelog, and release metadata.
 - [x] M5 — Modern GitHub Pages cutover.
 - [x] M6 — Optional cross-posting.
-- [ ] M7 — Legacy removal and final handoff.
+- [x] M7 — Legacy removal and final handoff.
 
 ## Current Architecture and Scope
 
 M0A added the repository license policy, root `AGENTS.md`, local planning contract,
-validation/fix tooling, CI gate, and repository skills. The current source uses
-Gatsby 2.26.x, React 16,
-Styled Components, Gatsby Remark,
-Gatsby image plugins, GraphQL page queries, and a legacy Pages workflow. A push to
-`site` invokes an old Gatsby publishing action, builds `public/`, and writes generated
-output to `master`. GitHub Pages serves the root of `master` using legacy branch
-publishing.
+validation/fix tooling, CI gate, and repository skills. At plan start, source used
+Gatsby 2.26.x, React 16, Styled Components, Gatsby Remark/image plugins, GraphQL page
+queries, and a generated `master` publication branch. The completed implementation
+uses conventional Astro `src/` and `public/` paths, produces ignored `dist/`, and
+deploys validated source-only `main` artifacts through GitHub Pages Actions. Legacy
+branch tips remain immutable rollback history protected by archival tags.
 
-Relevant source paths include `src/pages`, `src/components`, `src/templates`,
-`src/imgs`, `static`, `content/assets`, and `content/blog`. The existing blog already
-has `/blog/`, a post template, Markdown processing, syntax highlighting, RSS support,
-and one real Tecdet article. Preserve its public URL even if new posts use
-`/blog/<slug>/`.
+Relevant final paths include `src/pages`, `src/components`, `src/layouts`,
+`src/content`, `src/assets`, and `public`. The local blog has typed Markdown/MDX,
+archives, syntax highlighting, RSS, sitemaps, and the real Tecdet article at its
+preserved root URL; new articles may use `/blog/<slug>/`.
 
 Inventory legacy analytics/tracking and starter metadata; migrate only intentional
 integrations. Brand redesign, backend rendering, accounts, CMS, and unrelated docs
