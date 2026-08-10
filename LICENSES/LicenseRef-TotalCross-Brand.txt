@@ -1,0 +1,10 @@
+TotalCross Brand Asset Notice
+
+Copyright and other rights in the TotalCross names, logos, trademarks, distinctive
+brand elements, and proprietary marketing artwork are reserved by their respective
+owners.
+
+No copyright or trademark license is granted for these materials by the MIT or
+Creative Commons licenses that apply to other parts of this repository. Use,
+reproduction, modification, or distribution requires separate permission from the
+applicable rights holder unless otherwise allowed by law.

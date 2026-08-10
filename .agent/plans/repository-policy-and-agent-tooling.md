@@ -49,7 +49,7 @@ for its recurring task.
 ## Progress
 
 - [x] P0 — Copy the ExecPlan contract and add concise agent discovery guidance.
-- [ ] P1 — Establish the repository licensing policy and SPDX mapping.
+- [x] P1 — Establish the repository licensing policy and SPDX mapping.
 - [ ] P2 — Implement license validation and safe header fixing.
 - [ ] P3 — Add `license-validation` and `logical-commits` skills.
 - [ ] P4 — Integrate CI/package commands and validate the policy once.
@@ -250,6 +250,15 @@ historical licenses and the proposed defaults. Move resolved detail to archive.
 - Observation: the source checkout had unrelated untracked files, so the planning
   contract was copied from the committed blob rather than the working tree.
   Evidence: `.agent/evidence/repository-policy-and-agent-tooling.md`.
+- Observation: `package.json` still declared the Gatsby starter's `0BSD` license and
+  upstream repository metadata; P1 corrected only the license field to MIT, while
+  the Astro migration will replace the remaining starter metadata.
+  Evidence: `.agent/evidence/repository-policy-and-agent-tooling.md`.
+- Observation: historical artwork has mixed customer, brand, screenshot, and
+  marketing provenance. It is mapped to an excluded third-party reference by
+  default, with only unmistakable TotalCross identity assets mapped to the brand
+  reference; no ownership was inferred from filenames alone.
+  Evidence: `REUSE.toml` and `NOTICE.md`.
 
 ## Decision Log
 
@@ -311,6 +320,11 @@ evidence rather than copying command output.
 P0 installed the exact planning contract from the recorded source revision,
 normalized both active plan paths, and made the plan/skill/validation workflow
 discoverable from root `AGENTS.md`.
+
+P1 established the MIT source policy, CC BY 4.0 editorial policy, explicit brand
+and third-party exclusions, standard license texts, and path-specific REUSE
+annotations. The legacy Tecdet article remains customer material rather than being
+automatically relicensed.
 
 ## Revision Note
 

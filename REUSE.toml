@@ -1,0 +1,52 @@
+# SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+# SPDX-License-Identifier: MIT
+
+version = 1
+
+# Project metadata and generated files that cannot safely contain comment headers.
+[[annotations]]
+path = [
+  ".DS_Store",
+  ".docz/app/db.json",
+  ".prettierrc",
+  "CNAME",
+  "package.json",
+  "package-lock.json",
+  "static/googledf7144400c12b6c2.html",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "2026 Amalgam Solucoes em TI Ltda."
+SPDX-License-Identifier = "MIT"
+
+# Upstream normalize.css v8.0.1 retains its published MIT terms and attribution.
+[[annotations]]
+path = "src/normalize.css"
+precedence = "override"
+SPDX-FileCopyrightText = "2012-2018 Nicolas Gallagher and Jonathan Neal"
+SPDX-License-Identifier = "MIT"
+
+# Customer editorial content is preserved without asserting Amalgam ownership.
+[[annotations]]
+path = "content/blog/traffic-control-system-by-tecdet/**"
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright holder(s) of the Tecdet customer material"
+SPDX-License-Identifier = "LicenseRef-ThirdParty-Material"
+
+# Historical artwork has mixed or unverified provenance and is never auto-relicensed.
+[[annotations]]
+path = "src/imgs/**"
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright holder(s) of the original material"
+SPDX-License-Identifier = "LicenseRef-ThirdParty-Material"
+
+# Clear TotalCross identity assets are excluded from source/editorial license grants.
+[[annotations]]
+path = [
+  "content/assets/totalcross-icon.png",
+  "src/imgs/logo-totalcross.png",
+  "static/favicon.ico",
+  "static/totalcross_logo.png",
+]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright holder(s) of the TotalCross brand assets"
+SPDX-License-Identifier = "LicenseRef-TotalCross-Brand"

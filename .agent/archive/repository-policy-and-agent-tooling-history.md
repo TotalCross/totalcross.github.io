@@ -16,3 +16,13 @@ at `TotalCross/totalcross-depot-tools` revision
 `83528e55751b2dc749a9f54e0a443620552195be`. Root `AGENTS.md` now points to the
 resume protocol, repository skills, size guideline, milestone-final validation,
 four validation levels, and preservation of unrelated changes.
+
+## P1 — Repository licensing policy and SPDX mapping
+
+Completed 2026-08-10. The repository now carries root MIT terms, standard MIT and
+CC BY 4.0 texts, and explicit brand and third-party references. `NOTICE.md` explains
+that the repository has multiple licensing categories and names the Tecdet article
+as customer material. `REUSE.toml` maps non-commentable project metadata, upstream
+normalize.css, mixed/unverified artwork, the customer article, and clear brand
+assets without guessing ownership. The stale package-level `0BSD` declaration was
+changed to MIT; unrelated Gatsby starter metadata remains for the Astro migration.

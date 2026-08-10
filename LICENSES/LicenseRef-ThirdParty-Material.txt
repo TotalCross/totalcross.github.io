@@ -1,0 +1,9 @@
+Third-Party Material Notice
+
+Files identified by this reference are owned by customers, partners, contributors,
+vendors, or other third parties, or have provenance that has not yet been verified.
+They retain their original copyright, trademark, and license terms.
+
+No additional license is granted for these materials by this repository. Consult
+the source material and applicable rights holder before reuse. A missing or unknown
+notice must not be interpreted as permission or as Amalgam ownership.
