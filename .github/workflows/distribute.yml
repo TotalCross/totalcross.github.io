@@ -1,0 +1,59 @@
+# SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+# SPDX-License-Identifier: MIT
+
+name: Distribute canonical article
+
+on:
+  workflow_dispatch:
+    inputs:
+      article:
+        description: Content ID, such as traffic-control-system-by-tecdet
+        required: true
+        type: string
+      destination:
+        description: External destination
+        required: true
+        default: dev
+        type: choice
+        options:
+          - dev
+          - medium
+      intent:
+        description: Save a draft or publish
+        required: true
+        default: draft
+        type: choice
+        options:
+          - draft
+          - publish
+      dry_run:
+        description: Print the plan without any external write
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  distribute:
+    name: Optional external distribution
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Prepare or distribute article
+        env:
+          ARTICLE: ${{ inputs.article }}
+          DESTINATION: ${{ inputs.destination }}
+          INTENT: ${{ inputs.intent }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
+        run: |
+          args=(--article "$ARTICLE" --destination "$DESTINATION" --intent "$INTENT" --trigger manual)
+          if [[ "$DRY_RUN" == "true" ]]; then
+            args+=(--dry-run)
+          fi
+          node scripts/cross-post.mjs "${args[@]}"

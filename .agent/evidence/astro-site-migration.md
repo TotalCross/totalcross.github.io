@@ -91,3 +91,18 @@ SPDX-License-Identifier: MIT
   translations=paired`. License tests passed 6/6, the final targeted check accepted
   31/31 changed policy-relevant files, and the repository-wide closeout accepted
   175/175 files with no issues.
+- 2026-08-10, M6 contract review: current official Forem v1 documentation confirms
+  authenticated all-article lookup plus article create/update payloads with canonical
+  URL and explicit published state. Current Medium guidance supports URL import or
+  manual editor transfer with a canonical link; no supported Medium publication API
+  was introduced.
+- 2026-08-10, M6 implementation: optional distribution is a separate manual workflow
+  with article, DEV/Medium destination, draft/publish intent, and dry-run (default
+  true) inputs. Automatic CLI mode requires article opt-in. Live DEV mode verifies
+  the deployed canonical page, finds existing remote state by canonical URL, and
+  creates or updates accordingly. Medium only prepares the supported import path.
+- 2026-08-10, M6 validation: six Node tests passed for default-off behavior, opted-in
+  payload generation, DEV create and update paths, Medium preparation, and workflow
+  isolation. Dry runs produced the fixture's canonical DEV draft payload, skipped the
+  non-opted-in Tecdet DEV article, and prepared Tecdet's manual Medium import. No API
+  credential was loaded and no external write or live publication occurred.

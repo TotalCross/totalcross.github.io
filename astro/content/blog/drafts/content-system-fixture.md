@@ -15,7 +15,7 @@ series:
   order: 1
 draft: true
 crossPost:
-  dev: false
+  dev: true
   medium: false
 ---
 <!--

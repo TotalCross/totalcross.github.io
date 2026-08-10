@@ -87,3 +87,22 @@ and passing focused assertions for archives, feeds, sitemaps, canonical metadata
 JSON-LD, draft exclusion, and translation pairing. Repository license tests passed
 6/6; the path policy now recognizes editorial content in legacy, coexistence, and
 final Astro source locations.
+
+## M6 — Optional cross-posting
+
+Completed 2026-08-10 before deployment cutover so the article metadata contract is
+stable. Distribution is disabled by default and isolated in a manual workflow whose
+inputs select article, DEV/Medium, draft/publish intent, and dry run. The dependency-
+free CLI also has an automatic mode that refuses any destination not enabled in the
+article's `crossPost` metadata.
+
+The Forem v1 adapter verifies canonical deployment before a live request, searches
+the authenticated account's published and draft articles by TotalCross canonical
+URL, and updates a match rather than creating a duplicate. DEV credentials are only
+needed for live writes. Medium uses its supported URL import/manual editor and
+canonical-link flow; no legacy Medium API dependency exists.
+
+Six unit tests and three CLI dry runs passed without credentials or network writes.
+They prove default-off behavior, opted-in canonical DEV payloads, create/update
+idempotency, workflow isolation from Pages, and Medium manual preparation. No live
+external article was created merely for validation.
