@@ -106,3 +106,15 @@ SPDX-License-Identifier: MIT
   isolation. Dry runs produced the fixture's canonical DEV draft payload, skipped the
   non-opted-in Tecdet DEV article, and prepared Tecdet's manual Medium import. No API
   credential was loaded and no external write or live publication occurred.
+- 2026-08-10, M4 release identity: Gatsby starter metadata was replaced with private
+  package `totalcross-site@1.0.0`, production homepage, TotalCross GitHub repository,
+  issue tracker, and supported Node floor. `CHANGELOG.md` now follows Keep a Changelog
+  with Unreleased entries and identifies v1.0.0 as the Astro cutover candidate.
+- 2026-08-10, M4 release procedure: version bumps represent site/platform capability
+  rather than ordinary editorial changes. The documented checklist binds an annotated
+  `vX.Y.Z` tag to the exact revalidated production source commit and permits an
+  optional matching GitHub Release only afterward.
+- 2026-08-10, M4 validation: `release-check` confirmed package/lockfile identity,
+  SemVer, changelog readiness, and annotated tag semantics. Package queries returned
+  the intended name, version, private flag, homepage, repository, issues, and Node
+  engine. Local and remote tag queries found no `v1.0.0`; no tag/release was created.

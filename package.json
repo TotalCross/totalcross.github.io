@@ -1,11 +1,11 @@
 {
-  "name": "TotalCross",
+  "name": "totalcross-site",
   "private": true,
-  "description": "Build beautiful and modern Graphical User Interfaces for embedded, IoT, mobile and desktop. A cross-platform tool that lets you develop apps in Java.",
-  "version": "0.1.0",
-  "author": "dummy",
+  "description": "Source for the TotalCross project website at totalcross.com.",
+  "version": "1.0.0",
+  "author": "TotalCross",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/TotalCross/totalcross.github.io/issues"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
@@ -52,15 +52,20 @@
     "prettier": "2.2.1",
     "typescript": "^6.0.3"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://totalcross.com",
   "keywords": [
-    "gatsby"
+    "astro",
+    "embedded",
+    "static-site",
+    "totalcross"
   ],
   "license": "MIT",
-  "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/TotalCross/totalcross.github.io.git"
+  },
+  "engines": {
+    "node": ">=22.12.0"
   },
   "scripts": {
     "astro:build": "astro build && node scripts/prepare-dist.mjs",
@@ -82,6 +87,7 @@
     "license:check": "node scripts/license-validation.mjs",
     "license:check:all": "node scripts/license-validation.mjs --all",
     "license:fix": "node scripts/license-validation.mjs --fix",
-    "license:test": "node --test scripts/license-validation.test.mjs"
+    "license:test": "node --test scripts/license-validation.test.mjs",
+    "release:check": "node scripts/check-release.mjs"
   }
 }

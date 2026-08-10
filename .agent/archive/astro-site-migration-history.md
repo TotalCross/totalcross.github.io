@@ -106,3 +106,21 @@ Six unit tests and three CLI dry runs passed without credentials or network writ
 They prove default-off behavior, opted-in canonical DEV payloads, create/update
 idempotency, workflow isolation from Pages, and Medium manual preparation. No live
 external article was created merely for validation.
+
+## M4 — Versioning, changelog, and release metadata
+
+Completed 2026-08-10. The private package is now `totalcross-site@1.0.0` with the
+real production homepage, TotalCross GitHub repository and issue tracker, and the
+Astro-supported Node floor. The old 0.1.0 value and Gatsby starter identity were not
+intentional releases.
+
+The initial Keep-a-Changelog document records notable platform, URL/navigation, blog,
+distribution, and validation changes under Unreleased. Release guidance defines site
+SemVer, excludes ordinary article edits from software releases, requires a clean and
+revalidated production source commit, and permits only an annotated tag followed by
+an optional matching GitHub Release.
+
+The dry-run consistency checker passed for package/lockfile version identity,
+changelog state, release procedure, and tag semantics. Read-only local and remote
+queries confirmed that `v1.0.0` does not yet exist. Tag creation remains deliberately
+deferred until the final production artifact is proven in M7.
