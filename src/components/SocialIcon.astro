@@ -1,4 +1,9 @@
 ---
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 import {
   faGithub,
   faInstagram,
@@ -27,11 +32,6 @@ const { name } = Astro.props;
 const [width, height, , , pathData] = icons[name].icon;
 const paths = Array.isArray(pathData) ? pathData : [pathData];
 ---
-<!--
-SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
-SPDX-License-Identifier: MIT
--->
-
 <svg viewBox={`0 0 ${width} ${height}`} aria-hidden="true" focusable="false">
   {paths.map((path) => <path fill="currentColor" d={path} />)}
 </svg>

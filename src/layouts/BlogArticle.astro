@@ -1,4 +1,9 @@
 ---
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 import { postPath, taxonomySlug, type BlogEntry } from "../lib/content";
@@ -32,11 +37,6 @@ const jsonLd = {
   keywords: post.data.tags.join(", "),
 };
 ---
-<!--
-SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
-SPDX-License-Identifier: MIT
--->
-
 <BaseLayout
   title={`${post.data.title} · TotalCross`}
   description={post.data.description}

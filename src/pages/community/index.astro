@@ -1,15 +1,15 @@
 ---
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHero from "../../components/PageHero.astro";
 
 const contribute = [["Code", "https://github.com/TotalCross/totalcross"], ["Report an issue", "https://github.com/TotalCross/totalcross/issues"], ["Docs", "https://github.com/TotalCross/totalcross-docs"]];
 const conversation = [["Forum", "https://forum.totalcross.com/"], ["X / Twitter", "https://twitter.com/TotalCross"], ["Telegram", "https://t.me/totalcrosscommunity"], ["Discord", "https://discord.gg/KWwtDP5"], ["Articles", "https://medium.com/totalcross-community"], ["Video tutorials", "https://bit.ly/youtube-totalcross"], ["LinkedIn", "https://linkedin.com/company/totalcross"]];
 ---
-<!--
-SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
-SPDX-License-Identifier: MIT
--->
-
 <BaseLayout title="Community · TotalCross" description="Join the TotalCross community and connect with developers using the framework.">
   <PageHero title="Join the TotalCross Community" tagline="Build, learn, and share with developers creating embedded experiences." />
   <section class="page-content"><div class="container"><h2 class="section-title">Become a TotalCross contributor</h2><div class="card-grid">{contribute.map(([label, href]) => <a class="link-card" href={href}>{label}</a>)}</div></div></section>

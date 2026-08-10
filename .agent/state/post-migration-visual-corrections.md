@@ -5,23 +5,23 @@ SPDX-License-Identifier: MIT
 
 # Post-migration visual corrections state
 
-- Active milestone: M2 — keep SPDX metadata source-only.
-- Active slice: add non-emitting Astro and Markdown/MDX header placements, migrate
-  known project headers conservatively, and reject emitted authoring headers in
-  generated HTML.
-- Last completed logical slice: M1 favicon and social/external icon restoration.
-- Active paths: `scripts/license/policy.mjs`, `scripts/license/headers.mjs`, focused
-  license tests, renderable authored files, site validation, and the license skill.
-- Next concrete action: implement dedicated Astro/frontmatter header handling and
-  focused tests before applying the fixer to known project-authored files.
-- Focused validation completed: M1 license check passed; Astro reported zero
-  diagnostics; 18 pages built; route/content validation passed; generated assertions
-  found four head links, six accessible protected social SVG links, eight manifest
-  icons, and zero client scripts. Desktop/mobile screenshots were inspected.
-- Deferred validation: M2 repository-wide license, Astro, build, and generated-output
-  validation wait until its complete implementation and header migration.
-- Active decisions: preserve the legacy destinations and TotalCross emblem; Font
-  Awesome Free Brands is build-time-only with its CC BY/MIT provenance documented.
+- Active milestone: M3 — final correction validation and asset-plan handoff.
+- Active slice: update changelog and final plan records, produce the factual report,
+  then run the first ExecPlan's single Level 3 closure matrix.
+- Last completed logical slice: M2 source-only SPDX header placement and migration.
+- Active paths: `CHANGELOG.md`, correction plan/state/evidence/archive/editorial
+  records, and the final validation matrix.
+- Next concrete action: write the M3 handoff documents without changing the package
+  version, then validate and point state to the asset-performance ExecPlan.
+- Focused validation completed: license tests passed 11/11; deliberate all-files fix
+  migrated 29 known headers plus four spacing variants; all-files licensing accepted
+  151/151. Astro reported zero diagnostics; 18 pages built; 14 routes and 20 HTML
+  documents passed with zero broken links and zero rendered SPDX headers.
+- Deferred validation: M3's combined Level 3 matrix runs after changelog and handoff
+  documents are complete; asset payload work remains deferred to the next ExecPlan.
+- Active decisions: Astro uses block comments inside frontmatter; renderable blog
+  Markdown/MDX uses YAML comments inside frontmatter; mapped Tecdet ownership values
+  were preserved verbatim.
 - Blockers: none.
 - Deliberate out of scope: image payload optimization belongs to the next ExecPlan.
 - Resume command: `sed -n '1,180p' .agent/state/post-migration-visual-corrections.md && git status --short --branch`.

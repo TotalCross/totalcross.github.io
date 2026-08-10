@@ -1,4 +1,9 @@
 ---
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Button from "../../components/Button.astro";
 import PageHero from "../../components/PageHero.astro";
@@ -12,11 +17,6 @@ import badApple from "../../assets/sample_badapple.png";
 
 const samples = [[printer.src, "Printer", "Build a smart printer interface and improve its usability."], [breakout.src, "Breakout Game", "Recreate the classic game on an embedded device."], [corona.src, "Coronavirus Chart App", "Display public health data in an interactive embedded chart."], [medical.src, "Medical Device", "Create a clear interface for medical equipment."], [dashboard.src, "Dashboard", "Explore components commonly used in embedded systems."], [badApple.src, "Bad Apple", "Draw the animation frame by frame on a Raspberry Pi."]];
 ---
-<!--
-SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
-SPDX-License-Identifier: MIT
--->
-
 <BaseLayout title="Samples · TotalCross" description="Explore embedded graphical interfaces built with TotalCross.">
   <PageHero title="Samples with TotalCross" tagline="Explore sample embedded projects and their source code." />
   <section class="section section--dark"><div class="container two-column"><div class="prose"><h2>Build a smart home</h2><p>Use this sample application to control temperature, security, alarms, connectivity, calendars, and more.</p><Button href="https://github.com/TotalCross" label="Get the code" tone="light" /></div><img src={banner.src} alt="Smart home sample made with TotalCross" /></div></section>

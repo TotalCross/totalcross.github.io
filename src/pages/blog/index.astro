@@ -1,4 +1,9 @@
 ---
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHero from "../../components/PageHero.astro";
 import PostList from "../../components/PostList.astro";
@@ -8,11 +13,6 @@ import { getPublishedPosts } from "../../lib/content";
 const posts = (await getPublishedPosts()).filter((post) => post.data.language === "en");
 const items = await Promise.all(posts.map(async (post) => ({ post, author: await getEntry(post.data.author) })));
 ---
-<!--
-SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
-SPDX-License-Identifier: MIT
--->
-
 <BaseLayout title="TotalCross Blog" description="Everything about embedded systems development.">
   <PageHero title="TotalCross Blog" tagline="Everything about embedded systems development" />
   <section class="page-content"><div class="container prose-wide"><PostList items={items} /></div></section>

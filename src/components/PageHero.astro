@@ -1,4 +1,9 @@
 ---
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 import waves from "../assets/bg_wavesdark.png";
 
 interface Props {
@@ -9,11 +14,6 @@ interface Props {
 
 const { title, tagline, tone = "dark" } = Astro.props;
 ---
-<!--
-SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
-SPDX-License-Identifier: MIT
--->
-
 <section class:list={["page-hero", `page-hero--${tone}`]} style={`--page-hero-bg: url(${waves.src})`}>
   <div class="container">
     <h1>{title}</h1>

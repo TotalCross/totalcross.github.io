@@ -26,3 +26,18 @@ Font Awesome Free Brands paths rendered by a small Astro component. Links have l
 titles, new-tab behavior, and noopener/noreferrer protection; the generated site ships
 no icon JavaScript. Build, route, content, icon-contract, and desktop/mobile visual
 checks passed without a design or navigation change.
+
+## M2 — Source-only SPDX metadata
+
+Completed 2026-08-10. License policy now distinguishes rendered formats from ordinary
+documentation. Astro headers are JavaScript blocks inside component frontmatter;
+blog Markdown/MDX headers are YAML comments inside content frontmatter. Exact known
+legacy HTML forms migrate idempotently, including the repository's no-blank-line
+variant, while conflicts and partial metadata remain refusals.
+
+The deliberate fixer migrated every project-authored renderable source. The mapped
+Tecdet page and article retained their customer-material holder and license during a
+manual placement-only move. Site validation now rejects recognized SPDX authoring
+comments in generated HTML. The final M2 build contained zero such comments across
+20 HTML documents while all existing routes, links, archives, feeds, sitemaps, drafts,
+and translations continued to validate.

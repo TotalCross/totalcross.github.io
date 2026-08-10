@@ -1,4 +1,9 @@
 ---
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 interface Props {
   background: string;
   image: string;
@@ -6,11 +11,6 @@ interface Props {
 
 const { background, image } = Astro.props;
 ---
-<!--
-SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
-SPDX-License-Identifier: MIT
--->
-
 
 <section class="hero" style={`--hero-background: url(${background})`}>
   <div class="hero-inner container">

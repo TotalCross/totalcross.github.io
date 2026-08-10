@@ -40,3 +40,17 @@ SPDX-License-Identifier: MIT
   390×844 preserve layout and show six recognizable footer glyphs. SHA-256 values are
   `5d0ecd282e9dce9f11ef411e9a93e88bb0f99f4065bc411649f3b6a06a9b642f` and
   `1bcfac838791ec8ca3ab80c41e029bcddcbb4090f64e61e45103b6e9ef35d544`.
+- 2026-08-10, M2 header model: `.astro` uses the canonical JavaScript block inside
+  Astro frontmatter; renderable `src/content/blog` Markdown/MDX uses YAML comments
+  inside content frontmatter; other Markdown retains non-rendered documentation
+  headers. The fixer creates minimal Astro frontmatter when absent, migrates only
+  verified legacy values, normalizes duplicates, and refuses conflicts.
+- 2026-08-10, M2 migration: the deliberate all-files fixer accepted 151/151 and moved
+  29 known authored headers, then four approved no-blank-line variants after their
+  focused regression test. Tecdet page/article headers were moved manually with the
+  existing third-party holder and `LicenseRef-ThirdParty-Material` unchanged.
+- 2026-08-10, M2 validation: 11 license tests passed; all-files validation accepted
+  151/151 with 62 mapped and 20 ignored paths. Astro check reported 49 files and zero
+  diagnostics; 18 pages built; generated validation reported
+  `routes=14 html=20 broken=0 rendered-spdx=0`, with complete content/feed/sitemap
+  assertions. An independent recognized-comment scan also found `html=20 leaked=0`.

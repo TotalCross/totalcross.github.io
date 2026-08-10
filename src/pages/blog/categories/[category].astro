@@ -1,4 +1,9 @@
 ---
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { getEntry } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import PageHero from "../../../components/PageHero.astro";
@@ -20,8 +25,4 @@ export async function getStaticPaths() {
 const { label, posts } = Astro.props;
 const items = await Promise.all(posts.map(async (post: BlogEntry) => ({ post, author: await getEntry(post.data.author) })));
 ---
-<!--
-SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
-SPDX-License-Identifier: MIT
--->
 <BaseLayout title={`${label} · TotalCross Blog`} description={`TotalCross articles in ${label}.`}><PageHero title={label} tagline="A TotalCross blog category" /><section class="page-content"><div class="container prose-wide"><PostList items={items} /></div></section></BaseLayout>

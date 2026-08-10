@@ -1,4 +1,7 @@
 ---
+# SPDX-FileCopyrightText: Copyright holder(s) of the Tecdet customer material
+# SPDX-License-Identifier: LicenseRef-ThirdParty-Material
+
 title: Traffic control system by Tecdet
 description: Why Tecdet migrated its embedded traffic system to Linux Arm and chose TotalCross for its GUI.
 subtitle: Why Tecdet decided to migrate its embedded system to Linux Arm and built an innovative way to inspect Brazilian automotive traffic.
@@ -17,11 +20,6 @@ crossPost:
   dev: false
   medium: false
 ---
-<!--
-SPDX-FileCopyrightText: Copyright holder(s) of the Tecdet customer material
-SPDX-License-Identifier: LicenseRef-ThirdParty-Material
--->
-
 Tecdet develops systems for traffic control and inspection for the Brazilian government. Their engineers wanted to upgrade technology based on Windows x86, which was no longer satisfactory in terms of performance and energy consumption. They rebuilt the system for the Linux Arm architecture on Toradex modules and chose TotalCross to develop their GUI.
 
 ## Why did Tecdet choose TotalCross?
