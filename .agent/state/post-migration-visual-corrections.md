@@ -5,20 +5,19 @@ SPDX-License-Identifier: MIT
 
 # Post-migration visual corrections state
 
-- Active milestone: M3 — final correction validation and asset-plan handoff.
-- Active slice: update changelog and final plan records, produce the factual report,
-  then run the first ExecPlan's single Level 3 closure matrix.
-- Last completed logical slice: M2 source-only SPDX header placement and migration.
-- Active paths: `CHANGELOG.md`, correction plan/state/evidence/archive/editorial
-  records, and the final validation matrix.
-- Next concrete action: write the M3 handoff documents without changing the package
-  version, then validate and point state to the asset-performance ExecPlan.
-- Focused validation completed: license tests passed 11/11; deliberate all-files fix
-  migrated 29 known headers plus four spacing variants; all-files licensing accepted
-  151/151. Astro reported zero diagnostics; 18 pages built; 14 routes and 20 HTML
-  documents passed with zero broken links and zero rendered SPDX headers.
-- Deferred validation: M3's combined Level 3 matrix runs after changelog and handoff
-  documents are complete; asset payload work remains deferred to the next ExecPlan.
+- Active milestone: none — M0-M3 are complete.
+- Active slice: none; handoff is ready for
+  `.agent/plans/site-asset-performance-optimization.md`.
+- Last completed logical slice: M3 changelog, editorial report, and Level 3 closure.
+- Active paths: none for this plan.
+- Next concrete action: create/read the asset-performance state and execute that
+  ExecPlan from its M0 baseline without revisiting this completed audit.
+- Focused validation completed: final Level 3 passed 17 tests; 151/151 all-files
+  licenses; release/workflow checks; zero Astro diagnostics; 18 built pages; 14 routes
+  and 20 HTML documents with zero broken links and zero rendered SPDX headers; full
+  content/feed/sitemap assertions.
+- Deferred validation: production publication and `v1.0.1` belong to the combined
+  correction release after the asset-performance plan.
 - Active decisions: Astro uses block comments inside frontmatter; renderable blog
   Markdown/MDX uses YAML comments inside frontmatter; mapped Tecdet ownership values
   were preserved verbatim.

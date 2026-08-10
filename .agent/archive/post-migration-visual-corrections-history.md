@@ -41,3 +41,11 @@ manual placement-only move. Site validation now rejects recognized SPDX authorin
 comments in generated HTML. The final M2 build contained zero such comments across
 20 HTML documents while all existing routes, links, archives, feeds, sitemaps, drafts,
 and translations continued to validate.
+
+## M3 — Final correction validation and handoff
+
+Completed 2026-08-10. The Unreleased changelog and factual editorial report describe
+the visible correction without introducing a standalone version bump. The final
+Level 3 matrix passed every unit, licensing, release, workflow, Astro, route, link,
+content, feed, sitemap, draft, translation, and rendered-header assertion. This plan
+is closed; the combined v1.0.1 release remains owned by the asset-performance plan.

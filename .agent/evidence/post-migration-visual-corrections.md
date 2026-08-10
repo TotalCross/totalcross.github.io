@@ -54,3 +54,8 @@ SPDX-License-Identifier: MIT
   diagnostics; 18 pages built; generated validation reported
   `routes=14 html=20 broken=0 rendered-spdx=0`, with complete content/feed/sitemap
   assertions. An independent recognized-comment scan also found `html=20 leaked=0`.
+- 2026-08-10, M3 closure: the exact Level 3 matrix passed 17 total unit tests,
+  151/151 all-files licensing, release identity at 1.0.0/tag v1.0.0, workflow policy,
+  zero Astro diagnostics, 18 native pages, `routes=14 html=20 broken=0
+  rendered-spdx=0`, and all article/archive/feed/sitemap/draft/translation checks.
+  Production publication is intentionally deferred to the combined v1.0.1 boundary.

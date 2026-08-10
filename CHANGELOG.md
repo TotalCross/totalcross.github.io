@@ -12,7 +12,14 @@ capability and compatibility releases.
 
 ## [Unreleased]
 
-No unreleased changes.
+### Fixed
+
+- Restored complete TotalCross favicon, Apple-touch, and web-manifest icon metadata
+  from the existing brand emblem.
+- Replaced footer social-network initials with accessible static brand SVGs and
+  restored protected new-tab behavior for external destinations.
+- Kept authored Astro and blog SPDX metadata machine-verifiable in source frontmatter
+  without repeatedly emitting those headers into generated HTML.
 
 ## [1.0.0] - 2026-08-10
 
