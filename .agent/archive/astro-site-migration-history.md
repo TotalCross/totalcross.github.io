@@ -27,3 +27,22 @@ Headless Playwright captured eight deterministic desktop/mobile viewport baselin
 from the immutable deployed `master` artifact, and their dimensions and hashes are
 recorded beside the images. No production or remote repository settings changed in
 M0.
+
+## M1 — Astro foundation and visual system
+
+Completed 2026-08-10 after M0 closure. Astro 7.2.0 and TypeScript 6.0.3 now produce a
+static site for `https://totalcross.com` under supported Node 24. The implementation
+adds a typed base layout, canonical/social metadata, shared header/footer/button
+components, extracted design tokens, a responsive full home page, local font assets,
+and reused legacy artwork without React hydration.
+
+The Astro source remains temporarily isolated under `astro/`, with `static/` as its
+public directory and the legacy Gatsby images imported in place. This keeps the
+Gatsby recovery path operational and avoids duplicating large assets until route
+parity allows M7 to make the final conventional `src/`/`public/` move. The coexistence
+lockfile pins modern ESM `cookie` at the root because Gatsby otherwise hoisted an
+incompatible legacy release into Astro's prerender bundle.
+
+Astro check completed with zero diagnostics, the production build generated the home
+route without client script sources, and Playwright comparisons at 1440×900 and
+390×844 confirmed the shared shell/home identity against the M0 captures.

@@ -79,7 +79,7 @@ GitHub operations, recheck status, branch, remote state, and HEAD.
 
 - [x] M0A — Repository licensing and agent tooling prerequisite.
 - [x] M0 — Baseline and migration guardrails.
-- [ ] M1 — Astro foundation and visual system.
+- [x] M1 — Astro foundation and visual system.
 - [ ] M2 — Public page and route parity.
 - [ ] M3 — Blog, SEO, feeds, and localization readiness.
 - [ ] M4 — Versioning, changelog, and release metadata.
@@ -336,6 +336,10 @@ Add only discoveries that change remaining work; move resolved history to archiv
   flow unless a supported API exists at execution time. Date: 2026-08-10.
 - Decision: site implementation uses SemVer and `CHANGELOG.md`; content-only posts
   do not require releases; Astro cutover is `v1.0.0`. Date: 2026-08-10.
+- Decision: keep Astro source under `astro/` and reuse `static/` plus `src/imgs/`
+  during M1-M6, then move to conventional `src/` and `public/` in M7. Rationale:
+  preserve the working Gatsby recovery path and avoid duplicate large artwork until
+  public route parity has passed. Date: 2026-08-10.
 
 ## Validation and Acceptance
 

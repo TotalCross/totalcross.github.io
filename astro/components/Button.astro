@@ -1,0 +1,55 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  tone?: "green" | "light" | "dark";
+}
+
+const { href, label, tone = "green" } = Astro.props;
+---
+<!--
+SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+SPDX-License-Identifier: MIT
+-->
+
+
+<a class:list={["button", `button--${tone}`]} href={href}>{label}</a>
+
+<style>
+  .button {
+    border-radius: var(--radius-button);
+    box-shadow: var(--shadow-button);
+    display: inline-flex;
+    font-size: 0.85rem;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.4;
+    min-width: 120px;
+    padding: 0.55rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: filter 180ms ease, transform 180ms ease;
+  }
+
+  .button:hover,
+  .button:focus-visible {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+  }
+
+  .button--green {
+    background: var(--color-brand-green);
+    color: var(--color-white);
+  }
+
+  .button--light {
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  .button--dark {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+</style>

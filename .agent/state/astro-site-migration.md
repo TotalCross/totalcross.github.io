@@ -5,29 +5,31 @@ SPDX-License-Identifier: MIT
 
 # Astro site migration state
 
-- Active milestone: M1 — Astro foundation and visual system.
-- Active slice: inspect the M1 source shell, add the current Astro/TypeScript static
-  foundation, and implement the representative shared shell and home page.
-- Last completed logical slice: M0 automated visual baseline closure from clean
-  checkpoint `c7182dc`.
-- Active paths: `package.json`, lockfile, Astro/TypeScript configuration,
-  `src/layouts/`, `src/components/`, `src/styles/`, reusable `src/assets/`, the home
-  page, and the M1 migration state/evidence.
-- Next concrete action: inspect only the legacy header/footer/home sources and their
-  manifest-listed assets, then implement the Astro shell before running M1's final
-  check/build/visual comparison.
-- Validation completed: M0 inventories account for 42 assets, 14 routes, and nine
-  endpoints; the live HTTP crawl passed; the documented Rosetta Gatsby build passed
-  with 14/14 pages and 295 files; eight Playwright viewport baselines have verified
-  dimensions and SHA-256 hashes and passed representative visual spot inspection.
+- Active milestone: M2 — public page and route parity.
+- Active slice: port the remaining legacy public routes into the shared Astro shell,
+  preserve trailing-slash behavior and important asset paths, then add manifest-led
+  route and link checks.
+- Last completed logical slice: M1 Astro foundation and home visual system.
+- Active paths: `.agent/baseline/legacy-routes.yml`, legacy `src/pages/` sources,
+  shared `astro/components/`, new `astro/pages/` routes, reusable legacy images,
+  route/link validation scripts, and M2 state/evidence.
+- Next concrete action: read the compact route manifest and only the legacy page
+  sources required to map each route, then port them using the M1 components before
+  M2's single check/build/route/link/visual validation stage.
+- Validation completed: M0 baseline/recovery evidence is closed. M1 `astro check`
+  passed with zero diagnostics; the supported Node 24 production build generated the
+  static home route and canonical metadata with no client script source; Playwright
+  comparisons at 1440×900 and 390×844 retained the legacy shared shell and hero
+  identity without overflow.
 - Environment limitation: the Codex in-app Browser has no available backend and will
   not be retried or treated as a blocker. Repository-local automation, headless
   Playwright, screenshots, and command-line validation are the fallback path.
-- Active decisions: `site` at original revision `999f35b` is the authoritative
-  legacy source; `master` is generated production history and must never be merged;
-  no production setting changes occur in M0.
+- Active decisions: `site` at original revision `999f35b` remains the authoritative
+  legacy source and `master` must never be merged. Astro stays isolated under
+  `astro/` while Gatsby recovery remains operational; M7 performs the final source
+  layout and asset move after route parity.
 - Blockers: none. GitHub read access is available and current permissions report
   admin.
-- Deliberate out-of-scope files: public route migration, blog content, deployment,
-  cross-posting, versioning, and Gatsby cleanup remain for their later milestones.
+- Deliberate out-of-scope files: blog content-system work, deployment, cross-posting,
+  versioning, and Gatsby cleanup remain for their later milestones.
 - Resume command: `git status --short --branch && sed -n '1,180p' .agent/state/astro-site-migration.md`.

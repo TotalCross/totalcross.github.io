@@ -13,6 +13,7 @@ path = [
   "package.json",
   "package-lock.json",
   "static/googledf7144400c12b6c2.html",
+  "tsconfig.json",
 ]
 precedence = "override"
 SPDX-FileCopyrightText = "2026 Amalgam Solucoes em TI Ltda."
@@ -39,9 +40,12 @@ precedence = "override"
 SPDX-FileCopyrightText = "Copyright holder(s) of the original material"
 SPDX-License-Identifier = "LicenseRef-ThirdParty-Material"
 
-# Legacy visual baselines contain a mixture of brand and historical customer material.
+# Legacy visual baselines and regression evidence contain mixed brand/customer material.
 [[annotations]]
-path = ".agent/baseline/screenshots/**"
+path = [
+  ".agent/baseline/screenshots/**",
+  ".agent/evidence/screenshots/**",
+]
 precedence = "override"
 SPDX-FileCopyrightText = "Copyright holder(s) of the captured legacy site material"
 SPDX-License-Identifier = "LicenseRef-ThirdParty-Material"

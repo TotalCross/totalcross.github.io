@@ -42,3 +42,19 @@ SPDX-License-Identifier: MIT
   queries, 14/14 static HTML pages, 133/133 image thumbnails, and success in 101.04s.
   `public/` contained 295 files and all 14 manifest routes. Deployed `master` has 296
   because its legacy publication adds root `CNAME`; local `public/CNAME` was absent.
+- 2026-08-10, M1 foundation: installed Astro 7.2.0, `@astrojs/check` 0.9.10,
+  TypeScript 6.0.3, and a current lockfile while retaining Gatsby for recovery.
+  Official Astro requirements identify Node 22.12+ and even-numbered releases; all
+  acceptance commands therefore used Node 24.19.0. A direct `cookie@2.0.1` pin keeps
+  Astro's ESM prerender dependency at the root while Gatsby's older copies remain
+  nested during coexistence.
+- 2026-08-10, M1 validation: `astro check` reported 0 errors, 0 warnings, and 0
+  hints. The static production build generated `/index.html` in 0.52 seconds, with
+  74 total output files including copied legacy static files, one Astro HTML route,
+  17 referenced optimized/font assets, a canonical `https://totalcross.com/` URL,
+  and no external client script source.
+- 2026-08-10, M1 visual comparison: Playwright 1.62.1 captured the locally served
+  production build at 1440×900 and 390×844. The shell retained the recorded gutters,
+  navigation, colors, typography family, 614/600 px hero geometry, background/device
+  artwork, and section transition without overflow. Screenshot SHA-256 values are
+  `9e82c664...baa363b2` and `1fe41fde...ffde0fb`, respectively.

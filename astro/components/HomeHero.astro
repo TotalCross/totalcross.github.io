@@ -1,0 +1,104 @@
+---
+interface Props {
+  background: string;
+  image: string;
+}
+
+const { background, image } = Astro.props;
+---
+<!--
+SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+SPDX-License-Identifier: MIT
+-->
+
+
+<section class="hero" style={`--hero-background: url(${background})`}>
+  <div class="hero-inner container">
+    <div class="copy">
+      <h1>The fastest way to build GUI for embedded devices</h1>
+      <p>Open Source SDK providing a fast and easy way to build beautiful User Interfaces for Embedded, IoT, mobile, desktop, everything.</p>
+    </div>
+    <img class="device" src={image} alt="Embedded system with a display showing a TotalCross GUI" width="700" height="525" />
+  </div>
+</section>
+
+<style>
+  .hero {
+    background-color: var(--color-ink);
+    background-image: var(--hero-background);
+    background-position: center;
+    background-size: cover;
+    color: var(--color-white);
+    min-height: 614px;
+  }
+
+  .hero-inner {
+    align-items: center;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: minmax(0, 1.3fr) minmax(440px, 1fr);
+    min-height: 614px;
+  }
+
+  .copy {
+    max-width: 700px;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 4vw, 2.875rem);
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 3rem;
+    max-width: 650px;
+  }
+
+  p {
+    color: var(--color-muted);
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+    max-width: 690px;
+  }
+
+  .device {
+    height: auto;
+    justify-self: center;
+    width: min(100%, 700px);
+  }
+
+  @media (max-width: 900px) {
+    .hero,
+    .hero-inner {
+      min-height: 600px;
+    }
+
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      height: 600px;
+      justify-content: flex-start;
+      overflow: hidden;
+      padding-block: 4.6rem 2rem;
+      text-align: center;
+    }
+
+    .copy {
+      padding: 0;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 8.7vw, 2.25rem);
+      line-height: 1.1;
+      margin-bottom: 1.4rem;
+    }
+
+    p {
+      line-height: 1.3;
+    }
+
+    .device {
+      margin-top: 3rem;
+      width: min(60vw, 240px);
+    }
+  }
+</style>

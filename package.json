@@ -42,8 +42,12 @@
     "typeface-montserrat": "0.0.75"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "astro": "^7.2.0",
+    "cookie": "^2.0.1",
     "gh-pages": "^3.1.0",
-    "prettier": "2.2.1"
+    "prettier": "2.2.1",
+    "typescript": "^6.0.3"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
@@ -56,6 +60,10 @@
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
+    "astro:build": "astro build",
+    "astro:check": "astro check",
+    "astro:dev": "astro dev",
+    "astro:preview": "astro preview",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
