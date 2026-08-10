@@ -77,7 +77,7 @@ GitHub operations, recheck status, branch, remote state, and HEAD.
 
 ## Progress
 
-- [ ] M0A — Repository licensing and agent tooling prerequisite.
+- [x] M0A — Repository licensing and agent tooling prerequisite.
 - [ ] M0 — Baseline and migration guardrails.
 - [ ] M1 — Astro foundation and visual system.
 - [ ] M2 — Public page and route parity.
@@ -89,8 +89,9 @@ GitHub operations, recheck status, branch, remote state, and HEAD.
 
 ## Current Architecture and Scope
 
-The repository currently has no explicit license or root `AGENTS.md`. M0A resolves
-that before broad file creation. The current source uses Gatsby 2.26.x, React 16,
+M0A added the repository license policy, root `AGENTS.md`, local planning contract,
+validation/fix tooling, CI gate, and repository skills. The current source uses
+Gatsby 2.26.x, React 16,
 Styled Components, Gatsby Remark,
 Gatsby image plugins, GraphQL page queries, and a legacy Pages workflow. A push to
 `site` invokes an old Gatsby publishing action, builds `public/`, and writes generated
@@ -374,6 +375,10 @@ limitations, with pointers to evidence/history.
 
 The final editorial report follows the sections required by `.agent/PLANS.md`; do not
 duplicate its contents in the active plan.
+
+M0A completed through `.agent/plans/repository-policy-and-agent-tooling.md`. Its five
+logical commits end at `a44ea2d`; the final all-files policy check accepted 115
+policy-relevant files and left the Gatsby publication path available for recovery.
 
 ## Revision Note
 
