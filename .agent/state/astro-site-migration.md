@@ -5,22 +5,23 @@ SPDX-License-Identifier: MIT
 
 # Astro site migration state
 
-- Active milestone: M3 — blog, SEO, feeds, and localization readiness.
-- Active slice: replace the temporary M2 blog/article pages with a typed Astro content
-  collection, author/tag routes, article rendering, feeds, sitemap, and translation-
-  aware metadata while preserving the Tecdet root route.
-- Last completed logical slice: M2 public route and asset parity.
-- Active paths: `astro/content.config.ts`, `astro/content/`, blog/article layouts and
-  routes, author/tag pages, RSS/sitemap endpoints, metadata components, the Tecdet
-  source content, and focused content/feed validators.
-- Next concrete action: implement the typed schema and migrate the Tecdet source plus
-  a draft fixture, then drive the blog, article, author/tag, RSS, sitemap, canonical,
-  JSON-LD, and optional translation links from that collection before M3 validation.
-- Validation completed: M0-M1 remain closed. M2 `astro check` passed with zero
-  diagnostics; 13 native pages plus the generated 404 compatibility copy satisfy all
-  14 legacy route contracts; the route/link checker reported 15 HTML documents and
-  zero broken local references; six Why TotalCross/blog/Tecdet desktop/mobile
-  screenshots passed comparison with the captured identity and responsive behavior.
+- Active milestone: M6 — optional cross-posting.
+- Active slice: add an isolated, opt-in DEV/Forem adapter and manual Medium preparation
+  path without coupling canonical site publication to external services.
+- Last completed logical slice: M3 typed blog publishing, SEO, feeds, and localization
+  readiness.
+- Active paths: cross-post scripts/tests/state, the manual distribution workflow,
+  article cross-post metadata, and focused fixture payloads/documentation.
+- Next concrete action: implement the idempotent DEV payload/state adapter with dry-run
+  coverage, then add the opt-in post-deployment workflow and supported Medium manual
+  preparation path before M6 validation.
+- Validation completed: M0-M2 remain closed. M3 Node 24 `astro check` passed with zero
+  diagnostics; the build generated 18 native pages and 20 HTML documents after 404
+  preparation; route/link validation found all 14 legacy contracts and zero broken
+  references. Content validation passed the Tecdet article, three archives, RSS,
+  sitemap chain, canonical/social/JSON-LD metadata, excluded drafts, and paired EN/PT
+  fixtures. License regression tests passed 6/6, the final targeted check accepted
+  31/31 changed files, and the milestone-wide check accepted 175/175 files.
 - Environment limitation: the Codex in-app Browser has no available backend and will
   not be retried or treated as a blocker. Repository-local automation, headless
   Playwright, screenshots, and command-line validation are the fallback path.
@@ -30,6 +31,6 @@ SPDX-License-Identifier: MIT
   layout and asset move after route parity.
 - Blockers: none. GitHub read access is available and current permissions report
   admin.
-- Deliberate out-of-scope files: cross-posting, deployment, versioning, and Gatsby
-  cleanup remain for their later milestones.
+- Deliberate out-of-scope files: deployment, versioning, and Gatsby cleanup remain
+  for their later milestones; M6 must not change production publication behavior.
 - Resume command: `git status --short --branch && sed -n '1,180p' .agent/state/astro-site-migration.md`.

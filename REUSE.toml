@@ -30,6 +30,7 @@ SPDX-License-Identifier = "MIT"
 # Customer editorial content is preserved without asserting Amalgam ownership.
 [[annotations]]
 path = [
+  "astro/content/blog/traffic-control-system-by-tecdet.md",
   "astro/pages/traffic-control-system-by-tecdet/index.astro",
   "content/blog/traffic-control-system-by-tecdet/**",
 ]

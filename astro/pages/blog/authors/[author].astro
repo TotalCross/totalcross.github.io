@@ -1,0 +1,23 @@
+---
+import { getEntry } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PageHero from "../../../components/PageHero.astro";
+import PostList from "../../../components/PostList.astro";
+import { getPublishedPosts } from "../../../lib/content";
+
+export async function getStaticPaths() {
+  const posts = (await getPublishedPosts()).filter((post) => post.data.language === "en");
+  const ids = [...new Set(posts.map((post) => post.data.author.id))];
+  return ids.map((author) => ({ params: { author }, props: { author, posts: posts.filter((post) => post.data.author.id === author) } }));
+}
+
+const { author: authorId, posts } = Astro.props;
+const author = await getEntry("authors", authorId);
+if (!author) throw new Error(`Author not found: ${authorId}`);
+const items = posts.map((post: (typeof posts)[number]) => ({ post, author }));
+---
+<!--
+SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+SPDX-License-Identifier: MIT
+-->
+<BaseLayout title={`${author.data.name} · TotalCross`} description={author.data.bio}><PageHero title={author.data.name} tagline={author.data.bio} /><section class="page-content"><div class="container prose-wide"><PostList items={items} /></div></section></BaseLayout>

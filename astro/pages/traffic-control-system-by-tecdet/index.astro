@@ -1,32 +1,22 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getEntry, render } from "astro:content";
+import BlogArticle from "../../layouts/BlogArticle.astro";
 import articleImage from "../../../content/blog/traffic-control-system-by-tecdet/tecdet.jpg";
+import { getPublishedPosts, seriesFor, translationsFor } from "../../lib/content";
+
+const post = await getEntry("blog", "traffic-control-system-by-tecdet");
+if (!post || post.data.draft) throw new Error("Published Tecdet article not found");
+const author = await getEntry(post.data.author);
+if (!author) throw new Error("Tecdet author not found");
+const { Content, headings } = await render(post);
+const posts = await getPublishedPosts();
+const translations = translationsFor(post, posts);
 ---
 <!--
 SPDX-FileCopyrightText: Copyright holder(s) of the Tecdet customer material
 SPDX-License-Identifier: LicenseRef-ThirdParty-Material
 -->
 
-<BaseLayout title="Traffic control system by Tecdet · TotalCross" description="Why Tecdet migrated its embedded traffic system to Linux Arm and chose TotalCross for its GUI.">
-  <article class="article" itemscope itemtype="https://schema.org/Article">
-    <header><div class="container article-header"><h1 itemprop="headline">Traffic control system by Tecdet</h1><p class="subtitle" itemprop="description">Why Tecdet decided to migrate its embedded system to Linux Arm and built an innovative way to inspect Brazilian automotive traffic.</p><p class="byline"><span itemprop="author">Kaique Mancoso</span><br /><time itemprop="datePublished" datetime="2021-02-25">February 25, 2021</time></p></div></header>
-    <div class="page-content"><div class="container prose-wide" itemprop="articleBody">
-      <p>Tecdet develops systems for traffic control and inspection for the Brazilian government. Its engineers wanted to upgrade technology based on Windows x86, which no longer met their performance and energy requirements. They rebuilt the system for Linux Arm on Toradex modules and chose TotalCross for the GUI.</p>
-      <img src={articleImage.src} alt="Tecdet traffic inspection device" />
-      <h2>Why did Tecdet choose TotalCross?</h2>
-      <h3>1. Time to market</h3><p>The project lead had firmware experience but was new to GUI creation. With basic Java knowledge, he learned TotalCross in one week and built a five-screen first version in two more weeks—more than a 60% reduction from the alternative estimate.</p>
-      <h3>2. Cost</h3><p>The project used low-end devices and needed to avoid runtime fees. TotalCross met those requirements with free, open-source licensing and strong performance on constrained hardware.</p>
-      <h3>3. Low footprint</h3><p>The TotalCross runtime was 5MB at the time. The whole application, including the custom Yocto distribution developed by <a href="https://www.ossystems.com.br/">O.S. Systems</a>, was only 23MB.</p>
-      <h2>Embedded systems for society’s demands</h2><p>Projects like Tecdet’s must balance budget, time to market, and long-term maintenance. A framework that is easier and faster to learn can make that work more sustainable.</p>
-    </div></div>
-  </article>
-</BaseLayout>
-
-<style>
-  .article header { background: var(--color-white); padding-block: clamp(4rem, 8vw, 7rem); }
-  .article-header { max-width: 900px; }
-  h1 { color: #000; font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.08; margin-bottom: 1rem; }
-  .subtitle { color: var(--color-text-light, #4f5969); font-size: clamp(1.15rem, 2.5vw, 1.45rem); }
-  .byline { color: var(--color-brand-red); }
-  .prose-wide img { margin: 2rem 0; width: 100%; }
-</style>
+<BlogArticle post={post} author={author} headings={headings} translations={translations} seriesPosts={seriesFor(post, posts)} coverImage={articleImage.src}>
+  <Content />
+</BlogArticle>

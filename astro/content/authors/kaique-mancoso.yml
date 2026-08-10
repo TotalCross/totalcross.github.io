@@ -1,7 +1,5 @@
 # SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
 # SPDX-License-Identifier: MIT
 
-User-agent: *
-Allow: /
-
-Sitemap: https://totalcross.com/sitemap.xml
+name: Kaique Mancoso
+bio: Developer and writer in the TotalCross community.

@@ -1,0 +1,24 @@
+---
+import { getEntry, render } from "astro:content";
+import BlogArticle from "../../layouts/BlogArticle.astro";
+import { getPublishedPosts, postSlug, seriesFor, translationsFor, type BlogEntry } from "../../lib/content";
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  return posts.filter((post) => post.data.language === "en" && !post.data.legacyPath).map((post) => ({ params: { id: postSlug(post) }, props: { post, posts } }));
+}
+
+interface Props { post: BlogEntry; posts: BlogEntry[]; }
+const { post, posts } = Astro.props;
+const author = await getEntry(post.data.author);
+if (!author) throw new Error(`Author not found for ${post.id}`);
+const { Content, headings } = await render(post);
+---
+<!--
+SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+SPDX-License-Identifier: MIT
+-->
+
+<BlogArticle post={post} author={author} headings={headings} translations={translationsFor(post, posts)} seriesPosts={seriesFor(post, posts)}>
+  <Content />
+</BlogArticle>

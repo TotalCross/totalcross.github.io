@@ -1,6 +1,12 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHero from "../../components/PageHero.astro";
+import PostList from "../../components/PostList.astro";
+import { getEntry } from "astro:content";
+import { getPublishedPosts } from "../../lib/content";
+
+const posts = (await getPublishedPosts()).filter((post) => post.data.language === "en");
+const items = await Promise.all(posts.map(async (post) => ({ post, author: await getEntry(post.data.author) })));
 ---
 <!--
 SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
@@ -9,11 +15,5 @@ SPDX-License-Identifier: MIT
 
 <BaseLayout title="TotalCross Blog" description="Everything about embedded systems development.">
   <PageHero title="TotalCross Blog" tagline="Everything about embedded systems development" />
-  <section class="page-content"><div class="container prose-wide"><article class="post-card" itemscope itemtype="https://schema.org/Article"><h2><a href="/traffic-control-system-by-tecdet/" itemprop="url"><span itemprop="headline">Traffic control system by Tecdet</span></a></h2><p><span itemprop="author">Kaique Mancoso</span><br /><time datetime="2021-02-25">February 25, 2021</time></p><p itemprop="description">Why Tecdet migrated its embedded system to Linux Arm and built a new way to inspect Brazilian automotive traffic.</p></article></div></section>
+  <section class="page-content"><div class="container prose-wide"><PostList items={items} /></div></section>
 </BaseLayout>
-
-<style>
-  .post-card { background: var(--color-white); border-radius: 14px; box-shadow: 0 5px 22px rgb(0 0 0 / 9%); padding: clamp(1.5rem, 4vw, 3rem); }
-  .post-card h2 { margin-top: 0; }
-  .post-card a { color: #005b99; text-decoration: none; }
-</style>

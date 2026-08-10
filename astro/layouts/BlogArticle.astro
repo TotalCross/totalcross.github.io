@@ -1,0 +1,123 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "./BaseLayout.astro";
+import { postPath, taxonomySlug, type BlogEntry } from "../lib/content";
+
+interface Heading { depth: number; slug: string; text: string; }
+interface Props {
+  post: BlogEntry;
+  author: CollectionEntry<"authors">;
+  headings: Heading[];
+  translations?: BlogEntry[];
+  seriesPosts?: BlogEntry[];
+  coverImage?: string;
+}
+
+const { post, author, headings, translations = [], seriesPosts = [], coverImage } = Astro.props;
+const path = postPath(post);
+const languageName = post.data.language === "pt-BR" ? "Português" : "English";
+const alternates = translations.map((translation) => ({ language: translation.data.language, href: postPath(translation) }));
+const toc = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.publishDate.toISOString(),
+  dateModified: (post.data.updatedDate ?? post.data.publishDate).toISOString(),
+  inLanguage: post.data.language,
+  mainEntityOfPage: new URL(path, Astro.site).href,
+  author: { "@type": "Person", name: author.data.name, url: author.data.url },
+  publisher: { "@type": "Organization", name: "TotalCross", url: "https://totalcross.com" },
+  keywords: post.data.tags.join(", "),
+};
+---
+<!--
+SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+SPDX-License-Identifier: MIT
+-->
+
+<BaseLayout
+  title={`${post.data.title} · TotalCross`}
+  description={post.data.description}
+  image={coverImage}
+  canonicalPath={path}
+  language={post.data.language}
+  socialType="article"
+  publishedTime={post.data.publishDate}
+  modifiedTime={post.data.updatedDate}
+  authorName={author.data.name}
+  tags={post.data.tags}
+  alternates={alternates}
+>
+  <article class="article" itemscope itemtype="https://schema.org/BlogPosting">
+    <header>
+      <div class="container article-header">
+        <p class="eyebrow">{post.data.categories.join(" · ")} · {languageName}</p>
+        <h1 itemprop="headline">{post.data.title}</h1>
+        {post.data.subtitle && <p class="subtitle" itemprop="description">{post.data.subtitle}</p>}
+        <p class="byline">By <a href={`/blog/authors/${author.id}/`} itemprop="author">{author.data.name}</a><br /><time itemprop="datePublished" datetime={post.data.publishDate.toISOString()}>{post.data.publishDate.toLocaleDateString(post.data.language, { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })}</time>{post.data.updatedDate && <> · Updated {post.data.updatedDate.toLocaleDateString(post.data.language)}</>}</p>
+        <div class="tags">{post.data.tags.map((tag) => <a href={`/blog/tags/${taxonomySlug(tag)}/`}>#{tag}</a>)}</div>
+        {translations.length > 0 && <nav class="translations" aria-label="Translations">{translations.map((translation) => <a href={postPath(translation)}>{translation.data.language === "pt-BR" ? "Leia em Português" : "Read in English"}</a>)}</nav>}
+      </div>
+    </header>
+
+    <div class="page-content">
+      <div class="container article-grid">
+        {toc.length > 0 && <aside class="toc"><h2>On this page</h2><ol>{toc.map((heading) => <li class:list={[`depth-${heading.depth}`]}><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ol></aside>}
+        <div class="article-body" itemprop="articleBody">
+          {coverImage && <img class="cover" src={coverImage} alt="" />}
+          <slot />
+          {post.data.series && seriesPosts.length > 0 && (
+            <nav class="series" aria-label="Article series">
+              <h2>{post.data.series.name}</h2>
+              <ol>
+                {seriesPosts.map((seriesPost) => (
+                  <li aria-current={seriesPost.id === post.id ? "page" : undefined}>
+                    <a href={postPath(seriesPost)}>{seriesPost.data.title}</a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          )}
+        </div>
+      </div>
+    </div>
+  </article>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+</BaseLayout>
+
+<style>
+  .article header { background: var(--color-white); padding-block: clamp(4rem, 8vw, 7rem); }
+  .article-header { max-width: 900px; }
+  .eyebrow { color: var(--color-brand-red); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+  h1 { color: #000; font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.08; margin-bottom: 1rem; }
+  .subtitle { color: #4f5969; font-size: clamp(1.15rem, 2.5vw, 1.45rem); }
+  .byline { color: var(--color-brand-red); }
+  .byline a, .tags a, .translations a { color: inherit; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+  .tags a { color: #005b99; font-size: 0.85rem; text-decoration: none; }
+  .translations { margin-top: 1.5rem; }
+  .article-grid { align-items: start; display: grid; gap: 4rem; grid-template-columns: 220px minmax(0, 760px); justify-content: center; }
+  .toc { position: sticky; top: 2rem; }
+  .toc h2 { color: var(--color-ink); font-size: 1rem; margin-top: 0; }
+  .toc ol { list-style: none; padding: 0; }
+  .toc li { margin-bottom: 0.55rem; }
+  .toc .depth-3 { padding-left: 1rem; }
+  .toc a { color: #4f5969; font-size: 0.8rem; text-decoration: none; }
+  .article-body { min-width: 0; }
+  .cover { margin-bottom: 2.5rem; width: 100%; }
+  .article-body :global(h2) { color: var(--color-brand-red); font-size: clamp(1.7rem, 3vw, 2.15rem); margin: 3rem 0 1rem; scroll-margin-top: 2rem; }
+  .article-body :global(h3) { color: var(--color-ink); font-size: 1.25rem; margin: 2rem 0 0.75rem; scroll-margin-top: 2rem; }
+  .article-body :global(p), .article-body :global(li) { line-height: 1.8; }
+  .article-body :global(a) { color: #005b99; }
+  .article-body :global(pre) { border-radius: 10px; overflow-x: auto; padding: 1.25rem; }
+  .article-body :global(:not(pre) > code) { background: #ddd; border-radius: 4px; padding: 0.1rem 0.3rem; }
+  .article-body :global(table) { border-collapse: collapse; display: block; overflow-x: auto; width: 100%; }
+  .article-body :global(th), .article-body :global(td) { border: 1px solid #ccc; padding: 0.65rem; }
+  .article-body :global(img), .article-body :global(video), .article-body :global(iframe) { height: auto; max-width: 100%; }
+  .series { border-top: 1px solid #ccc; margin-top: 3rem; padding-top: 1.5rem; }
+  .series h2 { color: var(--color-ink); font-size: 1.1rem; }
+  .series [aria-current="page"] { font-weight: 700; }
+  @media (max-width: 900px) { .article-grid { grid-template-columns: 1fr; } .toc { position: static; } }
+</style>

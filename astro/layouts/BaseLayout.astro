@@ -9,11 +9,34 @@ interface Props {
   title: string;
   description: string;
   image?: string;
+  canonicalPath?: string;
+  language?: "en" | "pt-BR";
+  socialType?: "website" | "article";
+  publishedTime?: Date;
+  modifiedTime?: Date;
+  authorName?: string;
+  tags?: string[];
+  alternates?: Array<{ language: string; href: string }>;
+  noindex?: boolean;
 }
 
-const { title, description, image = "/totalcross_logo.png" } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site);
+const {
+  title,
+  description,
+  image = "/totalcross_logo.png",
+  canonicalPath = Astro.url.pathname,
+  language = "en",
+  socialType = "website",
+  publishedTime,
+  modifiedTime,
+  authorName,
+  tags = [],
+  alternates = [],
+  noindex = false,
+} = Astro.props;
+const canonical = new URL(canonicalPath, Astro.site);
 const socialImage = new URL(image, Astro.site);
+const locale = language === "pt-BR" ? "pt_BR" : "en_US";
 ---
 <!--
 SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
@@ -22,20 +45,30 @@ SPDX-License-Identifier: MIT
 
 
 <!doctype html>
-<html lang="en">
+<html lang={language}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title="TotalCross Blog" href={new URL("/rss.xml", Astro.site)} />
+    <link rel="sitemap" href="/sitemap.xml" />
+    {alternates.map((alternate) => <link rel="alternate" hreflang={alternate.language} href={new URL(alternate.href, Astro.site)} />)}
+    {alternates.length > 0 && <link rel="alternate" hreflang="x-default" href={canonical} />}
     <link rel="icon" href="/favicon.ico" sizes="any" />
-    <meta property="og:type" content="website" />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+    <meta property="og:type" content={socialType} />
     <meta property="og:site_name" content="TotalCross" />
+    <meta property="og:locale" content={locale} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={socialImage} />
+    {publishedTime && <meta property="article:published_time" content={publishedTime.toISOString()} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime.toISOString()} />}
+    {authorName && <meta property="article:author" content={authorName} />}
+    {tags.map((tag) => <meta property="article:tag" content={tag} />)}
     <meta name="twitter:card" content="summary_large_image" />
     <title>{title}</title>
   </head>

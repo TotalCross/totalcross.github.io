@@ -6,7 +6,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { canonicalHeader, fixHeader, inspectHeader } from './license/headers.mjs'
-import { globToRegExp, PROJECT_COPYRIGHT } from './license/policy.mjs'
+import { globToRegExp, policyFor, PROJECT_COPYRIGHT } from './license/policy.mjs'
 
 const blockPolicy = {
   style: 'block',
@@ -50,4 +50,15 @@ test('matches REUSE double-star and exact path patterns', () => {
   assert.equal(globToRegExp('content/blog/**').test('content/blog/post/index.md'), true)
   assert.equal(globToRegExp('package.json').test('package.json'), true)
   assert.equal(globToRegExp('package.json').test('nested/package.json'), false)
+})
+
+test('applies the editorial license throughout content migration paths', () => {
+  const mappings = new Map()
+  for (const file of [
+    'content/blog/post/index.md',
+    'astro/content/blog/post.md',
+    'src/content/blog/post.mdx',
+  ]) {
+    assert.equal(policyFor(file, mappings).license, 'CC-BY-4.0')
+  }
 })

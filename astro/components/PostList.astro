@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { postPath, type BlogEntry } from "../lib/content";
+
+interface Item { post: BlogEntry; author?: CollectionEntry<"authors">; }
+interface Props { items: Item[]; emptyMessage?: string; }
+const { items, emptyMessage = "No published articles found." } = Astro.props;
+---
+<!--
+SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+SPDX-License-Identifier: MIT
+-->
+
+<div class="post-list">
+  {items.length === 0 && <p>{emptyMessage}</p>}
+  {items.map(({ post, author }) => (
+    <article class="post-card" itemscope itemtype="https://schema.org/Article">
+      <p class="taxonomy">{post.data.categories.join(" · ")}</p>
+      <h2><a href={postPath(post)} itemprop="url"><span itemprop="headline">{post.data.title}</span></a></h2>
+      <p class="meta">{author?.data.name ?? "TotalCross Team"} · <time datetime={post.data.publishDate.toISOString()}>{post.data.publishDate.toLocaleDateString(post.data.language, { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" })}</time></p>
+      <p itemprop="description">{post.data.subtitle ?? post.data.description}</p>
+    </article>
+  ))}
+</div>
+
+<style>
+  .post-list { display: grid; gap: 2rem; }
+  .post-card { background: var(--color-white); border-radius: 14px; box-shadow: 0 5px 22px rgb(0 0 0 / 9%); padding: clamp(1.5rem, 4vw, 3rem); }
+  .post-card h2 { margin: 0 0 1rem; }
+  .post-card h2 a { color: #005b99; text-decoration: none; }
+  .taxonomy { color: var(--color-brand-red); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; margin-bottom: 0.75rem; text-transform: uppercase; }
+  .meta { color: #4f5969; font-size: 0.9rem; }
+</style>

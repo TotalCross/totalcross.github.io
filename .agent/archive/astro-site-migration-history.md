@@ -66,3 +66,24 @@ compatibility 404 copy, found all 14 legacy routes and zero broken local referen
 and passed desktop/mobile visual comparison for Why TotalCross, blog, and the Tecdet
 article. RSS, sitemap, typed blog collections, and richer article metadata remain
 deliberately assigned to M3.
+
+## M3 — Blog, SEO, feeds, and localization readiness
+
+Completed 2026-08-10. A typed Astro content layer now owns authors and Markdown/MDX
+articles, including dates, locale/translation identity, taxonomy, optional series,
+draft status, cover, preserved legacy URL, and opt-in cross-post intent. The Tecdet
+customer article moved into the collection without changing its root-level URL or
+third-party license mapping. Paired English/Portuguese draft fixtures exercise the
+authoring schema but are excluded from every production surface.
+
+The blog landing, article, author, tag, and category pages are collection-driven.
+The article layout adds heading navigation, code/media/table support, optional
+translation and series links, article metadata, and JSON-LD. RSS and an Astro sitemap
+chain are generated, with `/sitemap.xml` retained as a compatibility entry point.
+
+Final Node 24 validation completed with zero Astro diagnostics, 18 native pages,
+20 prepared HTML documents, all 14 legacy route contracts, zero broken references,
+and passing focused assertions for archives, feeds, sitemaps, canonical metadata,
+JSON-LD, draft exclusion, and translation pairing. Repository license tests passed
+6/6; the path policy now recognizes editorial content in legacy, coexistence, and
+final Astro source locations.

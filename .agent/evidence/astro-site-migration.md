@@ -73,3 +73,21 @@ SPDX-License-Identifier: MIT
   without overflow. Six screenshot hashes are recorded by the committed PNGs; their
   SHA-256 prefixes are `2145ed98`, `e7180f73`, `28ec0ffd`, `111e24a0`, `baf39fdd`,
   and `374980b8`.
+- 2026-08-10, M3 content system: Astro content collections now type author, dates,
+  language/translation key, taxonomy, series, draft, cover, legacy path, and opt-in
+  cross-post metadata. The Tecdet article is Markdown-backed at its preserved root
+  URL; EN/PT draft fixtures prove schema, translation pairing, series ordering, code,
+  and responsive-table authoring without entering production output.
+- 2026-08-10, M3 publishing surfaces: `/blog/`, author, tag, and category archives are
+  content-driven. The shared article layout emits self-canonical and article social
+  metadata, JSON-LD BlogPosting data, heading navigation, taxonomy links, optional
+  translations/series, and responsive developer content. RSS is available at
+  `/rss.xml`; `/sitemap.xml` remains a compatibility index for Astro's generated
+  `/sitemap-index.xml` and sitemap shard.
+- 2026-08-10, M3 final validation: supported Node 24 `astro check` reported 0 errors,
+  warnings, and hints. Astro built 18 native pages; 404 preparation produced 20 HTML
+  documents. Route/link validation reported `routes=14 html=20 broken=0`, and the
+  content validator reported `article=1 archives=3 rss=1 sitemaps=3 drafts=excluded
+  translations=paired`. License tests passed 6/6, the final targeted check accepted
+  31/31 changed policy-relevant files, and the repository-wide closeout accepted
+  175/175 files with no issues.

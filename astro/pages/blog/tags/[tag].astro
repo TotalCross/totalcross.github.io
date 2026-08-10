@@ -1,0 +1,27 @@
+---
+import { getEntry } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PageHero from "../../../components/PageHero.astro";
+import PostList from "../../../components/PostList.astro";
+import { getPublishedPosts, taxonomySlug, type BlogEntry } from "../../../lib/content";
+
+export async function getStaticPaths() {
+  const posts = (await getPublishedPosts()).filter((post) => post.data.language === "en");
+  const tags = new Map<string, { label: string; posts: BlogEntry[] }>();
+  for (const post of posts) for (const label of post.data.tags) {
+    const slug = taxonomySlug(label);
+    const group = tags.get(slug) ?? { label, posts: [] };
+    group.posts.push(post);
+    tags.set(slug, group);
+  }
+  return [...tags.entries()].map(([tag, group]) => ({ params: { tag }, props: group }));
+}
+
+const { label, posts } = Astro.props;
+const items = await Promise.all(posts.map(async (post: BlogEntry) => ({ post, author: await getEntry(post.data.author) })));
+---
+<!--
+SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+SPDX-License-Identifier: MIT
+-->
+<BaseLayout title={`${label} articles · TotalCross`} description={`TotalCross articles tagged ${label}.`}><PageHero title={`#${label}`} tagline="Articles from the TotalCross blog" /><section class="page-content"><div class="container prose-wide"><PostList items={items} /></div></section></BaseLayout>
