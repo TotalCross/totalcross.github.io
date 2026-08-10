@@ -308,6 +308,10 @@ consistency, and production smoke verification.
 - The Browser plugin had no available backend during M0 inventory. Production visual
   screenshots remain an M0 closure requirement and must be retried rather than
   replaced with an unrelated browser-control surface.
+- The locked Gatsby 2 Sharp/libvips stack cannot install natively on Darwin ARM64.
+  The baseline succeeds under Rosetta with Node 14/npm 6; this legacy architecture
+  dependency is additional justification for replacing the toolchain rather than
+  modifying it solely for migration baseline validation.
 
 Add only discoveries that change remaining work; move resolved history to archive.
 
