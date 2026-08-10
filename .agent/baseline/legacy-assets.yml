@@ -1,0 +1,257 @@
+# SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+# SPDX-License-Identifier: MIT
+
+version: 1
+assets:
+  - path: "content/assets/totalcross-icon.png"
+    bytes: 35117
+    sha256: c5f9be341801284643658820337a867cf8a6748e62714c4442e4269b62360a76
+    policy: LicenseRef-TotalCross-Brand
+    legacy_public_path: null
+    source_references: ["gatsby-config.js"]
+  - path: "content/blog/traffic-control-system-by-tecdet/tecdet.jpg"
+    bytes: 1720676
+    sha256: 9eab592ba8d25100519c2f9503d25b625fd665e05d6e2295d16521ae03c3f56f
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["content/blog/traffic-control-system-by-tecdet/index.md"]
+  - path: "src/imgs/aboutus_mission.png"
+    bytes: 1690
+    sha256: b67e99ad6496da6a3fd3922db9e46d3dec6f44c7573bf58e0d4e4a72f151470b
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/about-us.js"]
+  - path: "src/imgs/aboutus_timeline.png"
+    bytes: 83818
+    sha256: 6d634e00f769d812dbdd1618242f68f373a2f151990188d1355656ae669c9ef9
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/about-us.js"]
+  - path: "src/imgs/aboutus_timeline_mobile.png"
+    bytes: 63319
+    sha256: fe5ec2a31b7d580f2f2e74d1060b251960de9f195b1aa1427cc543bf24a13a71
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/about-us.js"]
+  - path: "src/imgs/aboutus_values.png"
+    bytes: 1971
+    sha256: 60cb631a024fd4e39f7f1a072a437760c2c5010eb9c9ab598aa83a2f6e738e89
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/about-us.js"]
+  - path: "src/imgs/aboutus_vision.png"
+    bytes: 1645
+    sha256: 6f88e3c3cdf498ab814a251a3eed0d7060f06ab35fd4a1489dc8f522244d26be
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/about-us.js"]
+  - path: "src/imgs/bg_wavesdark.png"
+    bytes: 247753
+    sha256: 2b66a3cf3c03ac1d1a9b8614ef5823ea8bae91b33cc95a1ff655d08e4c93f60b
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/about-us.js","src/pages/blog.js","src/pages/community.js","src/pages/contact.js","src/pages/get-started.js","src/pages/index.js","src/pages/services.js","src/pages/why-totalcross.js"]
+  - path: "src/imgs/bg_waveslight.png"
+    bytes: 79593
+    sha256: a9136e8756884f57bc49cab1292153e3fbeb8591678afdc3f0825fc8404efaf4
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/samples.js"]
+  - path: "src/imgs/bghome_sitetc.png"
+    bytes: 1108142
+    sha256: 259dbb292e4c90a0d67991fc377ac17b5ee99556b91572366690ccbb956bab59
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/index.js"]
+  - path: "src/imgs/home_coffee.png"
+    bytes: 2952258
+    sha256: 2615d54d21ec06f05a1757470636565e94ee7e238ff1e3ed9acf0975219b2dd9
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/index.js"]
+  - path: "src/imgs/home_cross.png"
+    bytes: 15235
+    sha256: 08c931e05ddd8eb85f1ea47578e2ce94ea4c4324d68e8137f98de143a5c5ab08
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/index.js"]
+  - path: "src/imgs/home_gsbanner.png"
+    bytes: 13551
+    sha256: c3db9e9a91478948767a904d868a7e5f5fa7a0094f052ee923367c8e01b95ffe
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/components/repeat-banners/get-started-banner.js","src/pages/index.js","src/pages/samples.js"]
+  - path: "src/imgs/home_gui.png"
+    bytes: 20467
+    sha256: 1a77ead9ec084450486e0d78583bfa10f23d68fb3ec327d90779e30726f41fa1
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/index.js"]
+  - path: "src/imgs/home_homeapp.png"
+    bytes: 509467
+    sha256: 78981016b2bb62dab3cc8795c6cdc04927f786d15f6b6283292cadea31a40b50
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/index.js"]
+  - path: "src/imgs/home_lowfootprint.png"
+    bytes: 25297
+    sha256: 539ecc04c20c335ae1aae0cd56492bdfdbe8cfa2f3d388be405299744068f2a1
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/index.js"]
+  - path: "src/imgs/home_opensource.png"
+    bytes: 4996
+    sha256: 252d69c5ed1ffa94b9ebc5f87d8461f4d5a1a64c694bb0f6095380a680c01926
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/index.js"]
+  - path: "src/imgs/home_printer.png"
+    bytes: 1092660
+    sha256: bf610b78f6d14f9619b3877ad561b87cceceb8f8877f8c5f3cb97f5a7dd8cbb3
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/index.js"]
+  - path: "src/imgs/home_raspberry.png"
+    bytes: 4791
+    sha256: 372e9f8c59f876dd0e5cff0079be93b55facab21795e0cdc9fa8e549796f5925
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/index.js"]
+  - path: "src/imgs/home_requirements.png"
+    bytes: 4422
+    sha256: 910181411b5a181781775efe394aa77b64df0be1e716c7d3b5a37f821c309d5c
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/index.js"]
+  - path: "src/imgs/home_tecdet.png"
+    bytes: 10846651
+    sha256: 3e28c13ced1890b39bb0b70168451629baa915da4bac68e2256bd506295d8599
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/index.js"]
+  - path: "src/imgs/home_tecdetlogo.png"
+    bytes: 18641
+    sha256: 1cfde60c7710d0854375297b21ddccae03ed84c0217d005406171e242df1fbbd
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/index.js"]
+  - path: "src/imgs/led-totalcross.gif"
+    bytes: 8325288
+    sha256: 8107547ff223811d1e4aa02672df1036fd7bdb7ad61e66d1c2c62df88055e2b2
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/get-started.js"]
+  - path: "src/imgs/licence.png"
+    bytes: 299945
+    sha256: 8ed0851bff692d50ecc4a8567d019a0639c49342e283c36787d2e1769d21dfb0
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/licensing.js"]
+  - path: "src/imgs/logo-totalcross.png"
+    bytes: 16276
+    sha256: 3f572f32b6081374b429c7fc2aabdb7d59dbbf366bd4f20962ab033fe5133894
+    policy: LicenseRef-TotalCross-Brand
+    legacy_public_path: null
+    source_references: ["src/components/footer/footer.js","src/components/navbar/logo.js"]
+  - path: "src/imgs/rasp_01.png"
+    bytes: 430109
+    sha256: d2fd0556a1fe7e9015cbe7b70ba731743583ecb94e927c73046ea5667f5a0bd9
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/index.js"]
+  - path: "src/imgs/sample_badapple.png"
+    bytes: 140810
+    sha256: ed36d1962dc796ecabb989f877e9df6fede92fe6a0d3da5eb71e63f86ee3015e
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/samples.js"]
+  - path: "src/imgs/sample_banner.png"
+    bytes: 1177657
+    sha256: 707c21403031a10478db4ddf6c5ae486be6c237ca714bd2fcf6f36329a07f8e5
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/samples.js"]
+  - path: "src/imgs/sample_breakoutgame.png"
+    bytes: 534903
+    sha256: 5d99337db726636daf284d4deeb632b69eb8e035c71cf58a1cf9eedb6fdf57ba
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/samples.js"]
+  - path: "src/imgs/sample_coronachart.png"
+    bytes: 547272
+    sha256: 746c28515b3637019566f02df03cb26bc96db92be232224388c214a0952c6e0f
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/samples.js"]
+  - path: "src/imgs/sample_dashboard.png"
+    bytes: 169318
+    sha256: 0360cfd8d265262333534b8f8665df42490d753ddb2e7c6743ce8b1aac10778c
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/samples.js"]
+  - path: "src/imgs/sample_medicaldevice.png"
+    bytes: 378772
+    sha256: cdd3f817578c8b96b8e4df095b345b511a9b65016a06c8983e0ff366d6965b6b
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/samples.js"]
+  - path: "src/imgs/sample_printer.png"
+    bytes: 331935
+    sha256: 178b1d5328fc5330637627d1c77fb70f8ad9c277525c491b09d1a290548a1a6c
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/samples.js"]
+  - path: "src/imgs/whytotalcross_corona.png"
+    bytes: 122043
+    sha256: 63825586e671f5acb15ed830bfe4e67cb8a9cff0d3389891787bd980cef3b1a3
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/why-totalcross.js"]
+  - path: "src/imgs/whytotalcross_fast.png"
+    bytes: 11124
+    sha256: 77008484f5f04bfb66f461de9c24d408fa08b1e21e43abfa9519ead25fb48257
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/why-totalcross.js"]
+  - path: "src/imgs/whytotalcross_ide.png"
+    bytes: 1832
+    sha256: ecdfa581c8b21c3a3b93f4de8fe370c249f2e0a1044ecd9f4ee66d0394b25e66
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/why-totalcross.js"]
+  - path: "src/imgs/whytotalcross_info.png"
+    bytes: 61542
+    sha256: 86bda86196477407bdf052c0aab0804495f1c99ea18ef35cb274cc211e3b42a3
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/why-totalcross.js"]
+  - path: "src/imgs/whytotalcross_info2.png"
+    bytes: 11673
+    sha256: 3b5394788ca4c07ef646be7eb2dd23a12f27f275787ecfff68e50bb244019a90
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/why-totalcross.js"]
+  - path: "src/imgs/whytotalcross_info3.png"
+    bytes: 12597
+    sha256: 799e2d2e9609cca408e65ad57a952f2c1ed3a848a466c3de744cdf4fff0c965a
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/why-totalcross.js"]
+  - path: "src/imgs/whytotalcross_languages.png"
+    bytes: 3706
+    sha256: 550485ba0ba78b16e384fb6ce01079cca360f98154d92eb1d9b048facf70faf6
+    policy: LicenseRef-ThirdParty-Material
+    legacy_public_path: null
+    source_references: ["src/pages/why-totalcross.js"]
+  - path: "static/favicon.ico"
+    bytes: 198
+    sha256: 9deb629637088856fe61dc868bf40a7d21ed942e4117659f3d6c3408f59b906b
+    policy: LicenseRef-TotalCross-Brand
+    legacy_public_path: "/favicon.ico"
+    source_references: []
+  - path: "static/totalcross_logo.png"
+    bytes: 29432
+    sha256: 2c6812b65e4b4173f26591a0f4c60c603aa9ef347317a3d08066facd7684b057
+    policy: LicenseRef-TotalCross-Brand
+    legacy_public_path: "/totalcross_logo.png"
+    source_references: []

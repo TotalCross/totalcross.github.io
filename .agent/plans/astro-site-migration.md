@@ -297,6 +297,17 @@ consistency, and production smoke verification.
   the new `main`.
 - Medium's legacy API is unsupported for new integrations; keep Medium optional and
   manual/import based unless a supported API is verified during execution.
+- The local `/blog/` and Tecdet article are live, but primary navigation currently
+  points BLOG to `https://blog.totalcross.com/`; M3 must intentionally switch it to
+  the canonical local blog rather than treating the external link as route truth.
+- `/using-typescript/` is an accidental Gatsby starter page but returns 200 in
+  production. Preserve it or provide an explicit redirect during M2.
+- GitHub Pages serves `totalcross.com` through legacy `master:/`; HTTPS works through
+  the observed edge, but the Pages setting does not enforce HTTPS. M5 must recheck
+  domain health before enabling enforcement.
+- The Browser plugin had no available backend during M0 inventory. Production visual
+  screenshots remain an M0 closure requirement and must be retried rather than
+  replaced with an unrelated browser-control surface.
 
 Add only discoveries that change remaining work; move resolved history to archive.
 

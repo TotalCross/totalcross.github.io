@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+# SPDX-License-Identifier: MIT
+
+version: 1
+captured_at: "2026-08-10"
+repository: "TotalCross/totalcross.github.io"
+repository_id: "79490330"
+default_branch: "site"
+local_migration_branch: "feat/astro-site-migration"
+remote_refs:
+  site: "999f35b34166e1a7eaf51ff72dc39eabc0fbb4ca"
+  master: "6c82739530d09e70ff15fd04786584d9b94d7ff7"
+  main: null
+  site-2020: "754482dcacb2ba49a88ecfce358cf2211c1bf62d"
+  site-2021: "3fe92ce4bdd384ec2c16486d779f451b4a5c54a6"
+pages:
+  status: "built"
+  build_type: "legacy"
+  source_branch: "master"
+  source_path: "/"
+  custom_domain: "totalcross.com"
+  public: true
+  custom_404: true
+  https_available: true
+  https_enforced: false
+actions:
+  default_workflow_permissions: "write"
+  can_approve_pull_request_reviews: true
+recovery:
+  source_ref: "999f35b34166e1a7eaf51ff72dc39eabc0fbb4ca"
+  generated_ref: "6c82739530d09e70ff15fd04786584d9b94d7ff7"
+  restore_pages_source: "master:/"
+  never_merge_generated_history: true

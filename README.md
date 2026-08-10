@@ -3,30 +3,50 @@ SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
 SPDX-License-Identifier: MIT
 -->
 
+# TotalCross website
 
-## Setup
+The production site is `https://totalcross.com`. The repository is migrating from
+Gatsby to Astro under `.agent/plans/astro-site-migration.md`.
+
+## Repository and migration guardrails
+
+- `site` is the authoritative legacy source history; `master` contains generated
+  GitHub Pages output and must never be merged into source history.
+- The completed migration promotes source history to `main` and deploys only a
+  GitHub Pages artifact. Generated production output must never be committed.
+- Preserve public routes and important asset URLs recorded under `.agent/baseline/`.
+- Read `.agent/state/astro-site-migration.md` first when resuming migration work.
+- Follow `.agent/PLANS.md`, `AGENTS.md`, and the repository-local license and commit
+  skills for implementation, validation, and commits.
+
+## Legacy Gatsby commands
+
+These commands remain supported only while the Astro replacement is implemented and
+validated.
+
+### Install
 
 ```sh
-yarn # npm i
+npm ci
 ```
-### Pull markdown files from totalcross-docs
-```sh
-./prepare-docs
-```
-## Start developing
+
+### Develop
 
 ```sh
-yarn dev # npm run dev
+npm run develop
 ```
 
-## Build
+### Build and serve
 
 ```sh
-yarn build # npm run build
+npm run build
+npm run serve
 ```
 
-## Serve built app
+### License policy
 
 ```sh
-yarn serve # npm run serve
+npm run license:check
+npm run license:check:all
+npm run license:test
 ```

@@ -1,0 +1,58 @@
+# SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+# SPDX-License-Identifier: MIT
+
+version: 1
+captured_at: "2026-08-10"
+canonical_origin: "https://totalcross.com"
+site_metadata:
+  title: "TotalCross · GUI Creator For Embedded, Mobile... Everything!"
+  description: "Build beautiful and modern Graphical User Interfaces for embedded, IoT, mobile and desktop. A cross-platform tool that lets you develop apps in Java."
+  twitter: "totalcross"
+  canonical_links_present: false
+  default_open_graph_type: "website"
+  twitter_card: "summary"
+tracking:
+  google_analytics:
+    id: "UA-43172763-2"
+    anonymize: true
+    respect_dnt: true
+  google_tag_manager:
+    id: "GTM-KMWB4VL"
+    production_only: true
+    data_layer_platform: "gatsby"
+  hotjar:
+    id: 479399
+    snippet_version: 6
+    enabled_in_development: true
+external_services:
+  contact_form:
+    provider: "getform.io"
+    endpoint: "https://getform.io/f/fe92951a-4b98-4328-bd32-566820ce3504"
+    method: "POST"
+  current_blog_navigation: "https://blog.totalcross.com/"
+  documentation: "https://learn.totalcross.com/?utm_source=site&utm_medium=principal"
+  medium: "https://medium.com/totalcross-community"
+  community_forum: "https://forum.totalcross.com/"
+  enterprise_registration: "http://www.superwaba.net/SDKRegistrationService/"
+pwa:
+  name: "TotalCross SDK"
+  short_name: "TotalCross"
+  start_url: "/"
+  display: "minimal-ui"
+  background_color: "#ffffff"
+  theme_color: "#663399"
+  source_icon: "content/assets/totalcross-icon.png"
+visual_identity:
+  primary_fonts: ["Poppins", "Montserrat", "Merriweather", "sans-serif"]
+  note: "Montserrat and Merriweather are packaged; most components request Poppins without a local package."
+  common_colors:
+    dark: "#212121"
+    green: "#2AA75E"
+    white: "#FFFFFF"
+    off_white: "#EFEFEF"
+    red: "#C62F2E"
+    gray: "#8F8F8F"
+production_delivery:
+  pages_origin: "GitHub Pages legacy branch publishing"
+  edge_server_observed: "cloudflare"
+  last_modified_observed: "2022-08-22T20:47:40Z"
