@@ -26,6 +26,8 @@ Target release: `v1.0.0`, the Astro production cutover.
 
 ### Changed
 
+- Replaced generated `master` branch publication with validated GitHub Pages Actions
+  artifacts deployed from source-only `main`.
 - Preserved all legacy public page routes while moving their implementation from
   Gatsby/React pages to static Astro pages.
 - Made the local `/blog/` the canonical blog destination; external platforms are

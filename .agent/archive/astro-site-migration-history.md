@@ -124,3 +124,25 @@ The dry-run consistency checker passed for package/lockfile version identity,
 changelog state, release procedure, and tag semantics. Read-only local and remote
 queries confirmed that `v1.0.0` does not yet exist. Tag creation remains deliberately
 deferred until the final production artifact is proven in M7.
+
+## M5 — Modern GitHub Pages cutover
+
+Completed 2026-08-10. The legacy Gatsby publisher was replaced with source validation
+and an explicit Pages artifact workflow. PR validation packages but cannot deploy;
+`main` builds under Node 24 and deploys through the `github-pages` environment with
+the required permissions and cancel-in-progress concurrency.
+
+Validation-only PR #12 first exposed an npm 11 cross-platform lock omission. The
+lockfile was regenerated from an empty dependency tree, proved with the exact clean
+install in a temporary worktree, and its rerun produced artifact `9081190501` for
+source `52b14de`. Only then was that exact source promoted to `main`, made default,
+and configured as an Actions Pages deployment. The PR was closed without merging
+into legacy `site`; all four rollback branch refs remained unchanged.
+
+Production workflow `31436630165` passed and deployed the same source. Every legacy
+route plus RSS, the sitemap chain, and critical static endpoints returned 200;
+metadata confirmed Astro/canonical article output and HTTP redirected to HTTPS. The
+exact local artifact's desktop/mobile home captures matched the committed M1 hashes.
+GitHub could not enable its own HTTPS flag because no GitHub certificate exists for
+the Cloudflare-served domain, but the public edge is already HTTPS-only in observed
+behavior; one final setting recheck remains non-blocking.

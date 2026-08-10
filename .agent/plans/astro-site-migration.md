@@ -83,7 +83,7 @@ GitHub operations, recheck status, branch, remote state, and HEAD.
 - [x] M2 — Public page and route parity.
 - [x] M3 — Blog, SEO, feeds, and localization readiness.
 - [x] M4 — Versioning, changelog, and release metadata.
-- [ ] M5 — Modern GitHub Pages cutover.
+- [x] M5 — Modern GitHub Pages cutover.
 - [x] M6 — Optional cross-posting.
 - [ ] M7 — Legacy removal and final handoff.
 

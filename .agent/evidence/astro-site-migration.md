@@ -144,3 +144,29 @@ SPDX-License-Identifier: MIT
   completed the exact ignored-scripts clean install with 3,154 packages and resolved
   Astro 7.2.0 plus MDX 7.0.5, RSS 4.0.19, and sitemap 3.7.3. The temporary worktree
   was removed after the probe.
+- 2026-08-10, M5 remote artifact gate: PR #12 rerun `31436490487` passed at source
+  `52b14de23875f0c56a4a9812b939658b9fa09120` and uploaded non-expired artifact
+  `9081190501`, 32,307,443 bytes, digest
+  `sha256:470c092fd388b05b3500b0726d7b69aaf11ddacde986162256a383f46a8d7cf8`.
+  The validation-only draft PR was closed without merging into `site`.
+- 2026-08-10, M5 branch/Pages cutover: `main` was created at the exact validated
+  source commit and made default. Pages accepted `build_type=workflow`; the custom
+  domain remained `totalcross.com`. Rollback refs `site`, `master`, `site-2020`, and
+  `site-2021` remained byte-for-byte unchanged.
+- 2026-08-10, M5 production workflow: run `31436630165` succeeded for the same source.
+  Its validated artifact build completed in 1m01s and `github-pages` deployment in
+  9s. No generated output was committed to `main`.
+- 2026-08-10, M5 production HTTP smoke: all 14 legacy HTML routes returned 200, as did
+  RSS, compatibility/index/shard sitemaps, robots, manifest, favicon pair, PWA icon,
+  logo, and Google verification. HTTP returned 301 to HTTPS. Live HTML reported
+  Astro 7.2.0, canonical/local-blog links, Tecdet article Open Graph and BlogPosting
+  JSON-LD, and the canonical Tecdet RSS item.
+- 2026-08-10, M5 visual fallback: live Chromium again waited indefinitely on the
+  Cloudflare load event and was terminated once. Playwright captured the exact local
+  validated artifact instead; its 1440x900 and 390x844 home PNG hashes matched the M1
+  committed evidence byte-for-byte (`9e82c664...baa363b2`,
+  `1fe41fde...ffde0fb`).
+- 2026-08-10, M5 HTTPS setting: GitHub's update endpoint rejected
+  `https_enforced=true` with 404 `The certificate does not exist yet`; the setting was
+  unchanged. The Cloudflare-served edge already provides HTTPS and redirects HTTP.
+  Recheck GitHub certificate availability once during final handoff.
