@@ -4,9 +4,14 @@
  */
 
 import assert from 'node:assert/strict'
+import { execFileSync } from 'node:child_process'
+import { mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import test from 'node:test'
 import { canonicalHeader, fixHeader, inspectHeader } from './license/headers.mjs'
 import { globToRegExp, policyFor, PROJECT_COPYRIGHT } from './license/policy.mjs'
+import { selectedFiles } from './license-validation.mjs'
 
 const blockPolicy = {
   style: 'block',
@@ -60,5 +65,20 @@ test('applies the editorial license throughout content migration paths', () => {
     'src/content/blog/post.mdx',
   ]) {
     assert.equal(policyFor(file, mappings).license, 'CC-BY-4.0')
+  }
+})
+
+test('all-files selection excludes tracked paths deleted from the worktree', () => {
+  const root = mkdtempSync(join(tmpdir(), 'totalcross-license-'))
+  try {
+    execFileSync('git', ['init', '-q'], { cwd: root })
+    writeFileSync(join(root, 'keep.txt'), 'keep\n')
+    writeFileSync(join(root, 'deleted.txt'), 'delete\n')
+    execFileSync('git', ['add', 'keep.txt', 'deleted.txt'], { cwd: root })
+    execFileSync('git', ['-c', 'user.name=Test', '-c', 'user.email=test@example.com', 'commit', '-qm', 'fixture'], { cwd: root })
+    rmSync(join(root, 'deleted.txt'))
+    assert.deepEqual(selectedFiles(root, true), ['keep.txt'])
+  } finally {
+    rmSync(root, { recursive: true, force: true })
   }
 })

@@ -118,3 +118,20 @@ SPDX-License-Identifier: MIT
   SemVer, changelog readiness, and annotated tag semantics. Package queries returned
   the intended name, version, private flag, homepage, repository, issues, and Node
   engine. Local and remote tag queries found no `v1.0.0`; no tag/release was created.
+- 2026-08-10, M5 live pre-cutover recheck: authenticated admin access is available;
+  HEAD was `80f52be` with a clean tree. The default remained `site=999f35b`, Pages
+  remained a built legacy deployment from `master=6c827395` with `totalcross.com`,
+  custom 404, and HTTPS enforcement off. No `main` or remote feature branch existed;
+  `site-2020` and `site-2021` also matched the recorded rollback refs.
+- 2026-08-10, M5 workflow implementation: legacy Gatsby publication was removed.
+  Pull requests validate source and package a non-deploying Pages artifact. Pushes to
+  `main` build a validated `dist/` artifact, then deploy it through the `github-pages`
+  environment with required permissions and cancel-in-progress `pages` concurrency.
+- 2026-08-10, M5 local pre-cutover validation: license tests passed 7/7 and cross-post
+  tests passed 6/6; release/workflow checks passed; Node 24 Astro check reported zero
+  diagnostics; 18 native pages built; route/link validation reported
+  `routes=14 html=20 broken=0`; content/feed/sitemap assertions all passed.
+- 2026-08-10, M5 license closeout diagnostic: deleting the legacy workflow exposed
+  that all-files selection included tracked paths absent from the worktree. The
+  validator now filters those paths; a temporary-repository regression test passes,
+  and the repository-wide closeout accepted 201/201 files with no issues.

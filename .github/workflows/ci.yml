@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+# SPDX-License-Identifier: MIT
+
+name: Validate source
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Build validated Pages artifact
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run license:check:all
+      - run: npm run license:test
+      - run: npm run cross-post:test
+      - run: npm run release:check
+      - run: npm run astro:check
+      - run: npm run astro:build
+      - run: npm run astro:validate
+      - name: Package Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          name: github-pages-pr-${{ github.event.pull_request.number }}
+          path: dist

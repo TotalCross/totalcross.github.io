@@ -3,8 +3,10 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { spawnSync } from 'node:child_process'
+import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { fixHeader, inspectHeader } from './license/headers.mjs'
 import { mappedFiles, policyFor } from './license/policy.mjs'
 
@@ -20,8 +22,12 @@ function nulPaths(output) {
   return output.split('\0').filter(Boolean)
 }
 
-function selectedFiles(root, all) {
-  if (all) return nulPaths(git(root, ['ls-files', '-z']))
+export function selectedFiles(root, all) {
+  if (all) {
+    return nulPaths(git(root, ['ls-files', '-z'])).filter((file) =>
+      existsSync(resolve(root, file)),
+    )
+  }
   const changed = nulPaths(
     git(root, ['diff', '--name-only', '-z', '--diff-filter=ACMR', 'HEAD']),
   )
@@ -99,9 +105,11 @@ function main() {
   if (issues.length > 0) process.exitCode = 1
 }
 
-try {
-  main()
-} catch (error) {
-  console.error(`license-validation: ${error.message}`)
-  process.exitCode = 2
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  try {
+    main()
+  } catch (error) {
+    console.error(`license-validation: ${error.message}`)
+    process.exitCode = 2
+  }
 }

@@ -88,6 +88,7 @@
     "license:check:all": "node scripts/license-validation.mjs --all",
     "license:fix": "node scripts/license-validation.mjs --fix",
     "license:test": "node --test scripts/license-validation.test.mjs",
-    "release:check": "node scripts/check-release.mjs"
+    "release:check": "node scripts/check-release.mjs",
+    "workflow:check": "node scripts/check-workflows.mjs"
   }
 }
