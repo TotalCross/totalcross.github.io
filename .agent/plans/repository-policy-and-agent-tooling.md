@@ -51,7 +51,7 @@ for its recurring task.
 - [x] P0 — Copy the ExecPlan contract and add concise agent discovery guidance.
 - [x] P1 — Establish the repository licensing policy and SPDX mapping.
 - [x] P2 — Implement license validation and safe header fixing.
-- [ ] P3 — Add `license-validation` and `logical-commits` skills.
+- [x] P3 — Add `license-validation` and `logical-commits` skills.
 - [ ] P4 — Integrate CI/package commands and validate the policy once.
 
 ## Current Architecture and Scope
@@ -335,6 +335,10 @@ P2 added a small Git-aware CLI with targeted and all-files checks plus conservat
 fix modes. Policy, header handling, and CLI responsibilities are split into focused
 modules; tests cover idempotence, frontmatter placement, conflict refusal, duplicate
 normalization, and mapping glob behavior.
+
+P3 added scaffold-validated repository skills for license maintenance and logical
+commit preparation, with UI metadata and direct references to the canonical policy,
+commands, validation boundaries, and preservation rules.
 
 ## Revision Note
 

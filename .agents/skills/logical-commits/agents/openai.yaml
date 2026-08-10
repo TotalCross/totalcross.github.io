@@ -1,0 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+# SPDX-License-Identifier: MIT
+
+interface:
+  display_name: "Logical Commits"
+  short_description: "Prepare coherent Conventional Commits safely"
+  default_prompt: "Use $logical-commits to prepare and commit one coherent repository change."

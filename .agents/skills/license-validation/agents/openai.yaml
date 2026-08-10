@@ -1,0 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+# SPDX-License-Identifier: MIT
+
+interface:
+  display_name: "License Validation"
+  short_description: "Check and safely repair repository license metadata"
+  default_prompt: "Use $license-validation to check changed files and safely repair SPDX metadata."

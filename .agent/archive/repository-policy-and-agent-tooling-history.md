@@ -35,3 +35,12 @@ files by default and tracked files with `--all`; `--fix` is explicit. Ordered
 and original editorial files receive format-aware headers. The fixer adds missing
 known headers and normalizes exact duplicates, but refuses partial, unknown-holder,
 or different-license metadata. Focused Node tests cover the safety boundaries.
+
+## P3 — Repository-local skills
+
+Completed 2026-08-10. `.agents/skills/license-validation/` directs agents through
+targeted checks, conservative fixes, diff review, milestone-wide closure, and human
+review for uncertain ownership. `.agents/skills/logical-commits/` requires focused
+status/diff inspection, explicit staging, proportional validation, cached-diff
+review, English Conventional Commits, and preservation of unrelated work. Both
+skills include generated UI metadata and pass the skill-creator validator.

@@ -35,3 +35,10 @@ SPDX-License-Identifier: MIT
   addition/idempotence, Markdown frontmatter, different-holder/license refusal,
   exact duplicate normalization, and REUSE glob matching. `npm run license:check`
   reported `checked=5 compliant=5 mapped=1 issues=0`; `git diff --check` passed.
+- 2026-08-10, P3 skills: skill-creator scaffolding produced both required
+  `SKILL.md` and `agents/openai.yaml` files. Final skills contain no auxiliary
+  resources or scaffold TODOs and name the canonical repository workflows.
+- 2026-08-10, P3 validation: skill-creator `quick_validate.py` reported `Skill is
+  valid!` for both skills using an isolated temporary PyYAML environment, which was
+  removed afterward. Targeted license validation reported
+  `checked=4 compliant=4 issues=0`; `git diff --check` passed.
