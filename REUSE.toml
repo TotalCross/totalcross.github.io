@@ -13,6 +13,7 @@ path = [
   "package.json",
   "package-lock.json",
   "static/googledf7144400c12b6c2.html",
+  "static/manifest.webmanifest",
   "tsconfig.json",
 ]
 precedence = "override"
@@ -28,7 +29,10 @@ SPDX-License-Identifier = "MIT"
 
 # Customer editorial content is preserved without asserting Amalgam ownership.
 [[annotations]]
-path = "content/blog/traffic-control-system-by-tecdet/**"
+path = [
+  "astro/pages/traffic-control-system-by-tecdet/index.astro",
+  "content/blog/traffic-control-system-by-tecdet/**",
+]
 precedence = "override"
 SPDX-FileCopyrightText = "Copyright holder(s) of the Tecdet customer material"
 SPDX-License-Identifier = "LicenseRef-ThirdParty-Material"
@@ -56,6 +60,8 @@ path = [
   "content/assets/totalcross-icon.png",
   "src/imgs/logo-totalcross.png",
   "static/favicon.ico",
+  "static/favicon-32x32.png",
+  "static/icons/**",
   "static/totalcross_logo.png",
 ]
 precedence = "override"

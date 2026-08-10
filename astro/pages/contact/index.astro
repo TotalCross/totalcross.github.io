@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+---
+<!--
+SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+SPDX-License-Identifier: MIT
+-->
+
+<BaseLayout title="Contact Us · TotalCross" description="Tell the TotalCross team how we can help with your embedded project.">
+  <PageHero title="How can we help you?" tagline="Tell us about your project, question, or support need." />
+  <section class="page-content">
+    <form id="contact-form" action="https://getform.io/f/fe92951a-4b98-4328-bd32-566820ce3504" method="POST">
+      <label>Name<input type="text" name="name" autocomplete="name" required /></label>
+      <label>Email<input type="email" name="email" autocomplete="email" required /></label>
+      <label>Country<input type="text" name="country" autocomplete="country-name" /></label>
+      <label>Questions or comments<textarea rows="8" name="message" required></textarea></label>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+</BaseLayout>
+
+<style>
+  form { display: grid; gap: 1.25rem; margin: 0 auto; max-width: 680px; padding-inline: var(--page-gutter); }
+  label { display: grid; font-weight: 600; gap: 0.5rem; }
+  input, textarea { background: var(--color-white); border: 1px solid #d2d2d2; border-radius: 12px; color: var(--color-copy); padding: 1rem 1.2rem; }
+  button { background: var(--color-brand-green); border: 0; border-radius: 12px; color: var(--color-white); cursor: pointer; font-weight: 700; padding: 0.85rem; text-transform: uppercase; }
+</style>

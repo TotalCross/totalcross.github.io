@@ -58,3 +58,18 @@ SPDX-License-Identifier: MIT
   navigation, colors, typography family, 614/600 px hero geometry, background/device
   artwork, and section transition without overflow. Screenshot SHA-256 values are
   `9e82c664...baa363b2` and `1fe41fde...ffde0fb`, respectively.
+- 2026-08-10, M2 route implementation: all 14 `legacy-routes.yml` HTML contracts
+  have static equivalents. The `master=6c82739` PWA manifest, 32px favicon, and eight
+  generated icon sizes were recovered exactly. `/404.html` is Astro-native and a
+  post-build copy preserves `/404/`; neither generated document is committed.
+- 2026-08-10, M2 route/link validation: Node 24 `astro check` reported 0 errors,
+  warnings, or hints. Astro built 13 routes, the preparation step added the second
+  404 form, and `scripts/check-site.mjs` reported `routes=14 html=15 broken=0` while
+  validating every generated local `href` and `src`.
+- 2026-08-10, M2 visual comparison: the locally served production build passed
+  Playwright inspection at 1440×900 and 390×844 for Why TotalCross, blog, and the
+  Tecdet article. The institutional 414/360px hero geometry, legacy red titles,
+  navigation, responsive cards/prose, and preserved artwork matched the M0 identity
+  without overflow. Six screenshot hashes are recorded by the committed PNGs; their
+  SHA-256 prefixes are `2145ed98`, `e7180f73`, `28ec0ffd`, `111e24a0`, `baf39fdd`,
+  and `374980b8`.

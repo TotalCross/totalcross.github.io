@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Button from "../../components/Button.astro";
+import PageHero from "../../components/PageHero.astro";
+import banner from "../../../src/imgs/sample_banner.png";
+import printer from "../../../src/imgs/sample_printer.png";
+import breakout from "../../../src/imgs/sample_breakoutgame.png";
+import corona from "../../../src/imgs/sample_coronachart.png";
+import medical from "../../../src/imgs/sample_medicaldevice.png";
+import dashboard from "../../../src/imgs/sample_dashboard.png";
+import badApple from "../../../src/imgs/sample_badapple.png";
+
+const samples = [[printer.src, "Printer", "Build a smart printer interface and improve its usability."], [breakout.src, "Breakout Game", "Recreate the classic game on an embedded device."], [corona.src, "Coronavirus Chart App", "Display public health data in an interactive embedded chart."], [medical.src, "Medical Device", "Create a clear interface for medical equipment."], [dashboard.src, "Dashboard", "Explore components commonly used in embedded systems."], [badApple.src, "Bad Apple", "Draw the animation frame by frame on a Raspberry Pi."]];
+---
+<!--
+SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+SPDX-License-Identifier: MIT
+-->
+
+<BaseLayout title="Samples · TotalCross" description="Explore embedded graphical interfaces built with TotalCross.">
+  <PageHero title="Samples with TotalCross" tagline="Explore sample embedded projects and their source code." />
+  <section class="section section--dark"><div class="container two-column"><div class="prose"><h2>Build a smart home</h2><p>Use this sample application to control temperature, security, alarms, connectivity, calendars, and more.</p><Button href="https://github.com/TotalCross" label="Get the code" tone="light" /></div><img src={banner.src} alt="Smart home sample made with TotalCross" /></div></section>
+  <section class="page-content"><div class="container"><h2 class="section-title">Check more samples</h2><p class="section-subtitle">Discover more applications from the TotalCross community.</p><div class="card-grid samples">{samples.map(([image, title, text]) => <article class="info-card"><img src={image} alt={`${title} interface`} /><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+</BaseLayout>
+
+<style>
+  .section--dark h2 { color: var(--color-white); font-size: clamp(2rem, 4vw, 3rem); }
+  .samples img { height: 180px; object-position: center; width: 100%; }
+</style>

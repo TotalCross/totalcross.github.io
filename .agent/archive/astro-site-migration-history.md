@@ -46,3 +46,23 @@ incompatible legacy release into Astro's prerender bundle.
 Astro check completed with zero diagnostics, the production build generated the home
 route without client script sources, and Playwright comparisons at 1440×900 and
 390×844 confirmed the shared shell/home identity against the M0 captures.
+
+## M2 — Public page and route parity
+
+Completed 2026-08-10. All 14 legacy HTML contracts now have Astro equivalents:
+home, both 404 forms, eight institutional pages, blog landing, the root-level Tecdet
+article, and the accidental Gatsby TypeScript starter route. Institutional content
+uses the shared shell and reusable hero/card/prose primitives. The contact form keeps
+its existing Getform POST endpoint, and the deployed manifest plus favicon/icon
+family were recovered byte-for-byte from immutable `master=6c82739`.
+
+A manifest-driven validator checks the M0 route list and every generated local
+`href`/`src`. Astro's single 404 route naturally emits `/404.html`; a small generated-
+output preparation step copies that document to `/404/index.html` to preserve the
+observed second URL without committing build output.
+
+Final validation reported zero Astro diagnostics, built 13 native routes plus the
+compatibility 404 copy, found all 14 legacy routes and zero broken local references,
+and passed desktop/mobile visual comparison for Why TotalCross, blog, and the Tecdet
+article. RSS, sitemap, typed blog collections, and richer article metadata remain
+deliberately assigned to M3.

@@ -80,7 +80,7 @@ GitHub operations, recheck status, branch, remote state, and HEAD.
 - [x] M0A — Repository licensing and agent tooling prerequisite.
 - [x] M0 — Baseline and migration guardrails.
 - [x] M1 — Astro foundation and visual system.
-- [ ] M2 — Public page and route parity.
+- [x] M2 — Public page and route parity.
 - [ ] M3 — Blog, SEO, feeds, and localization readiness.
 - [ ] M4 — Versioning, changelog, and release metadata.
 - [ ] M5 — Modern GitHub Pages cutover.

@@ -1,0 +1,69 @@
+---
+import waves from "../../src/imgs/bg_wavesdark.png";
+
+interface Props {
+  title: string;
+  tagline?: string;
+  tone?: "dark" | "light";
+}
+
+const { title, tagline, tone = "dark" } = Astro.props;
+---
+<!--
+SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+SPDX-License-Identifier: MIT
+-->
+
+<section class:list={["page-hero", `page-hero--${tone}`]} style={`--page-hero-bg: url(${waves.src})`}>
+  <div class="container">
+    <h1>{title}</h1>
+    {tagline && <p>{tagline}</p>}
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    min-height: 414px;
+    text-align: center;
+  }
+
+  .page-hero--dark {
+    background-color: var(--color-ink);
+    background-image: linear-gradient(rgb(22 22 22 / 86%), rgb(22 22 22 / 86%)), var(--page-hero-bg);
+    color: var(--color-white);
+  }
+
+  .page-hero--light {
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  h1 {
+    color: var(--color-brand-red);
+    font-size: 2.875rem;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    color: var(--color-muted);
+    font-size: 1.05rem;
+    margin: 0 auto;
+    max-width: 720px;
+  }
+
+  @media (max-width: 600px) {
+    .page-hero {
+      min-height: 360px;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      line-height: 1.12;
+    }
+  }
+</style>
