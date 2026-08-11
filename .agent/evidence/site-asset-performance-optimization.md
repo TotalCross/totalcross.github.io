@@ -58,3 +58,12 @@ SPDX-License-Identifier: MIT
   Asset check reports zero failures and two warnings, with generated media at
   4,882,580/6,291,456 bytes, home at 2,111,330/3,145,728, and get-started at
   1,647,783/2,097,152.
+- 2026-08-10, M4 Level 3 candidate: package/lock/changelog identify v1.0.1. Eleven
+  license tests and six cross-post tests passed; license policy accepted 174/174;
+  release and workflow policy passed; Astro checked 54 files with zero diagnostics;
+  Node 24 built 18 pages; asset budgets passed with zero failures/two warnings; route,
+  link, rendered-SPDX, RSS/sitemap, draft, and translation validation passed.
+- 2026-08-10, production-check contract: HTTP validation now requires responsive
+  picture AVIF/WebP markup, autoplay/muted/loop/playsinline WebM+MP4 delivery, no GIF
+  reference, five fetchable optimized assets each below 1 MiB, and combined video plus
+  poster below 2 MiB. It remains deferred until the candidate is deployed.

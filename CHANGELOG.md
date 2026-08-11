@@ -12,6 +12,8 @@ capability and compatibility releases.
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-08-10
+
 ### Fixed
 
 - Restored complete TotalCross favicon, Apple-touch, and web-manifest icon metadata
@@ -20,6 +22,17 @@ capability and compatibility releases.
   restored protected new-tab behavior for external destinations.
 - Kept authored Astro and blog SPDX metadata machine-verifiable in source frontmatter
   without repeatedly emitting those headers into generated HTML.
+
+### Changed
+
+- Routed large photographic content and CSS backgrounds through responsive Astro
+  AVIF/WebP generation while preserving intrinsic dimensions and lazy/LCP behavior.
+- Replaced the 8.3 MB embedded-project GIF with accessible WebM/MP4 video and a WebP
+  poster totaling 461 KB, preserving its animation and responsive presentation.
+- Added deterministic source/generated media reporting and enforced generated-output
+  budgets in pull-request CI and GitHub Pages builds.
+- Reduced the homepage fallback-resource proxy from 16.34 MiB to 2.01 MiB and the
+  get-started proxy from 9.07 MiB to 1.57 MiB.
 
 ## [1.0.0] - 2026-08-10
 

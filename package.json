@@ -2,7 +2,7 @@
   "name": "totalcross-site",
   "private": true,
   "description": "Source for the TotalCross project website at totalcross.com.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "TotalCross",
   "bugs": {
     "url": "https://github.com/TotalCross/totalcross.github.io/issues"
