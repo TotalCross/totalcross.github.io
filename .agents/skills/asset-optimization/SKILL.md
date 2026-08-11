@@ -19,8 +19,13 @@ the page that consumes each asset.
 3. Preserve historical `src/assets/**` provenance under `REUSE.toml`. Run the
    license-validation skill for new derivatives or moved files.
 4. Prefer Astro `Picture` for responsive AVIF/WebP photographic content, `Image` for
-   optimized local images, and `getImage` for CSS backgrounds. Keep intrinsic sizes,
-   eager-load only the LCP asset, and lazy-load below-fold images.
+   optimized local images, and `getImage` for CSS backgrounds. Size responsive
+   candidates from the maximum rendered CSS width multiplied by the target device
+   pixel ratio; provide approximately 2x coverage for important imagery when the
+   source resolution permits it. Never upscale a low-resolution source to create a
+   fake quality improvement: obtain a better source or constrain the rendered CSS
+   width instead. Keep intrinsic sizes, eager-load only the LCP asset, and lazy-load
+   below-fold images.
 5. Replace large animated GIF delivery with WebM plus MP4 fallback and a compact
    poster. Record deterministic conversion commands; do not add ffmpeg to normal builds.
 6. Complete the coherent slice before final validation. Run `npm run assets:test`,
