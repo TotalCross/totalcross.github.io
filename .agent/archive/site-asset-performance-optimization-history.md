@@ -21,3 +21,11 @@ eager LCP image, and optimized CSS backgrounds while preserving intrinsic dimens
 and below-fold lazy loading. Static generated media excluding the deferred GIF fell
 81.0%, the home proxy fell 87.7% to 2.01 MiB, and automated desktop/mobile screenshots
 covered every changed page class.
+
+## M2 — Efficient animated media delivery
+
+Completed 2026-08-10. Deterministic ffmpeg commands converted the sole 8.3 MB GIF to
+VP9/WebM, H.264/MP4, and a WebP poster totaling 461 KB (94.5% smaller). Semantic video
+markup preserves autoplay/muted/loop/playsinline behavior and adds native controls,
+metadata preload, intrinsic sizing, and fallback content. Automated playback reached
+2.5 seconds unpaused with the preferred WebM source.

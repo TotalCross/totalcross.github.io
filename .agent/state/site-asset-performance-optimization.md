@@ -5,27 +5,26 @@ SPDX-License-Identifier: MIT
 
 # Site asset performance optimization state
 
-- Active milestone: M2 — replace oversized animated GIF delivery.
-- Active slice: derive WebM, MP4, and a poster from `led-totalcross.gif`, replace its
-  sole page reference with accessible `<video>` delivery, then remove the GIF source.
-- Last completed logical slice: M1 responsive static images and optimized CSS
-  backgrounds across the home, samples, page hero, and article layouts.
-- Active paths: `src/pages/get-started/index.astro`, the source animation derivatives,
-  REUSE coverage, asset reporting, and focused playback evidence.
-- Next concrete action: inspect the source GIF timing and page contract, then record
-  deterministic ffmpeg conversion commands before changing delivery.
-- Focused validation completed: reporter tests 2/2; Astro check had zero diagnostics;
-  Node 24 build produced 18 pages and 79 optimized images; site/content validation
-  passed; home proxy is 2,111,330 bytes (87.7% below M0); no raster exceeds 1 MiB.
-- Automated visual evidence: production-output screenshots cover home, samples, and
-  the Tecdet article at 1440x900 and 390x844; layouts and responsive media remain
-  consistent. One below-fold lazy sample was not fetched by the full-page capture,
-  while generated HTML and build output prove its responsive sources exist.
-- Deferred validation: M2 build/report/site/playback checks wait until conversion is
+- Active milestone: M3 — enforce asset budgets and add the reusable optimization skill.
+- Active slice: separate tested budget policy from reporting, add `assets:check`, wire
+  it after build in CI/Pages, and document the asset workflow in `AGENTS.md` plus a skill.
+- Last completed logical slice: M2 WebM/MP4/poster delivery replaced the sole 8.3 MB
+  GIF resource and removed the source GIF after recording reproducible commands.
+- Active paths: asset reporting/validation/tests, package scripts, CI/Pages workflow
+  checks, `AGENTS.md`, and `.agents/skills/asset-optimization/SKILL.md`.
+- Next concrete action: inspect the current reporter and workflow validator contracts,
+  then implement explicit hard/warning budgets without adding a test framework.
+- Focused validation completed: Astro check has zero diagnostics; Node 24 built 18
+  pages and 79 optimized images; generated media is 4,882,580 bytes; home/get-started
+  proxies are 2.01/1.57 MiB; route/link/SPDX/content validation passed.
+- Automated playback evidence: headless Chromium selected VP9/WebM at 270x480,
+  reached readyState 4, remained unpaused at 2.50/13.07 seconds, and produced focused
+  plus desktop/mobile screenshots with native controls and preserved responsive layout.
+- Deferred validation: M3 Level 3 matrix waits until budgets, workflows, and skill are
   complete.
-- Active decisions: M1 uses AVIF/WebP `<Picture>` for photographic content, `<Image>`
-  for the LCP hero, and `getImage()` for CSS backgrounds; warning output starts at
-  500 KiB while the hard 1 MiB policy is deferred to M3.
+- Active decisions: hard budgets protect generated output, source masters stay report-
+  only, and warnings remain visible but non-failing; the current two 500 KiB warnings
+  need no exception because each remains below the 1 MiB hard ceiling.
 - Blockers: none.
-- Deliberate out of scope: hard budgets, CI enforcement, and the reusable skill are M3.
+- Deliberate out of scope: release metadata, PR/merge/deploy, and production proof are M4.
 - Resume command: `sed -n '1,180p' .agent/state/site-asset-performance-optimization.md && git status --short --branch`.

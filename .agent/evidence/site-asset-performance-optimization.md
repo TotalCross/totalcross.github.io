@@ -30,3 +30,21 @@ SPDX-License-Identifier: MIT
   content validation passed. Six automated production-output screenshots cover home,
   samples, and the Tecdet article at 1440x900 and 390x844. Their SHA-256 prefixes are
   `86328f96`, `66f299d4`, `3155da4c`, `a6d1c8e7`, `40090155`, and `e7cc0fd7`.
+- 2026-08-10, M2 source: `led-totalcross.gif` was 8,325,288 bytes, 270x480,
+  185 frames, and 13.07 seconds; SHA-256 `8107547f...55e2b2`. Its only page reference
+  was get-started. Reproducible conversions (wrapped here for readability) were:
+
+  ```text
+  ffmpeg -hide_banner -loglevel error -i src/assets/led-totalcross.gif -map_metadata -1 -an -vf "scale=270:-2:flags=lanczos,format=yuv420p" -c:v libvpx-vp9 -crf 34 -b:v 0 -deadline good -cpu-used 2 -row-mt 1 -fps_mode vfr -y src/assets/led-totalcross.webm
+  ffmpeg -hide_banner -loglevel error -i src/assets/led-totalcross.gif -map_metadata -1 -an -vf "scale=270:-2:flags=lanczos,format=yuv420p" -c:v libx264 -preset slow -crf 24 -movflags +faststart -fps_mode vfr -y src/assets/led-totalcross.mp4
+  ffmpeg -hide_banner -loglevel error -i src/assets/led-totalcross.gif -map_metadata -1 -frames:v 1 -vf "scale=270:-2:flags=lanczos" -c:v libwebp -quality 80 -y src/assets/led-totalcross-poster.webp
+  ```
+- 2026-08-10, M2 result: WebM 191,142 bytes, MP4 260,976, and poster 8,928 total
+  461,046 bytes (94.5% below the GIF). Their SHA-256 prefixes are `31ed375a`,
+  `273c9b5b`, and `2fbdbc16`. Generated media is 4,882,580 bytes and get-started's
+  proxy fell from 9.07 to 1.57 MiB. No built or source page references a GIF.
+- 2026-08-10, M2 playback: headless Chromium selected the VP9/WebM source, reported
+  `paused=false`, `currentTime=2.5`, `duration=13.07`, `readyState=4`, and 270x480.
+  Focused plus desktop/mobile screenshots have SHA-256 prefixes `837c8ddf`,
+  `53d31210`, and `42b5eb74`. Astro check/build and route/link/SPDX/content validation
+  passed with 18 pages and zero diagnostics.
