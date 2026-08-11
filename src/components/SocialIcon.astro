@@ -1,0 +1,45 @@
+---
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
+import {
+  faGithub,
+  faInstagram,
+  faLinkedin,
+  faTelegram,
+  faTwitter,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+
+type SocialName = "github" | "twitter" | "telegram" | "youtube" | "instagram" | "linkedin";
+
+interface Props {
+  name: SocialName;
+}
+
+const icons = {
+  github: faGithub,
+  twitter: faTwitter,
+  telegram: faTelegram,
+  youtube: faYoutube,
+  instagram: faInstagram,
+  linkedin: faLinkedin,
+};
+
+const { name } = Astro.props;
+const [width, height, , , pathData] = icons[name].icon;
+const paths = Array.isArray(pathData) ? pathData : [pathData];
+---
+<svg viewBox={`0 0 ${width} ${height}`} aria-hidden="true" focusable="false">
+  {paths.map((path) => <path fill="currentColor" d={path} />)}
+</svg>
+
+<style>
+  svg {
+    display: block;
+    height: 1rem;
+    width: 1rem;
+  }
+</style>

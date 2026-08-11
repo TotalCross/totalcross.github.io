@@ -1,4 +1,9 @@
 ---
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 import "typeface-montserrat/index.css";
 import "typeface-merriweather/index.css";
 import "../styles/global.css";
@@ -38,11 +43,6 @@ const canonical = new URL(canonicalPath, Astro.site);
 const socialImage = new URL(image, Astro.site);
 const locale = language === "pt-BR" ? "pt_BR" : "en_US";
 ---
-<!--
-SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
-SPDX-License-Identifier: MIT
--->
-
 
 <!doctype html>
 <html lang={language}>
@@ -56,7 +56,11 @@ SPDX-License-Identifier: MIT
     <link rel="sitemap" href="/sitemap.xml" />
     {alternates.map((alternate) => <link rel="alternate" hreflang={alternate.language} href={new URL(alternate.href, Astro.site)} />)}
     {alternates.length > 0 && <link rel="alternate" hreflang="x-default" href={canonical} />}
-    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#212121" />
     <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
     <meta property="og:type" content={socialType} />
     <meta property="og:site_name" content="TotalCross" />

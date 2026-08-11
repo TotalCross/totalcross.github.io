@@ -44,3 +44,8 @@ The fixer may add known project/editorial headers and normalize exact duplicates
 It must refuse different holders, unknown licenses, partial metadata, third-party
 notices, and brand classifications. Treat refusal as a request for human ownership
 review, not as permission to weaken the check.
+
+For renderable authored formats, metadata stays source-only: Astro block headers live
+inside Astro frontmatter, and blog Markdown/MDX uses YAML comments inside content
+frontmatter. The fixer may migrate only the exact known legacy HTML-comment form into
+those placements; conflicting or unrelated comments remain a refusal.

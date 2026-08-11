@@ -15,12 +15,13 @@ function requireMatch(value, pattern, label) {
 }
 
 requireMatch(ci, /^  pull_request:$/m, "pull request CI trigger");
-requireMatch(ci, /npm run check[\s\S]*npm run build[\s\S]*npm run validate/, "CI Astro validation order");
+requireMatch(ci, /npm run check[\s\S]*npm run build[\s\S]*npm run assets:check[\s\S]*npm run validate/, "CI Astro and asset validation order");
 requireMatch(ci, /actions\/upload-pages-artifact@v4[\s\S]*path: dist/, "CI Pages artifact packaging");
 requireMatch(pages, /^      - main$/m, "main-only production push trigger");
 requireMatch(pages, /actions: read[\s\S]*contents: read[\s\S]*pages: write[\s\S]*id-token: write/, "Pages deployment permissions");
 requireMatch(pages, /group: pages\s+cancel-in-progress: true/, "Pages deployment concurrency");
 requireMatch(pages, /actions\/configure-pages@v5/, "Pages configuration action");
+requireMatch(pages, /npm run check[\s\S]*npm run build[\s\S]*npm run assets:check[\s\S]*npm run validate/, "Pages Astro and asset validation order");
 requireMatch(pages, /actions\/upload-pages-artifact@v4[\s\S]*path: dist/, "production Pages artifact");
 requireMatch(pages, /deploy:[\s\S]*needs: build[\s\S]*name: github-pages[\s\S]*actions\/deploy-pages@v4/, "dependent github-pages deployment");
 if (existsSync(new URL(".github/workflows/main.yml", root))) failures.push("Legacy Gatsby publish workflow still exists");

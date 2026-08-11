@@ -2,7 +2,7 @@
   "name": "totalcross-site",
   "private": true,
   "description": "Source for the TotalCross project website at totalcross.com.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "TotalCross",
   "bugs": {
     "url": "https://github.com/TotalCross/totalcross.github.io/issues"
@@ -16,7 +16,9 @@
     "@astrojs/mdx": "^7.0.5",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
+    "@fortawesome/free-brands-svg-icons": "7.3.1",
     "astro": "^7.2.0",
+    "sharp": "0.35.3",
     "typescript": "^6.0.3"
   },
   "homepage": "https://totalcross.com",
@@ -35,6 +37,9 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "assets:report": "node scripts/asset-validation.mjs",
+    "assets:check": "node scripts/asset-validation.mjs --check",
+    "assets:test": "node --test scripts/assets/*.test.mjs",
     "build": "astro build && node scripts/prepare-dist.mjs",
     "check": "astro check",
     "cross-post": "node scripts/cross-post.mjs",

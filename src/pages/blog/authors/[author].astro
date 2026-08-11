@@ -1,4 +1,9 @@
 ---
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 import { getEntry } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import PageHero from "../../../components/PageHero.astro";
@@ -16,8 +21,4 @@ const author = await getEntry("authors", authorId);
 if (!author) throw new Error(`Author not found: ${authorId}`);
 const items = posts.map((post: (typeof posts)[number]) => ({ post, author }));
 ---
-<!--
-SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
-SPDX-License-Identifier: MIT
--->
 <BaseLayout title={`${author.data.name} · TotalCross`} description={author.data.bio}><PageHero title={author.data.name} tagline={author.data.bio} /><section class="page-content"><div class="container prose-wide"><PostList items={items} /></div></section></BaseLayout>

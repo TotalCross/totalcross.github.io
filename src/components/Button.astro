@@ -1,4 +1,9 @@
 ---
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 interface Props {
   href: string;
   label: string;
@@ -7,11 +12,6 @@ interface Props {
 
 const { href, label, tone = "green" } = Astro.props;
 ---
-<!--
-SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
-SPDX-License-Identifier: MIT
--->
-
 
 <a class:list={["button", `button--${tone}`]} href={href}>{label}</a>
 

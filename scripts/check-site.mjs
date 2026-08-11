@@ -30,8 +30,12 @@ function htmlFiles(directory) {
 }
 
 const broken = [];
+const renderedSpdxHeaders = [];
 for (const file of htmlFiles(distPath)) {
   const html = readFileSync(file, "utf8");
+  if (/<!--\s*SPDX-FileCopyrightText:[\s\S]*?SPDX-License-Identifier:[\s\S]*?-->/m.test(html)) {
+    renderedSpdxHeaders.push(file.replace(distPath, ""));
+  }
   for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const value = match[1];
     if (/^(?:[a-z]+:|#|\/\/)/i.test(value)) continue;
@@ -42,10 +46,11 @@ for (const file of htmlFiles(distPath)) {
   }
 }
 
-if (missingRoutes.length || broken.length) {
+if (missingRoutes.length || broken.length || renderedSpdxHeaders.length) {
   if (missingRoutes.length) console.error(`Missing legacy routes:\n${missingRoutes.join("\n")}`);
   if (broken.length) console.error(`Broken local references:\n${broken.join("\n")}`);
+  if (renderedSpdxHeaders.length) console.error(`Rendered SPDX authoring headers:\n${renderedSpdxHeaders.join("\n")}`);
   process.exit(1);
 }
 
-console.log(`site-check: routes=${routes.length} html=${htmlFiles(distPath).length} broken=0`);
+console.log(`site-check: routes=${routes.length} html=${htmlFiles(distPath).length} broken=0 rendered-spdx=0`);

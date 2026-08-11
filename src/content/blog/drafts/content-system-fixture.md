@@ -1,4 +1,7 @@
 ---
+# SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+# SPDX-License-Identifier: CC-BY-4.0
+
 title: Content system fixture
 description: Non-production fixture proving the English authoring schema and developer rendering.
 publishDate: 2026-08-10
@@ -18,11 +21,6 @@ crossPost:
   dev: true
   medium: false
 ---
-<!--
-SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
-SPDX-License-Identifier: CC-BY-4.0
--->
-
 This draft is intentionally excluded from production. It validates English content metadata, translation pairing, series ordering, and code rendering.
 
 ```java

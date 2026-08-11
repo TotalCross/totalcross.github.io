@@ -1,0 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+# SPDX-License-Identifier: MIT
+
+interface:
+  display_name: "Asset Optimization"
+  short_description: "Optimize and enforce website asset budgets"
+  default_prompt: "Use $asset-optimization to optimize site media and verify generated asset budgets."

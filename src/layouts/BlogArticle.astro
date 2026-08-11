@@ -1,4 +1,10 @@
 ---
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
+import { Picture, getImage } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 import { postPath, taxonomySlug, type BlogEntry } from "../lib/content";
@@ -10,7 +16,7 @@ interface Props {
   headings: Heading[];
   translations?: BlogEntry[];
   seriesPosts?: BlogEntry[];
-  coverImage?: string;
+  coverImage?: ImageMetadata;
 }
 
 const { post, author, headings, translations = [], seriesPosts = [], coverImage } = Astro.props;
@@ -18,6 +24,9 @@ const path = postPath(post);
 const languageName = post.data.language === "pt-BR" ? "Português" : "English";
 const alternates = translations.map((translation) => ({ language: translation.data.language, href: postPath(translation) }));
 const toc = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
+const socialCover = coverImage
+  ? await getImage({ src: coverImage, width: 1200, format: "jpg", quality: 82 })
+  : undefined;
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -32,15 +41,10 @@ const jsonLd = {
   keywords: post.data.tags.join(", "),
 };
 ---
-<!--
-SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
-SPDX-License-Identifier: MIT
--->
-
 <BaseLayout
   title={`${post.data.title} · TotalCross`}
   description={post.data.description}
-  image={coverImage}
+  image={socialCover?.src}
   canonicalPath={path}
   language={post.data.language}
   socialType="article"
@@ -66,7 +70,7 @@ SPDX-License-Identifier: MIT
       <div class="container article-grid">
         {toc.length > 0 && <aside class="toc"><h2>On this page</h2><ol>{toc.map((heading) => <li class:list={[`depth-${heading.depth}`]}><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ol></aside>}
         <div class="article-body" itemprop="articleBody">
-          {coverImage && <img class="cover" src={coverImage} alt="" />}
+          {coverImage && <Picture class="cover" src={coverImage} formats={["avif"]} fallbackFormat="webp" widths={[480, 760, 1200]} sizes="(max-width: 900px) 100vw, 760px" quality={80} alt="" loading="eager" />}
           <slot />
           {post.data.series && seriesPosts.length > 0 && (
             <nav class="series" aria-label="Article series">

@@ -1,4 +1,9 @@
 ---
+/*
+ * SPDX-FileCopyrightText: Copyright holder(s) of the Tecdet customer material
+ * SPDX-License-Identifier: LicenseRef-ThirdParty-Material
+ */
+
 import { getEntry, render } from "astro:content";
 import BlogArticle from "../../layouts/BlogArticle.astro";
 import articleImage from "../../assets/tecdet.jpg";
@@ -12,11 +17,6 @@ const { Content, headings } = await render(post);
 const posts = await getPublishedPosts();
 const translations = translationsFor(post, posts);
 ---
-<!--
-SPDX-FileCopyrightText: Copyright holder(s) of the Tecdet customer material
-SPDX-License-Identifier: LicenseRef-ThirdParty-Material
--->
-
-<BlogArticle post={post} author={author} headings={headings} translations={translations} seriesPosts={seriesFor(post, posts)} coverImage={articleImage.src}>
+<BlogArticle post={post} author={author} headings={headings} translations={translations} seriesPosts={seriesFor(post, posts)} coverImage={articleImage}>
   <Content />
 </BlogArticle>

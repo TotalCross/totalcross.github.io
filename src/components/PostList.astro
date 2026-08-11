@@ -1,4 +1,9 @@
 ---
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 import type { CollectionEntry } from "astro:content";
 import { postPath, type BlogEntry } from "../lib/content";
 
@@ -6,11 +11,6 @@ interface Item { post: BlogEntry; author?: CollectionEntry<"authors">; }
 interface Props { items: Item[]; emptyMessage?: string; }
 const { items, emptyMessage = "No published articles found." } = Astro.props;
 ---
-<!--
-SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
-SPDX-License-Identifier: MIT
--->
-
 <div class="post-list">
   {items.length === 0 && <p>{emptyMessage}</p>}
   {items.map(({ post, author }) => (

@@ -1,5 +1,11 @@
 ---
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 import logo from "../assets/logo-totalcross.png";
+import SocialIcon from "./SocialIcon.astro";
 
 const groups = [
   {
@@ -16,13 +22,15 @@ const groups = [
   },
 ];
 
-const social = [["GitHub", "https://github.com/TotalCross/totalcross"], ["X", "https://twitter.com/TotalCross"], ["Telegram", "https://t.me/totalcrosscommunity"], ["YouTube", "https://bit.ly/youtube-totalcross"], ["Instagram", "https://www.instagram.com/totalcross/"], ["LinkedIn", "https://linkedin.com/company/totalcross"]];
+const social = [
+  { label: "GitHub", name: "github", href: "https://github.com/TotalCross/totalcross" },
+  { label: "X (Twitter)", name: "twitter", href: "https://twitter.com/TotalCross" },
+  { label: "Telegram", name: "telegram", href: "https://t.me/totalcrosscommunity" },
+  { label: "YouTube", name: "youtube", href: "https://bit.ly/youtube-totalcross" },
+  { label: "Instagram", name: "instagram", href: "https://www.instagram.com/totalcross/" },
+  { label: "LinkedIn", name: "linkedin", href: "https://linkedin.com/company/totalcross" },
+] as const;
 ---
-<!--
-SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
-SPDX-License-Identifier: MIT
--->
-
 
 <footer class="site-footer">
   <div class="footer-inner container">
@@ -39,7 +47,11 @@ SPDX-License-Identifier: MIT
     <div class="brand">
       <img src={logo.src} alt="TotalCross" width="180" height="40" />
       <div class="social" aria-label="Social networks">
-        {social.map(([label, href]) => <a href={href} aria-label={label}>{label.slice(0, 2)}</a>)}
+        {social.map(({ label, name, href }) => (
+          <a href={href} aria-label={label} title={label} target="_blank" rel="noopener noreferrer">
+            <SocialIcon name={name} />
+          </a>
+        ))}
       </div>
     </div>
   </div>
@@ -116,6 +128,7 @@ SPDX-License-Identifier: MIT
     align-items: center;
     border: 1px solid rgb(255 255 255 / 55%);
     border-radius: 50%;
+    color: var(--color-white);
     display: inline-flex;
     font-size: 0.65rem;
     height: 28px;
@@ -123,6 +136,13 @@ SPDX-License-Identifier: MIT
     text-decoration: none;
     text-transform: uppercase;
     width: 28px;
+  }
+
+  .social a:hover,
+  .social a:focus-visible {
+    border-color: var(--color-brand-green);
+    color: var(--color-brand-green);
+    transform: scale(1.12);
   }
 
   @media (max-width: 760px) {

@@ -1,13 +1,15 @@
 ---
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHero from "../../components/PageHero.astro";
-import led from "../../assets/led-totalcross.gif";
+import ledMp4 from "../../assets/led-totalcross.mp4?url";
+import ledPoster from "../../assets/led-totalcross-poster.webp";
+import ledWebm from "../../assets/led-totalcross.webm?url";
 ---
-<!--
-SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
-SPDX-License-Identifier: MIT
--->
-
 <BaseLayout title="Get Started with TotalCross" description="Install the TotalCross SDK and create, package, and deploy your first application.">
   <PageHero title="Get Started With TotalCross" tagline="Install the tools, run Hello World, and deploy your first embedded interface." />
   <section class="page-content"><div class="container prose-wide">
@@ -16,7 +18,7 @@ SPDX-License-Identifier: MIT
     <h2>Download the TotalCross SDK</h2><div class="card-grid downloads"><article class="info-card"><h3>For VS Code</h3><p>Install the <a href="https://marketplace.visualstudio.com/items?itemName=totalcross.vscode-totalcross">TotalCross VS Code extension</a>. It includes the SDK and prepares the project folder.</p></article><article class="info-card"><h3>For another IDE</h3><p>Clone the <a href="https://github.com/TotalCross/hello-world">Hello World repository</a> and follow its README. IntelliJ and Eclipse guides remain available in the community archives.</p></article></div>
     <h2>Hello World with TotalCross</h2><h3>VS Code</h3><ol><li>Open the Command Palette and select <strong>TotalCross: Create new Project</strong>.</li><li>Name the project HelloWorld and select the current SDK and deployment platform.</li><li>Run <strong>RunHelloWorldApplication.java</strong>. The simulator opens your application.</li></ol><h3>Other IDEs</h3><ol><li>Import the Hello World repository.</li><li>Run <strong>RunHelloWorldApplication.java</strong> from the IDE.</li></ol>
     <h2>Packaging and deployment</h2><h3>VS Code</h3><p>Use <strong>TotalCross: Package</strong> from the Command Palette. The packaged program is written under <code>target/install/&lt;platform&gt;</code>.</p><p>For Linux Arm targets, use <strong>TotalCross: Deploy</strong> or <strong>TotalCross: Deploy&amp;Run</strong>, enter the SSH device details, and view the result on the attached display or through VNC.</p><h3>Other IDEs</h3><p>Follow the Maven packaging and deployment instructions in the project README or ask for help in <a href="https://t.me/totalcrosscommunity">Telegram</a> or <a href="https://discord.gg/KWwtDP5">Discord</a>.</p>
-    <h2>First embedded project</h2><p>Follow the community tutorial and connect the application to real hardware.</p><img class="led" src={led.src} alt="Raspberry Pi with an LED and TotalCross GUI application" />
+    <h2>First embedded project</h2><p>Follow the community tutorial and connect the application to real hardware.</p><video class="led" autoplay muted loop playsinline controls preload="metadata" poster={ledPoster.src} width={ledPoster.width} height={ledPoster.height} aria-label="Raspberry Pi controlling an LED from a TotalCross GUI application"><source src={ledWebm} type="video/webm" /><source src={ledMp4} type="video/mp4" />Your browser does not support embedded video. <a href={ledMp4}>Download the MP4 demonstration.</a></video>
   </div></section>
 </BaseLayout>
 

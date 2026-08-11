@@ -1,4 +1,9 @@
 ---
+/*
+ * SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
+ * SPDX-License-Identifier: MIT
+ */
+
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Button from "../../components/Button.astro";
 import PageHero from "../../components/PageHero.astro";
@@ -10,11 +15,6 @@ import ide from "../../assets/whytotalcross_ide.png";
 import languages from "../../assets/whytotalcross_languages.png";
 import fast from "../../assets/whytotalcross_fast.png";
 ---
-<!--
-SPDX-FileCopyrightText: 2026 Amalgam Solucoes em TI Ltda.
-SPDX-License-Identifier: MIT
--->
-
 <BaseLayout title="Why TotalCross" description="Low footprint, high productivity, and a familiar developer experience for embedded interfaces.">
   <PageHero title="Why TotalCross" tagline="Three important points that make the difference when programming." />
   <section class="page-content"><div class="container"><h2 class="section-title">Low-footprint applications: be light</h2><p class="section-subtitle">The 5MB runtime brings mobile-grade experiences even to low-end MPUs.</p><div class="feature-rows"><article class="two-column"><img src={bytecode.src} alt="TotalCross bytecode architecture" /><div class="prose"><h3>TotalCross Bytecode</h3><p>Java and Kotlin bytecode is converted into optimized TotalCross bytecode. Frequently used operations are compressed to reduce instruction assembly and footprint.</p></div></article><article class="two-column reverse"><div class="prose"><h3>TotalCross Virtual Machine</h3><p>The register-based TCVM completes common operations with fewer instructions than a stack-based virtual machine, helping deliver high performance.</p></div><img src={vm.src} alt="TotalCross virtual machine architecture" /></article><article class="two-column"><img src={resources.src} alt="TotalCross resource use" /><div class="prose"><h3>Run higher with fewer resources</h3><p>Make the most of constrained hardware while retaining a high-level programming model and responsive interface.</p></div></article></div></div></section>

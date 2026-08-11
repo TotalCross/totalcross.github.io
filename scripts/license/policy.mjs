@@ -16,7 +16,7 @@ const ignoredPaths = new Set(['LICENSE'])
 const blockCommentExtensions = new Set([
   '.c', '.cc', '.cpp', '.css', '.js', '.jsx', '.mjs', '.ts', '.tsx',
 ])
-const htmlCommentExtensions = new Set(['.astro', '.html', '.md', '.mdx'])
+const htmlCommentExtensions = new Set(['.html', '.md', '.mdx'])
 const hashCommentExtensions = new Set([
   '.bash', '.conf', '.properties', '.py', '.sh', '.toml', '.yaml', '.yml',
 ])
@@ -83,6 +83,10 @@ export function mappedFiles(root, files) {
 export function headerStyleFor(file) {
   const extension = extname(file).toLowerCase()
   const name = file.split('/').at(-1)
+  if (extension === '.astro') return 'astro'
+  if (['.md', '.mdx'].includes(extension) && file.startsWith('src/content/blog/')) {
+    return 'frontmatter'
+  }
   if (blockCommentExtensions.has(extension)) return 'block'
   if (htmlCommentExtensions.has(extension)) return 'html'
   if (hashCommentExtensions.has(extension) || hashCommentNames.has(name)) return 'hash'

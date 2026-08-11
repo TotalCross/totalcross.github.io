@@ -12,6 +12,8 @@ the plan sections and repository paths needed for the next slice.
 Use `.agents/skills/license-validation/SKILL.md` whenever files are created, moved,
 split, or relicensed, or when license validation fails. Use
 `.agents/skills/logical-commits/SKILL.md` before staging or committing changes.
+Use `.agents/skills/asset-optimization/SKILL.md` when adding or replacing site media,
+changing Astro image delivery, or investigating asset-budget failures.
 
 Keep implementation and active planning files ideally below 20 KB or about 600
 lines. Split focused responsibilities when that improves maintainability. Preserve
