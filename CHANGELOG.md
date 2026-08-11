@@ -12,6 +12,16 @@ capability and compatibility releases.
 
 ## [Unreleased]
 
+## [1.0.2] - 2026-08-10
+
+### Fixed
+
+- Corrected Home Automation and Tecdet homepage rendering on HiDPI displays while
+  preserving their source aspect ratios and the existing responsive design.
+- Added 1200 px and 1600 px Tecdet responsive variants from its high-resolution
+  source and constrained Home Automation to its real 1024 px source budget instead
+  of artificially upscaling it.
+
 ## [1.0.1] - 2026-08-10
 
 ### Fixed

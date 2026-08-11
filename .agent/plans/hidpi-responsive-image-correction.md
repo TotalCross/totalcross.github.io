@@ -65,6 +65,16 @@ Preserve unrelated local changes.
 - [x] (2026-08-11T01:38:00Z) Recorded final evidence and created logical
       Conventional Commits for implementation and reusable guidance; this plan's
       support files close in the final documentation commit.
+- [x] (2026-08-11T02:09:57Z) Merged PR #15 as `b5fa9e9`, passed required CI,
+      deployed that exact `main` commit through GitHub Pages, and verified live
+      desktop DPR 2 plus narrow responsive image delivery.
+- [x] (2026-08-11T02:46:41Z) Prepared coherent `v1.0.2` package, lockfile,
+      changelog, release-check, and plan metadata; the complete Node 24 release
+      matrix passed once.
+- [x] (2026-08-11T02:48:00Z) Recorded the validated metadata as the single logical
+      `chore(release): prepare v1.0.2` commit.
+- [ ] Publish the release metadata through normal review, verify its exact Pages
+      deployment, then create the annotated tag and GitHub Release.
 
 ## Current Architecture and Scope
 
@@ -242,6 +252,43 @@ Recommended logical commit:
 
     docs(agents): account for HiDPI image sizing
 
+### Milestone H5 — Publish v1.0.2
+
+Goal: publish the verified HiDPI correction as the next SemVer patch release without
+moving an existing tag or tagging an unverified source revision.
+
+Update `package.json`, the lockfile root metadata, `CHANGELOG.md`, and the release
+checker to identify `1.0.2`. Record the production and release evidence in this
+plan's existing support files. Commit the coherent metadata slice as:
+
+    chore(release): prepare v1.0.2
+
+Push `chore/v1.0.2-release`, create a pull request against `main`, inspect its exact
+diff and required checks, and merge only when it is clean and green. The automatic
+operations authorized by the user are the branch push, PR creation, normal merge,
+Pages workflow observation, annotated tag push, and GitHub Release creation.
+
+Immediately before each remote mutation, fetch and recheck `main`, the branch,
+`v1.0.2`, the GitHub Release, and the clean worktree. The effective release tag is
+`v1.0.2`; it and the GitHub Release must point to the exact release-metadata merge
+commit deployed successfully from `main`, not the earlier implementation commit.
+
+If the branch, PR, tag, or release already exists with the expected identity, reuse
+it. If any exists with a different commit or metadata, stop rather than overwrite,
+retag, force-push, or duplicate it. If merge succeeds but deployment fails, fix only
+the concrete failure through another branch and PR, then tag the final verified
+`main` commit. If the tag push succeeds but GitHub Release creation fails, reuse the
+same tag when retrying the release creation.
+
+Acceptance:
+
+- package, lockfile, changelog, and release checker agree on `1.0.2`;
+- the complete release-boundary validation passes once;
+- required PR checks and the Pages workflow pass for the exact merge commit;
+- production still serves the HiDPI correction and basic homepage health;
+- annotated `v1.0.2` and the GitHub Release resolve to that deployed merge commit;
+- unrelated local changes, existing tags, and generated `dist/` remain untouched.
+
 ## Surprises & Discoveries
 
 - Observation: the first 1440/DPR2 headless screenshot showed Tecdet stretched
@@ -282,6 +329,12 @@ unnecessarily.
   Rationale: this is a regression correction, not a redesign.
   Date: 2026-08-10.
 
+- Decision: publish the correction as `v1.0.2` from a dedicated release-metadata
+  branch and tag only its verified `main` merge commit.
+  Rationale: `v1.0.1` is already immutable and repository policy binds releases to
+  dated changelog metadata and the exact deployed production source.
+  Date: 2026-08-10.
+
 ## Validation and Acceptance
 
 Tests and builds must be performed only after the implementation is complete, as
@@ -320,6 +373,21 @@ Browser unavailability must not block completion.
 If repository policy requires the complete release-boundary matrix because this
 patch is being published immediately, run it only once after the focused
 validation is green.
+
+For H5, run the release-boundary matrix once before committing:
+
+    npm test
+    npm run license:check:all
+    npm run release:check
+    npm run workflow:check
+    npm run check
+    npm run build
+    npm run assets:check
+    npm run validate
+
+Then require the normal PR validation and the Pages workflow for the exact merge
+commit. After production verification, confirm `git cat-file -t v1.0.2` reports a
+tag object and both GitHub tag and release resolve to that merge commit.
 
 ## Commit Policy
 
@@ -381,6 +449,12 @@ Before any push or remote state-changing operation:
 
 Never force-update `main` or move an existing release tag.
 
+The release flow is safe to retry. Reuse an expected remote branch, PR, annotated
+tag, or GitHub Release; never overwrite an object with a different identity. A tag
+must not be created until its `main` commit has a successful Pages deployment and
+focused production proof. Keep explicit paths when staging so unrelated local work
+cannot enter the release commit.
+
 If a responsive-width change causes unacceptable payload growth, revert only the
 affected `Picture` configuration and retain the recorded measurements.
 
@@ -396,10 +470,17 @@ px, and preserves its 480/768/1024 candidates. Tecdet now uses
 1600 px fallback ceiling and narrow `height: auto` protection. Generated ratios,
 license checks, Astro check, asset budgets, and representative headless desktop and
 mobile captures pass. The homepage fallback proxy improves from the prior 2.01 MiB
-evidence to 1.63 MiB; no deployment was performed.
+evidence to 1.63 MiB. PR #15 merged as `b5fa9e9`; its required CI, Pages deployment,
+HTTPS health, live responsive candidates, DPR 2 selection, aspect ratios, favicon,
+social icons, and desktop/mobile layout checks passed. The authorized `v1.0.2`
+metadata/tag/Release closure is the remaining milestone.
 
 ## Revision Note
 
 Created as a focused follow-up to the completed post-migration visual and asset
 optimization work. The scope is intentionally limited to the two remaining HiDPI
 image regressions and the reusable guidance needed to prevent recurrence.
+
+Revised on 2026-08-10 after explicit authorization to publish a new release. Added
+H5 so version metadata, concurrency checks, deployed-commit selection, annotated
+tagging, GitHub Release creation, and partial-publication recovery remain resumable.
