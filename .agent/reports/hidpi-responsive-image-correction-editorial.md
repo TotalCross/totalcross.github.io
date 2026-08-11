@@ -13,7 +13,8 @@ CSS width and device pixel ratio without manufacturing detail from a small sourc
 ## Original Plan versus Actual Outcome
 
 The planned candidate and CSS corrections were delivered. Final visual validation
-also found and corrected a narrow Tecdet height-stretching rule.
+also found and corrected a narrow Tecdet height-stretching rule. PR #15 then passed
+review automation, merged normally, and deployed successfully to production.
 
 ## What Changed
 
@@ -37,7 +38,9 @@ the ratio without affecting other `Picture` components.
 
 License and Astro checks pass, all generated ratios are within 0.5 px of source
 ratios after rounding, asset budgets pass, and 1440/DPR2 plus 390 px captures pass.
-The homepage fallback proxy falls from 2.01 MiB to 1.63 MiB.
+The homepage fallback proxy falls from 2.01 MiB to 1.63 MiB. Production selects the
+1024 px Home Automation and 1200 px Tecdet AVIF candidates near their desktop DPR 2
+maximums while preserving ratios and responsive layout.
 
 ## Useful Evidence and Examples
 
@@ -46,8 +49,9 @@ candidate sizes, commands, payload measurements, and temporary screenshot paths.
 
 ## Limitations, Remaining Work, and Open Questions
 
-The patch was validated locally and was not deployed. No unrelated images were
-audited or changed.
+The patch is deployed. Publishing `v1.0.2` requires the authorized metadata PR,
+repeat deployment proof, annotated tag, and GitHub Release. No unrelated images
+were audited or changed.
 
 ## Possible Article Angles
 
@@ -61,5 +65,5 @@ then show how one visual pass separated encoder quality from CSS distortion.
 
 ## Claims Requiring Human Review
 
-Any claim about production rendering after deployment requires a production
-capture; this report covers local production output only.
+No production-rendering claim remains dependent on manual review; HTTPS, live DOM
+measurements, delivered candidates, and headless captures established the result.

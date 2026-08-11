@@ -20,7 +20,7 @@ function requireValue(condition, message) {
 
 requireValue(packageJson.name === "totalcross-site", "Package name is not the repository identity");
 requireValue(/^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/.test(packageJson.version), "Package version is not SemVer");
-requireValue(packageJson.version === "1.0.1", "Post-migration correction release must be version 1.0.1");
+requireValue(packageJson.version === "1.0.2", "HiDPI correction release must be version 1.0.2");
 requireValue(packageJson.private === true, "Website package must remain private");
 requireValue(packageJson.homepage === "https://totalcross.com", "Package homepage is not production");
 requireValue(packageJson.repository?.url === expectedRepository, "Package repository metadata is incorrect");

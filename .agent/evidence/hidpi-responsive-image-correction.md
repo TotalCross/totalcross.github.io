@@ -70,3 +70,28 @@ SPDX-License-Identifier: MIT
 - `b6110f8` — `docs(agents): account for HiDPI image sizing`.
 - Status: implementation and reusable guidance recorded without unrelated files;
   plan/state/evidence/editorial closure follows as its own documentation commit.
+
+## 2026-08-11T02:09:57Z — H5 implementation publication
+
+- Branch HEAD `220f0e6` passed PR #15's required `Build validated Pages artifact`
+  check and merged normally into `main` as `b5fa9e95c70530ebcbc9e8d1526d77e319d7a34a`.
+- Pages run 31451476402 built, validated, uploaded, and deployed that exact merge
+  commit successfully. Production returned HTTPS 200 after deployment.
+- Live desktop DPR 2 measurement selected the 1024 px Home Automation AVIF at
+  512×300 CSS px and the 1200 px Tecdet AVIF near 600×374 CSS px. Narrow responsive
+  measurement and captures preserved landscape ratios and stacking. Favicon,
+  Apple-touch icon, social image, and six footer social links remained available.
+- Limitation: no release tag was authorized during this publication slice.
+
+## 2026-08-11T02:46:41Z — H5 v1.0.2 release candidate
+
+- Revision: working tree based on deployed `main` merge `b5fa9e9`; branch
+  `chore/v1.0.2-release` contains only release metadata and plan closure changes.
+- Metadata: package and lockfile identify `1.0.2`; the dated changelog records the
+  HiDPI correction; release policy accepts absent-as-expected `v1.0.2`.
+- Node 24 release matrix: 17 tests passed; license policy accepted 179/179 files;
+  release and workflow checks passed; Astro checked 54 files with zero diagnostics;
+  18 pages built; asset budgets passed with one unchanged warning; validation found
+  14 routes, zero broken links, valid content/RSS/sitemaps, and excluded drafts.
+- Deferred: PR checks, merged Pages deployment, repeat production proof, annotated
+  tag, and GitHub Release must use the exact final deployed `main` commit.
