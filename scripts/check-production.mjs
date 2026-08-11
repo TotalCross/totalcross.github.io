@@ -65,7 +65,7 @@ function requireNoMatch(path, pattern, label) {
 requireMatch("/", /<meta name="generator" content="Astro v7\.2\.0"/, "Astro generator metadata");
 requireMatch("/", /<link rel="canonical" href="https:\/\/totalcross\.com\/"/, "production canonical URL");
 requireMatch("/", /href="\/blog\/"/, "local blog navigation");
-requireMatch("/", /<picture>/, "responsive picture markup");
+requireMatch("/", /<picture\b/, "responsive picture markup");
 requireMatch("/", /\.avif(?:\s|\?|\")/, "AVIF responsive image source");
 requireMatch("/", /\.webp(?:\s|\?|\")/, "WebP image fallback");
 requireMatch("/get-started/", /<video[^>]*autoplay[^>]*muted[^>]*loop[^>]*playsinline/, "animated video behavior");
