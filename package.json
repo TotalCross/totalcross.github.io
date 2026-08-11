@@ -18,6 +18,7 @@
     "@astrojs/sitemap": "^3.7.3",
     "@fortawesome/free-brands-svg-icons": "7.3.1",
     "astro": "^7.2.0",
+    "sharp": "0.35.3",
     "typescript": "^6.0.3"
   },
   "homepage": "https://totalcross.com",
@@ -36,6 +37,8 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "assets:report": "node scripts/asset-validation.mjs",
+    "assets:test": "node --test scripts/assets/report.test.mjs",
     "build": "astro build && node scripts/prepare-dist.mjs",
     "check": "astro check",
     "cross-post": "node scripts/cross-post.mjs",
