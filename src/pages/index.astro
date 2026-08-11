@@ -60,7 +60,17 @@ const wavesBackground = await getImage({ src: waves, width: 1600, format: "webp"
     <div class="container">
       <h2 class="section-title light-title">What is TotalCross?</h2>
       <div class="two-column">
-        <Picture src={homeApp} formats={["avif"]} fallbackFormat="webp" widths={[480, 768, 1024]} sizes="(max-width: 768px) 100vw, 50vw" quality={80} alt="Home automation interface made with TotalCross" loading="lazy" />
+        <Picture
+          src={homeApp}
+          formats={["avif"]}
+          fallbackFormat="webp"
+          widths={[480, 768, 1024]}
+          sizes="(max-width: 544px) calc(100vw - 2.5rem), 512px"
+          quality={80}
+          alt="Home automation interface made with TotalCross"
+          loading="lazy"
+          pictureAttributes={{ class: "home-app-picture" }}
+        />
         <div class="prose">
           <p>TotalCross is an open-source cross-platform SDK developed to make your life easier when creating mobile-grade user experiences for embedded systems.</p>
           <p>All while delivering native performance with a low footprint.</p>
@@ -99,7 +109,17 @@ const wavesBackground = await getImage({ src: waves, width: 1600, format: "webp"
         <p>They rebuilt their system for Linux Arm on Toradex modules and chose TotalCross to develop the GUI.</p>
         <Button href="/traffic-control-system-by-tecdet/" label="Read the case" tone="dark" />
       </div>
-      <Picture src={tecdet} formats={["avif"]} fallbackFormat="webp" widths={[360, 600, 900]} sizes="(max-width: 768px) 100vw, 50vw" quality={80} alt="Tecdet traffic control system" loading="lazy" />
+      <Picture
+        src={tecdet}
+        formats={["avif"]}
+        fallbackFormat="webp"
+        widths={[480, 768, 1200, 1600]}
+        sizes="(max-width: 768px) calc(100vw - 2.5rem), min(42vw, 600px)"
+        width={1600}
+        quality={80}
+        alt="Tecdet traffic control system"
+        loading="lazy"
+      />
     </div>
   </section>
 
@@ -170,8 +190,25 @@ const wavesBackground = await getImage({ src: waves, width: 1600, format: "webp"
     width: 140px;
   }
 
-  .case-study > :global(picture),
+  .two-column > :global(.home-app-picture) {
+    display: block;
+    justify-self: center;
+    max-width: 512px;
+    width: 100%;
+  }
+
+  .two-column > :global(.home-app-picture img) {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  .case-study > :global(picture) {
+    width: 100%;
+  }
+
   .case-study > :global(picture img) {
+    height: auto;
     width: 100%;
   }
 
