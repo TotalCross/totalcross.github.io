@@ -38,7 +38,8 @@
   },
   "scripts": {
     "assets:report": "node scripts/asset-validation.mjs",
-    "assets:test": "node --test scripts/assets/report.test.mjs",
+    "assets:check": "node scripts/asset-validation.mjs --check",
+    "assets:test": "node --test scripts/assets/*.test.mjs",
     "build": "astro build && node scripts/prepare-dist.mjs",
     "check": "astro check",
     "cross-post": "node scripts/cross-post.mjs",

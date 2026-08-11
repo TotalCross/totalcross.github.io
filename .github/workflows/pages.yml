@@ -36,6 +36,7 @@ jobs:
       - run: npm run release:check
       - run: npm run check
       - run: npm run build
+      - run: npm run assets:check
       - run: npm run validate
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
