@@ -36,3 +36,10 @@ Completed 2026-08-10. A tested canonical budget module protects generated raster
 GIF, total-media, home, and get-started output while source masters remain report-only.
 PR CI and Pages enforce budgets in build order. A validated repository skill routes
 future media work through Astro optimization, provenance review, and the same checks.
+
+## M4 — v1.0.1 production closure
+
+Completed 2026-08-10. The release candidate passed the combined Level 3 matrix and an
+isolated clean-clone Level 4 matrix, merged through required PR CI, and deployed through
+the validated Pages workflow. Production HTTP checks proved routes, metadata, optimized
+picture/video resources, asset sizes, 404 handling, and HTTPS behavior without Browser.
