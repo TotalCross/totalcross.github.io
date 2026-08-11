@@ -17,6 +17,6 @@ const { Content, headings } = await render(post);
 const posts = await getPublishedPosts();
 const translations = translationsFor(post, posts);
 ---
-<BlogArticle post={post} author={author} headings={headings} translations={translations} seriesPosts={seriesFor(post, posts)} coverImage={articleImage.src}>
+<BlogArticle post={post} author={author} headings={headings} translations={translations} seriesPosts={seriesFor(post, posts)} coverImage={articleImage}>
   <Content />
 </BlogArticle>

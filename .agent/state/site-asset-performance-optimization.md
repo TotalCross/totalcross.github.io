@@ -5,24 +5,27 @@ SPDX-License-Identifier: MIT
 
 # Site asset performance optimization state
 
-- Active milestone: M1 — optimize static raster delivery.
-- Active slice: route homepage and remaining generated raster offenders through
-  Astro `Picture`, `Image`, or `getImage` with responsive dimensions and modern
-  formats while preserving the existing layout.
-- Last completed logical slice: M0 deterministic source/output inventory and
-  fallback-resource payload proxy.
-- Active paths: homepage/page components that import the measured offenders,
-  `astro.config.mjs` only if encoder defaults are justified, and asset reporting.
-- Next concrete action: inspect the current homepage component contracts and replace
-  raw `ImageMetadata.src` delivery for the dominant static assets before one M1 build.
-- Focused validation completed: reporter tests passed 2/2; fresh Node 24 build produced
-  18 pages; baseline report measured 50 source and 50 generated media files at
-  31,553,407 bytes, home proxy 17,129,268 bytes, and get-started proxy 9,511,556 bytes.
-- Deferred validation: M1 Astro/build/report/site/visual checks wait until all static
-  raster transformations are implemented.
-- Active decisions: Sharp 0.35.3 is explicit for deterministic reporting and Astro
-  transforms; payload proxies include HTML plus local fallback/CSS resources and
-  intentionally ignore `srcset` candidate selection.
+- Active milestone: M2 — replace oversized animated GIF delivery.
+- Active slice: derive WebM, MP4, and a poster from `led-totalcross.gif`, replace its
+  sole page reference with accessible `<video>` delivery, then remove the GIF source.
+- Last completed logical slice: M1 responsive static images and optimized CSS
+  backgrounds across the home, samples, page hero, and article layouts.
+- Active paths: `src/pages/get-started/index.astro`, the source animation derivatives,
+  REUSE coverage, asset reporting, and focused playback evidence.
+- Next concrete action: inspect the source GIF timing and page contract, then record
+  deterministic ffmpeg conversion commands before changing delivery.
+- Focused validation completed: reporter tests 2/2; Astro check had zero diagnostics;
+  Node 24 build produced 18 pages and 79 optimized images; site/content validation
+  passed; home proxy is 2,111,330 bytes (87.7% below M0); no raster exceeds 1 MiB.
+- Automated visual evidence: production-output screenshots cover home, samples, and
+  the Tecdet article at 1440x900 and 390x844; layouts and responsive media remain
+  consistent. One below-fold lazy sample was not fetched by the full-page capture,
+  while generated HTML and build output prove its responsive sources exist.
+- Deferred validation: M2 build/report/site/playback checks wait until conversion is
+  complete.
+- Active decisions: M1 uses AVIF/WebP `<Picture>` for photographic content, `<Image>`
+  for the LCP hero, and `getImage()` for CSS backgrounds; warning output starts at
+  500 KiB while the hard 1 MiB policy is deferred to M3.
 - Blockers: none.
-- Deliberate out of scope: GIF-to-video conversion is M2; hard budgets and CI are M3.
+- Deliberate out of scope: hard budgets, CI enforcement, and the reusable skill are M3.
 - Resume command: `sed -n '1,180p' .agent/state/site-asset-performance-optimization.md && git status --short --branch`.

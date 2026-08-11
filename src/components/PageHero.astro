@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
+import { getImage } from "astro:assets";
 import waves from "../assets/bg_wavesdark.png";
 
 interface Props {
@@ -13,8 +14,9 @@ interface Props {
 }
 
 const { title, tagline, tone = "dark" } = Astro.props;
+const optimizedWaves = await getImage({ src: waves, width: 1200, format: "webp", quality: 72 });
 ---
-<section class:list={["page-hero", `page-hero--${tone}`]} style={`--page-hero-bg: url(${waves.src})`}>
+<section class:list={["page-hero", `page-hero--${tone}`]} style={`--page-hero-bg: url(${optimizedWaves.src})`}>
   <div class="container">
     <h1>{title}</h1>
     {tagline && <p>{tagline}</p>}

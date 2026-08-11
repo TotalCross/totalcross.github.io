@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
+import { Picture } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Button from "../../components/Button.astro";
 import PageHero from "../../components/PageHero.astro";
@@ -15,12 +16,19 @@ import medical from "../../assets/sample_medicaldevice.png";
 import dashboard from "../../assets/sample_dashboard.png";
 import badApple from "../../assets/sample_badapple.png";
 
-const samples = [[printer.src, "Printer", "Build a smart printer interface and improve its usability."], [breakout.src, "Breakout Game", "Recreate the classic game on an embedded device."], [corona.src, "Coronavirus Chart App", "Display public health data in an interactive embedded chart."], [medical.src, "Medical Device", "Create a clear interface for medical equipment."], [dashboard.src, "Dashboard", "Explore components commonly used in embedded systems."], [badApple.src, "Bad Apple", "Draw the animation frame by frame on a Raspberry Pi."]];
+const samples = [
+  { image: printer, title: "Printer", text: "Build a smart printer interface and improve its usability." },
+  { image: breakout, title: "Breakout Game", text: "Recreate the classic game on an embedded device." },
+  { image: corona, title: "Coronavirus Chart App", text: "Display public health data in an interactive embedded chart." },
+  { image: medical, title: "Medical Device", text: "Create a clear interface for medical equipment." },
+  { image: dashboard, title: "Dashboard", text: "Explore components commonly used in embedded systems." },
+  { image: badApple, title: "Bad Apple", text: "Draw the animation frame by frame on a Raspberry Pi." },
+];
 ---
 <BaseLayout title="Samples · TotalCross" description="Explore embedded graphical interfaces built with TotalCross.">
   <PageHero title="Samples with TotalCross" tagline="Explore sample embedded projects and their source code." />
-  <section class="section section--dark"><div class="container two-column"><div class="prose"><h2>Build a smart home</h2><p>Use this sample application to control temperature, security, alarms, connectivity, calendars, and more.</p><Button href="https://github.com/TotalCross" label="Get the code" tone="light" /></div><img src={banner.src} alt="Smart home sample made with TotalCross" /></div></section>
-  <section class="page-content"><div class="container"><h2 class="section-title">Check more samples</h2><p class="section-subtitle">Discover more applications from the TotalCross community.</p><div class="card-grid samples">{samples.map(([image, title, text]) => <article class="info-card"><img src={image} alt={`${title} interface`} /><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+  <section class="section section--dark"><div class="container two-column"><div class="prose"><h2>Build a smart home</h2><p>Use this sample application to control temperature, security, alarms, connectivity, calendars, and more.</p><Button href="https://github.com/TotalCross" label="Get the code" tone="light" /></div><Picture src={banner} formats={["avif"]} fallbackFormat="webp" widths={[480, 800, 1200]} sizes="(max-width: 768px) 100vw, 50vw" quality={80} alt="Smart home sample made with TotalCross" loading="lazy" /></div></section>
+  <section class="page-content"><div class="container"><h2 class="section-title">Check more samples</h2><p class="section-subtitle">Discover more applications from the TotalCross community.</p><div class="card-grid samples">{samples.map(({ image, title, text }) => <article class="info-card"><Picture src={image} formats={["avif"]} fallbackFormat="webp" widths={[260, 520]} sizes="(max-width: 768px) 130px, 130px" quality={78} alt={`${title} interface`} loading="lazy" /><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
 </BaseLayout>
 
 <style>

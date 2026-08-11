@@ -4,9 +4,11 @@
  * SPDX-License-Identifier: MIT
  */
 
+import { Image } from "astro:assets";
+
 interface Props {
   background: string;
-  image: string;
+  image: ImageMetadata;
 }
 
 const { background, image } = Astro.props;
@@ -18,7 +20,17 @@ const { background, image } = Astro.props;
       <h1>The fastest way to build GUI for embedded devices</h1>
       <p>Open Source SDK providing a fast and easy way to build beautiful User Interfaces for Embedded, IoT, mobile, desktop, everything.</p>
     </div>
-    <img class="device" src={image} alt="Embedded system with a display showing a TotalCross GUI" width="700" height="525" />
+    <Image
+      class="device"
+      src={image}
+      widths={[240, 480, 700]}
+      sizes="(max-width: 900px) 240px, min(49vw, 700px)"
+      format="webp"
+      quality={82}
+      alt="Embedded system with a display showing a TotalCross GUI"
+      loading="eager"
+      fetchpriority="high"
+    />
   </div>
 </section>
 

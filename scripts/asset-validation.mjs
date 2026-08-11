@@ -24,6 +24,12 @@ printInventory("source-media", source);
 if (existsSync(new URL("../dist/", import.meta.url))) {
   const generated = await generatedMedia(root);
   printInventory("generated-media", generated);
+  const largeRasters = generated.filter((item) =>
+    [".avif", ".jpeg", ".jpg", ".png", ".webp"].includes(item.extension) && item.bytes > 500 * 1024,
+  );
+  for (const item of largeRasters) {
+    console.log(`warning: generated-raster-over-500KiB bytes=${item.bytes} path=${item.path}`);
+  }
   for (const page of representativePages(root)) {
     console.log(`payload-proxy: route=${page.route} files=${page.files.length} bytes=${page.bytes} (${formatBytes(page.bytes)}) selection=fallback-only`);
   }

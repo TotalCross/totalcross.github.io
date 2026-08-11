@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
+import { Picture, getImage } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Button from "../components/Button.astro";
 import HomeHero from "../components/HomeHero.astro";
@@ -33,10 +34,12 @@ const features = [
 ];
 
 const description = "Build beautiful and modern graphical user interfaces for embedded, IoT, mobile and desktop devices with a cross-platform Java SDK.";
+const heroBackground = await getImage({ src: background, width: 1920, format: "webp", quality: 78 });
+const wavesBackground = await getImage({ src: waves, width: 1600, format: "webp", quality: 72 });
 ---
 
 <BaseLayout title="TotalCross · GUI Creator for Embedded Devices" description={description}>
-  <HomeHero background={background.src} image={raspberry.src} />
+  <HomeHero background={heroBackground.src} image={raspberry} />
 
   <section class="section section--light features-section">
     <div class="container">
@@ -53,11 +56,11 @@ const description = "Build beautiful and modern graphical user interfaces for em
     </div>
   </section>
 
-  <section class="section section--dark waves" style={`--waves: url(${waves.src})`}>
+  <section class="section section--dark waves" style={`--waves: url(${wavesBackground.src})`}>
     <div class="container">
       <h2 class="section-title light-title">What is TotalCross?</h2>
       <div class="two-column">
-        <img src={homeApp.src} alt="Home automation interface made with TotalCross" loading="lazy" />
+        <Picture src={homeApp} formats={["avif"]} fallbackFormat="webp" widths={[480, 768, 1024]} sizes="(max-width: 768px) 100vw, 50vw" quality={80} alt="Home automation interface made with TotalCross" loading="lazy" />
         <div class="prose">
           <p>TotalCross is an open-source cross-platform SDK developed to make your life easier when creating mobile-grade user experiences for embedded systems.</p>
           <p>All while delivering native performance with a low footprint.</p>
@@ -73,12 +76,12 @@ const description = "Build beautiful and modern graphical user interfaces for em
       <p class="section-subtitle">Wonderful User Interfaces for Embedded Devices</p>
       <div class="two-column samples">
         <article class="media-card">
-          <img src={coffee.src} alt="Coffee machine interface made with TotalCross" loading="lazy" />
+          <Picture src={coffee} formats={["avif"]} fallbackFormat="webp" widths={[360, 600, 900]} sizes="(max-width: 768px) 100vw, 50vw" quality={80} alt="Coffee machine interface made with TotalCross" loading="lazy" />
           <h3>Coffee Machine</h3>
           <p>Control the features of your machine and choose your coffee just the way you like it.</p>
         </article>
         <article class="media-card">
-          <img src={printer.src} alt="Printer interface made with TotalCross" loading="lazy" />
+          <Picture src={printer} formats={["avif"]} fallbackFormat="webp" widths={[360, 600, 900]} sizes="(max-width: 768px) 100vw, 50vw" quality={80} alt="Printer interface made with TotalCross" loading="lazy" />
           <h3>Printer</h3>
           <p>A clear embedded interface makes a printer smarter and easier to use.</p>
         </article>
@@ -96,7 +99,7 @@ const description = "Build beautiful and modern graphical user interfaces for em
         <p>They rebuilt their system for Linux Arm on Toradex modules and chose TotalCross to develop the GUI.</p>
         <Button href="/traffic-control-system-by-tecdet/" label="Read the case" tone="dark" />
       </div>
-      <img src={tecdet.src} alt="Tecdet traffic control system" loading="lazy" />
+      <Picture src={tecdet} formats={["avif"]} fallbackFormat="webp" widths={[360, 600, 900]} sizes="(max-width: 768px) 100vw, 50vw" quality={80} alt="Tecdet traffic control system" loading="lazy" />
     </div>
   </section>
 
@@ -167,7 +170,8 @@ const description = "Build beautiful and modern graphical user interfaces for em
     width: 140px;
   }
 
-  .case-study > img {
+  .case-study > :global(picture),
+  .case-study > :global(picture img) {
     width: 100%;
   }
 
@@ -206,7 +210,7 @@ const description = "Build beautiful and modern graphical user interfaces for em
       margin-inline: auto;
     }
 
-    .case-study > img {
+    .case-study > :global(picture) {
       grid-row: 1;
     }
   }
