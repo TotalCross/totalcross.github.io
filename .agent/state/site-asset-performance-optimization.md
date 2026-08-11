@@ -5,15 +5,15 @@ SPDX-License-Identifier: MIT
 
 # Site asset performance optimization state
 
-- Active milestone: M4 — prepare v1.0.1 and complete review/deployment closure.
-- Active slice: Level 3 release candidate is complete; recheck remote/tags/workflows,
-  commit the candidate, then prove it in a clean clone before push/PR/merge/deploy.
-- Last completed logical slice: M3 tested generated-output budgets now run after builds
-  in PR CI and Pages; the repository asset-optimization skill is routed from `AGENTS.md`.
-- Active paths: package release metadata, changelog, release checker, plan reporting,
-  then clean-clone/GitHub/production evidence.
-- Next concrete action: run targeted license/diff checks, commit the v1.0.1 candidate,
-  recheck remote state, and execute the Level 4 clean-clone matrix.
+- Active milestone: complete — v1.0.1 correction and asset-performance cycle.
+- Active slice: final evidence-only closure after verified production deployment.
+- Last completed logical slice: M4 candidate merged through PR #13, Pages deployed
+  merge `cd7f673`, and production HTTP/asset validation passed after narrowing one
+  overly strict `<picture>` checker pattern.
+- Active paths: final plan state, evidence/archive, editorial report, and the focused
+  production-check selector correction.
+- Next concrete action: merge this closure through normal review, verify its Pages run,
+  rerun production proof, and create annotated `v1.0.1` at that exact deployed commit.
 - Focused validation completed: skill validation passed; assets tests 4/4; license
   coverage 170/170; workflow policy passed; Astro checked 54 files with zero
   diagnostics; Node 24 built 18 pages; asset and site/content checks passed.
@@ -23,10 +23,13 @@ SPDX-License-Identifier: MIT
 - Final Level 3: 17 tests passed; license coverage 174/174; release/workflow checks
   passed; Astro checked 54 files with zero diagnostics; Node 24 built 18 pages; asset,
   route/link/SPDX, and content checks passed.
-- Deferred validation: Level 4 clean clone, PR checks, merged Pages deployment,
-  production HTTP/asset proof, final closure reporting, and v1.0.1 tag.
-- Active decisions: release through normal review without bypass; tag only the exact
-  deployed source commit after production proof; Browser remains optional and unused.
+- Level 4: clean clone `e60db61` passed install and the release matrix; PR #13 CI
+  passed; Pages run 31446277556 deployed `cd7f673`; production validated 14 legacy
+  routes, 28 resources, five optimized assets, 461,046 video bytes, 404, and HTTPS.
+- Deferred validation: closure PR/Pages run, repeat production proof, and annotated
+  `v1.0.1` at the exact final deployed commit.
+- Active decisions: do not bypass review; Browser was unnecessary; preserve the two
+  sub-1-MiB raster warnings and large source masters because delivered output passes.
 - Blockers: none.
 - Deliberate out of scope: no v1.0.2 feature work or unrelated redesign in this cycle.
 - Resume command: `sed -n '1,180p' .agent/state/site-asset-performance-optimization.md && git status --short --branch`.

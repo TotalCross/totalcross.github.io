@@ -53,7 +53,7 @@ asset-report parsing, budget configuration, or tests into focused files when use
 - [x] M1 — Route static raster content through Astro image optimization.
 - [x] M2 — Replace oversized animated GIF delivery with efficient web video.
 - [x] M3 — Enforce asset budgets and add the asset-optimization skill.
-- [ ] M4 — Close `v1.0.1` and optionally verify production.
+- [x] M4 — Close `v1.0.1` and optionally verify production.
 
 ## Current Architecture and Scope
 

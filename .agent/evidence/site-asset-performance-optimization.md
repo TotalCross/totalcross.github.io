@@ -67,3 +67,14 @@ SPDX-License-Identifier: MIT
   picture AVIF/WebP markup, autoplay/muted/loop/playsinline WebM+MP4 delivery, no GIF
   reference, five fetchable optimized assets each below 1 MiB, and combined video plus
   poster below 2 MiB. It remains deferred until the candidate is deployed.
+- 2026-08-10, Level 4 candidate: a fresh isolated clone at exact `e60db61` completed
+  `npm ci` with zero vulnerabilities, 17 tests, 174/174 license policy, release and
+  workflow policy, zero Astro diagnostics, 18-page build, asset budgets, and site/
+  content validation. The branch was pushed without force and PR #13 passed required
+  CI before normal merge as `cd7f67323285afb7fb31cfa7e92c75ca9b202727`.
+- 2026-08-10, production: Pages run 31446277556 built, checked asset budgets, uploaded,
+  and deployed `cd7f673` successfully. The first production invocation exposed only an
+  over-exact checker regex (`<picture>` versus Astro's `<picture data-astro-…>`); live
+  HTML already contained AVIF/WebP sets. After narrowing it to `<picture\b`, production
+  passed 14 legacy routes, 28 required resources, five fetched optimized assets,
+  461,046 combined video/poster bytes, unknown-route 404, and HTTP-to-HTTPS redirect.
