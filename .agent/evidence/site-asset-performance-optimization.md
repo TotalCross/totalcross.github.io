@@ -48,3 +48,13 @@ SPDX-License-Identifier: MIT
   Focused plus desktop/mobile screenshots have SHA-256 prefixes `837c8ddf`,
   `53d31210`, and `42b5eb74`. Astro check/build and route/link/SPDX/content validation
   passed with 18 pages and zero diagnostics.
+- 2026-08-10, M3 policy: generated media ≤6 MiB; each generated raster ≤1 MiB with
+  warnings above 500 KiB; generated GIF ≤256 KiB; home proxy ≤3 MiB; get-started
+  proxy ≤2 MiB. Source masters are report-only. PR CI and Pages both run
+  `assets:check` after build and before site validation; workflow policy enforces order.
+- 2026-08-10, M3 Level 3: repository skill validation passed; asset tests passed 4/4;
+  license coverage passed 170/170; workflow policy passed; Astro checked 54 files with
+  zero diagnostics; Node 24 built 18 pages; route/link/SPDX/content checks passed.
+  Asset check reports zero failures and two warnings, with generated media at
+  4,882,580/6,291,456 bytes, home at 2,111,330/3,145,728, and get-started at
+  1,647,783/2,097,152.

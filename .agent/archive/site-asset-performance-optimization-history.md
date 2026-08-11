@@ -29,3 +29,10 @@ VP9/WebM, H.264/MP4, and a WebP poster totaling 461 KB (94.5% smaller). Semantic
 markup preserves autoplay/muted/loop/playsinline behavior and adds native controls,
 metadata preload, intrinsic sizing, and fallback content. Automated playback reached
 2.5 seconds unpaused with the preferred WebM source.
+
+## M3 — Enforced asset policy
+
+Completed 2026-08-10. A tested canonical budget module protects generated raster,
+GIF, total-media, home, and get-started output while source masters remain report-only.
+PR CI and Pages enforce budgets in build order. A validated repository skill routes
+future media work through Astro optimization, provenance review, and the same checks.
