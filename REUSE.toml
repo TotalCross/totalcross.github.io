@@ -7,6 +7,7 @@ version = 1
 [[annotations]]
 path = [
   ".docz/app/db.json",
+  ".agent/evidence/dependency-advisory-regressions.json",
   "package.json",
   "package-lock.json",
   "public/googledf7144400c12b6c2.html",
